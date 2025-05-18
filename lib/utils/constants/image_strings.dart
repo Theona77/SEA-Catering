@@ -7,7 +7,7 @@ class TImages{
 
   //On Boarding Images
   static const String onBoardingImage1 = "assets/images/on_boarding_images/deliveryservice.gif";
-  static const String onBoardingImage2 = "assets/images/on_boarding_images/onlinedeliveryservice.gif";
+  static const String onBoardingImage2 = "assets/images/on_boarding_images/deliverymanridingscooter.gif";
   static const String onBoardingImage3 = "assets/images/on_boarding_images/onlinedeliveryservice.gif";
 
   //Social Logo
