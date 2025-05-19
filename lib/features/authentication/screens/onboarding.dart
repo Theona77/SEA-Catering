@@ -1,12 +1,16 @@
-import 'package:appppppp/utils/device/device_utility.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/constants/text_strings.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/image_strings.dart';
+import '../../../utils/constants/sizes.dart';
+import '../../../utils/constants/text_strings.dart';
+import '../../../utils/device/device_utility.dart';
+import '../../../utils/helpers/helper_functions.dart';
+import '../controllers/onboarding/onboarding_controller.dart'; // Make sure this path is correct!
+import 'login/login.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -16,30 +20,16 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  final PageController _pageController = PageController();
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  void skipToLastPage() {
-    _pageController.animateToPage(
-      2, // Index of the last onboarding page
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
-  }
+  final controller = Get.put(OnBoardingController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          // Horizontal PageView
           PageView(
-            controller: _pageController,
+            controller: controller.pageController,
+            onPageChanged: (index) => controller.updatePageIndicator(index),
             children: const [
               OnBoardingPage(
                 image: TImages.onBoardingImage1,
@@ -59,12 +49,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ],
           ),
 
-          // Skip button in top right
+          // Skip Button
           Positioned(
             top: 40,
             right: 20,
             child: TextButton(
-              onPressed: skipToLastPage,
+              onPressed: controller.skipToLastPage,
               child: const Text(
                 'Skip',
                 style: TextStyle(
@@ -75,18 +65,34 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
 
-          // Page indicator at bottom
+          // Next Button
+          Positioned(
+            right: TSizes.defaultSpace,
+            bottom: TDeviceUtils.getBottomNavigationBarHeight(),
+            child: ElevatedButton(
+              onPressed: controller.nextPage,
+              style: ElevatedButton.styleFrom(
+                shape: const CircleBorder(),
+                backgroundColor: TColors.primary,
+                foregroundColor: Colors.white,
+              ),
+              child: const Icon(Iconsax.arrow_right_3),
+            ),
+          ),
+
+          // Dots
           Positioned(
             bottom: TDeviceUtils.getBottomNavigationBarHeight() + 25,
             left: TSizes.defaultSpace,
             child: SmoothPageIndicator(
-              controller: _pageController,
+              controller: controller.pageController,
               count: 3,
               effect: const ExpandingDotsEffect(
                 activeDotColor: TColors.primary,
                 dotHeight: 6,
               ),
             ),
+
           ),
         ],
       ),

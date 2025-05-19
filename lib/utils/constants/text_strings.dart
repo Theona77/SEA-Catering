@@ -35,7 +35,7 @@ class TTexts {
 
   //Authentication
   static const String loginTitle = "Welcome back,";
-  static const String loginSubTitle = "Discover Limitless Choices and Unmatched Convenience.";
+  static const String loginSubTitle = "Agribridge is a platform that’s designed to help farmers and companies to bring out their best worth!";
   static const String signupTitle = "Let's create your account";
   static const String forgetPasswordTitle = "Forget password";
   static const String forgetPasswordSubTitle = "Don't worry sometimes people can forget too, enter your email and we will send you a password reset link.";
