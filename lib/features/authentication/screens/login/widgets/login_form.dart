@@ -1,4 +1,4 @@
-import 'package:appppppp/features/authentication/screens/signup/widgets/signup.dart';
+import 'package:appppppp/features/authentication/screens/signup/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -66,8 +66,6 @@ class TLoginForm extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: TColors.secondary,   // button background color
-                foregroundColor: TColors.primary,      // text (and icon) color
               ),
               child: Text(TTexts.signIn),
             ),

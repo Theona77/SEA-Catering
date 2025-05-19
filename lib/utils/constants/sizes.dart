@@ -1,10 +1,10 @@
 class TSizes {
   //Padding and Margin
   static const double xs = 4.0;
-  static const double sm = 4.0;
-  static const double md = 4.0;
-  static const double lg = 4.0;
-  static const double xl = 4.0;
+  static const double sm = 8.0;
+  static const double md = 16.0;
+  static const double lg = 24.0;
+  static const double xl = 32.0;
 
   //Icon
   static const double iconXs = 12.0;
@@ -39,19 +39,22 @@ class TSizes {
   static const double borderRadiusMd = 8.0;
   static const double borderRadiusLg = 12.0;
 
+  //Divider Height
+  static const double dividerHeight = 1.0;
+
   //Product item dimensions
   static const double productImageSize = 120.0;
   static const double productImageRadius = 16.0;
   static const double productItemHeight = 160.0;
 
   //Input Field
-  static const double inputFileRadius = 12.0;
+  static const double inputFieldRadius = 12.0;
   static const double spaceBtwInputFields = 16.0;
 
   //Card sizes
   static const double cardRadiusLg = 16.0;
   static const double cardRadiusMd = 12.0;
-  static const double cardRadiusSm = 06.0;
+  static const double cardRadiusSm = 10.0;
   static const double cardRadiusXs = 6.0;
   static const double cardElevation = 2.0;
 
@@ -64,10 +67,8 @@ class TSizes {
   //Grid view spacing
   static const double gridViewSpacing = 16.0;
 
-  //Added
-
-  static const double inputFieldRadius = 14.0;
-  static const double inputFieldHeight = 14.0;
+  //Input Field
+  static const double inputFieldHeight = 16.0;
 
 
 

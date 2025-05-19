@@ -14,4 +14,8 @@ class TImages{
   static const String google = "assets/logos/google.png";
   static const String facebook = "assets/logos/facebook.png";
   static const String apple = "assets/logos/apple.png";
+
+  //Animation
+  static const String animation1 = "assets/images/animations/animation1.gif";
+  static const String animation2 = "assets/images/animations/congrats.gif";
 }

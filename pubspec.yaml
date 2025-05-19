@@ -48,6 +48,8 @@ flutter:
     - assets/images/on_boarding_images/deliverymanridingscooter.gif
     - assets/images/on_boarding_images/deliveryservice.gif
     - assets/images/on_boarding_images/onlinedeliveryservice.gif
+    - assets/images/animations/animation1.gif
+    - assets/images/animations/congrats.gif
 
   fonts:
     - family: Poppins
