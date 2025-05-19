@@ -26,7 +26,7 @@ class TTexts {
   static const String createAccount = "Create Account";
   static const String orSignInWith = "or sign in with";
   static const String orSignUpWith = "or sign up with";
-  static const String iAgreeTo = "I agree to";
+  static const String iAgreeTo = "I agree to ";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of Use";
   static const String verificationCode = "verificationCode";
@@ -35,6 +35,7 @@ class TTexts {
 
   //Authentication
   static const String loginTitle = "Welcome back,";
+  static const String and = " and ";
   static const String loginSubTitle = "Agribridge is a platform that’s designed to help farmers and companies to bring out their best worth!";
   static const String signupTitle = "Let's create your account";
   static const String forgetPasswordTitle = "Forget password";
