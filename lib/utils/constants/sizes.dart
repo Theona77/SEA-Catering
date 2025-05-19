@@ -64,6 +64,11 @@ class TSizes {
   //Grid view spacing
   static const double gridViewSpacing = 16.0;
 
+  //Added
+
+  static const double inputFieldRadius = 14.0;
+  static const double inputFieldHeight = 14.0;
+
 
 
 }
