@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class StoreScreen extends StatelessWidget {
+  const StoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
         title: const Text("Home"),
       ),
       body: const Center(
-        child: Text("Welcome to the Home Screen"),
+        child: Text("Welcome to the Store Screen"),
       ),
     );
   }
