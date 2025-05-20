@@ -50,6 +50,7 @@ flutter:
     - assets/images/on_boarding_images/onlinedeliveryservice.gif
     - assets/images/animations/animation1.gif
     - assets/images/animations/congrats.gif
+    - assets/images/animations/sentmail.gif
 
   fonts:
     - family: Poppins

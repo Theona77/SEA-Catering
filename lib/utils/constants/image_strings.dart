@@ -18,4 +18,5 @@ class TImages{
   //Animation
   static const String animation1 = "assets/images/animations/animation1.gif";
   static const String animation2 = "assets/images/animations/congrats.gif";
+  static const String mailSent = "assets/images/animations/sentmail.gif";
 }
