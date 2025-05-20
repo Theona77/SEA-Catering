@@ -1,7 +1,17 @@
 class TTexts {
-  static const String submit = "Submit";
-  static const String appNone = "AgriBridge";
+
+  /// Global text
+  static const String skip = "skip";
+  static const String appName = "AgriBridge";
   static const String tContinue = "Continue";
+  static const String done = "Done";
+  static const String submit = "Submit";
+
+  /// Home
+  static const String homeAppBarTitle = "Good day for shopping";
+  static const String homeAppbarSubTitle = "Name LastName";
+
+
 
   //-- Onboarding Texts
   static const String onBoardingTitle1 = "Choose your product";
@@ -23,7 +33,6 @@ class TTexts {
   static const String rememberMe = "Remember Me";
   static const String forgetPassword = "Forget Password";
   static const String signIn = "Sign In";
-  static const String done = "Done";
   static const String createAccount = "Create Account";
   static const String orSignInWith = "or sign in with";
   static const String orSignUpWith = "or sign up with";
