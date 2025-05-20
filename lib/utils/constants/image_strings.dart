@@ -19,4 +19,13 @@ class TImages{
   static const String animation1 = "assets/images/animations/animation1.gif";
   static const String animation2 = "assets/images/animations/congrats.gif";
   static const String mailSent = "assets/images/animations/sentmail.gif";
+
+  // Icon
+  static const String beans = "assets/icons/beans.png";
+  static const String nuts = "assets/icons/nuts.png";
+  static const String fruits = "assets/icons/fruits.png";
+  static const String veggies = "assets/icons/veggies.png";
+  static const String herbs = "assets/icons/herbs.png";
+
+
 }

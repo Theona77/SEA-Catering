@@ -51,6 +51,11 @@ flutter:
     - assets/images/animations/animation1.gif
     - assets/images/animations/congrats.gif
     - assets/images/animations/sentmail.gif
+    - assets/icons/beans.png
+    - assets/icons/nuts.png
+    - assets/icons/fruits.png
+    - assets/icons/herbs.png
+    - assets/icons/veggies.png
 
   fonts:
     - family: Poppins
