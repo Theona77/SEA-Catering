@@ -16,12 +16,16 @@ dependencies:
   intl: ^0.18.1
   logger: ^2.0.1
   url_launcher: ^6.1.12
+  carousel_slider: ^5.0.0
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^1.1.0
 
   #Icons
   iconsax: ^0.0.8
   cupertino_icons: ^1.0.8
+
+  #Cached images
+  cached_network_image: ^3.0.0
 
   #State Management
   get: ^4.6.5
@@ -45,17 +49,13 @@ flutter:
     - assets/images/background.png
     - assets/images/logodark.png
     - assets/images/logowhite.png
-    - assets/images/on_boarding_images/deliverymanridingscooter.gif
-    - assets/images/on_boarding_images/deliveryservice.gif
-    - assets/images/on_boarding_images/onlinedeliveryservice.gif
-    - assets/images/animations/animation1.gif
-    - assets/images/animations/congrats.gif
-    - assets/images/animations/sentmail.gif
-    - assets/icons/beans.png
-    - assets/icons/nuts.png
-    - assets/icons/fruits.png
-    - assets/icons/herbs.png
-    - assets/icons/veggies.png
+    - assets/images/on_boarding_images/
+    - assets/images/animations/
+    - assets/icons/
+    - assets/images/banner/
+    - assets/images/product_veggies/
+
+
 
   fonts:
     - family: Poppins

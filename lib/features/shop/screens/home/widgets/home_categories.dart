@@ -14,10 +14,10 @@ class THomeCategories extends StatelessWidget {
       height: 80,
       child: ListView.builder(
         shrinkWrap: true,
-        itemCount: 6,
+        itemCount: 9,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
-          return TVerticalImageText(image: TImages.nuts, title: 'Nuts', onTap: (){});
+          return TVerticalImageText(image: TImages.beans, title: 'Nuts', onTap: (){});
         },
       ),
     );
