@@ -5,8 +5,9 @@ import 'package:appppppp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../product_price_text.dart';
+import '../../texts/product_price_text.dart';
 import '../../../../rounded_container.dart';
+import '../../texts/t_brand_title_with_verified_icon.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../styles/shadows.dart';
@@ -74,42 +75,45 @@ class TProductCardVertical extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TProductTitleText(title: 'Fresh Pakcoy', smallSize: true),
-                  SizedBox(height: TSizes.spaceBtwItems/2),
-                  Row(
-                    children: [
-                      Text('Vegetable', overflow: TextOverflow.ellipsis, maxLines: 1, style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(width: TSizes.xs),
-                      const Icon(Iconsax.verify5, color: TColors.secondary, size: TSizes.iconXs),
-                    ],
-                  ),
-      
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const TProductPriceText(price: '35.0'),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight: Radius.circular(TSizes.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(child: Icon(Iconsax.add, color: TColors.white)),
-      
-                        ),
-                      )
-                    ],
-                  )
-      
+                  TProductTitleText(title: 'Fresh Pakcoy'),
+                  SizedBox(height: TSizes.spaceBtwItems / 2),
+                  TBrandTitleWithVerifiedIcon(title: 'Vegetable'),
+
                 ],
               ),
       
+            ),
+            Spacer(),
+
+            /// --- Price Rpw
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// -- Price
+                Padding(
+                  padding: const EdgeInsets.only(left: TSizes.sm),
+                  child: const TProductPriceText(price: '35.0'),
+                ),
+
+                /// Add to Cart Button
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(TSizes.cardRadiusMd),
+                      bottomRight: Radius.circular(TSizes.productImageRadius),
+                    ),
+                  ),
+                  child: const SizedBox(
+                    width: TSizes.iconLg * 1.2,
+                    height: TSizes.iconLg * 1.2,
+                    child: Center(child: Icon(Iconsax.add, color: TColors.white)),
+
+                  ),
+                )
+              ],
             )
+
           ],
         ),
       ),
