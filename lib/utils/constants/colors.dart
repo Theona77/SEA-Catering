@@ -7,6 +7,7 @@ class TColors{
   static const Color secondary = Color(0xFFAADD66);
   static const Color accent = Color(0xFFEDEABF);
   static const Color black = Color(0xFF041914);
+  static const Color darkerGrey = Color(0xFF303030);
   static const Color darkerGreen = Color(0xFF013528);
   static const Color white = Color(0xFFFFFFFF);
 
