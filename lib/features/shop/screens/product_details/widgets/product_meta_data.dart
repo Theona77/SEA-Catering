@@ -23,7 +23,6 @@ class TProductMetaData extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
         /// Price and Sale Price
         Row(
           children: [
@@ -40,22 +39,21 @@ class TProductMetaData extends StatelessWidget {
             /// Price
             Text('\$250', style: Theme.of(context).textTheme.titleSmall!.apply(decoration: TextDecoration.lineThrough)),
             const SizedBox(width: TSizes.spaceBtwItems),
-            const TProductPriceText(price: '175', isLarge: true,)
-
+            const TProductPriceText(price: '175', isLarge: true),
           ],
         ),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
         /// Title
-        TProductTitleText(title: 'Fresh Pakcoy'),
-        SizedBox(height: TSizes.spaceBtwItems / 1.5),
+        const TProductTitleText(title: 'Fresh Pakcoy'),
+        const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
         /// Stack Status
         Row(
           children: [
-            Expanded(child: TProductTitleText(title: 'Status')),
+            const TProductTitleText(title: 'Status'),
             const SizedBox(width: TSizes.spaceBtwItems),
-            Expanded(child: Text('In Stock')),
+            Text('In Stock', style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
 
@@ -65,14 +63,15 @@ class TProductMetaData extends StatelessWidget {
         Row(
           children: [
             TCircularImage(
-              image: TImages.nuts,
+              image: TImages.veggies,
               width: 32,
               height: 32,
               overlayColor: darkMode ? TColors.white : TColors.black,
             ),
             const TBrandTitleWithVerifiedIcon(title: 'Vegetable', brandTextSize: TextSizes.medium),
           ],
-        )
+        ),
+
       ],
     );
   }
