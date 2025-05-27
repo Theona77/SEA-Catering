@@ -10,7 +10,6 @@ import '../../../utils/constants/text_strings.dart';
 import '../../../utils/device/device_utility.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import '../controllers/onboarding/onboarding_controller.dart'; // Make sure this path is correct!
-import 'login/login.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

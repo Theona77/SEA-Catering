@@ -1,10 +1,8 @@
 
 import 'package:appppppp/common/styles/spacing_styles.dart';
 import 'package:appppppp/features/authentication/screens/login/login.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
