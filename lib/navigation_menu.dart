@@ -1,13 +1,13 @@
-import 'package:appppppp/features/authentication/screens/onboarding.dart';
+import 'package:appppppp/features/personalization/screens/settings/settings.dart';
 import 'package:appppppp/utils/constants/colors.dart';
 import 'package:appppppp/utils/helpers/helper_functions.dart';
-import 'package:appppppp/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import 'features/shop/screens/home/home.dart';
-import 'features/shop/screens/store/widgets/store.dart';
+import 'features/shop/screens/store/store.dart';
+import 'features/shop/screens/wishlist/wishlist.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -42,6 +42,6 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const HomeScreen(), const StoreScreen(), Container(color: Colors.purple), Container(color: Colors.orange), Container(color: Colors.blue)];
+  final screens = [const HomeScreen(), const StoreScreen(), const FavoriteScreen(), const SettingScreen()];
 }
 

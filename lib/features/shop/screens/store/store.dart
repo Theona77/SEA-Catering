@@ -2,24 +2,15 @@ import 'package:appppppp/common/widgets/custom_shapes/containers/search_containe
 import 'package:appppppp/common/widgets/layouts/grid_layout.dart';
 import 'package:appppppp/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:appppppp/common/widgets/texts/section_heading.dart';
-import 'package:appppppp/features/authentication/screens/onboarding.dart';
-import 'package:appppppp/rounded_container.dart';
-import 'package:appppppp/utils/constants/enums.dart';
+import 'package:appppppp/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:appppppp/utils/helpers/helper_functions.dart';
-import 'package:appppppp/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
-import '../../../../../common/widgets/brands/brand_card.dart';
-import '../../../../../common/widgets/appbar/appbar.dart';
-import '../../../../../common/widgets/appbar/tabbar.dart';
-import '../../../../../common/widgets/brands/brand_show_case.dart';
-import '../../../../../common/widgets/images/t_circular_image.dart';
-import '../../../../../common/widgets/texts/t_brand_title_with_verified_icon.dart';
-import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
-import '../../../../../utils/constants/sizes.dart';
+import '../../../../common/widgets/brands/brand_card.dart';
+import '../../../../common/widgets/appbar/appbar.dart';
+import '../../../../common/widgets/appbar/tabbar.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/sizes.dart';
 
 class StoreScreen extends StatelessWidget {
   const StoreScreen({super.key});
@@ -82,54 +73,13 @@ class StoreScreen extends StatelessWidget {
               ),
             ),
           ];
-        }, body: TabBarView(
+        }, body: const TabBarView(
             children: [
-              Padding(
-                  padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: Column(
-                  children: [
-                    /// --- Brands
-                    TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4])
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: Column(
-                  children: [
-                    /// --- Brands
-                    TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4])
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: Column(
-                  children: [
-                    /// --- Brands
-                    TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4])
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: Column(
-                  children: [
-                    /// --- Brands
-                    TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4])
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(TSizes.defaultSpace),
-                child: Column(
-                  children: [
-                    /// --- Brands
-                    TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4])
-                  ],
-                ),
-              ),
-
+              TCategoryTab(),
+              TCategoryTab(),
+              TCategoryTab(),
+              TCategoryTab(),
+              TCategoryTab(),
             ]
         ),
         ),

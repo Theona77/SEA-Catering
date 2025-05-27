@@ -8,6 +8,7 @@ class THelperFunctions{
     if(value == 'Green'){
       return Colors.green;
     }
+    return null;
 
   }
 

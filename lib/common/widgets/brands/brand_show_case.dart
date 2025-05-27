@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../rounded_container.dart';
 import '../../../utils/constants/colors.dart';
-import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
 import 'brand_card.dart';
@@ -29,6 +28,7 @@ class TBrandShowcase extends StatelessWidget {
 
           /// --- Brand with Products Count
           const TBrandCard(showBorder: false),
+          const SizedBox(height: TSizes.spaceBtwItems),
 
           /// Brand Top 3 Product Images
           Row(children: images.map((image) =>

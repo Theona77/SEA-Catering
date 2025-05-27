@@ -34,6 +34,9 @@ class TImages{
   static const String banner4 = "assets/images/banner/hydrophonic.png";
   static const String banner5 = "assets/images/banner/indoorplants.png";
 
+  //Profile
+  static const String user = "assets/images/pfp.jpg";
+
   //Product Images
   static const String product1 = "assets/images/product_veggies/brocoli.png";
   static const String product2 = "assets/images/product_veggies/lettuce.png";

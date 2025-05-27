@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:appppppp/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 
 class TLoginHeader extends StatelessWidget{
   const TLoginHeader({super.key});

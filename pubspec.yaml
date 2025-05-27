@@ -49,6 +49,7 @@ flutter:
     - assets/images/background.png
     - assets/images/logodark.png
     - assets/images/logowhite.png
+    - assets/images/pfp.jpg
     - assets/images/on_boarding_images/
     - assets/images/animations/
     - assets/icons/
