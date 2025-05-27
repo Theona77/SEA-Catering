@@ -44,7 +44,6 @@ class TProductCardVertical extends StatelessWidget{
               backgroundColor : dark ? Colors.black : Colors.white,
               child: Stack(
                 children: [
-      
                   /// --- Thumbnail Image
                   const TRoundedImage(imageUrl: TImages.product1, applyImageRadius: true),
       
@@ -63,8 +62,8 @@ class TProductCardVertical extends StatelessWidget{
                   /// -- Favorite Icon Button
                   const Positioned(
                     top: 0,
-                      right: 0,
-                      child: TCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                    right: 0,
+                    child: TCircularIcon(icon: Iconsax.heart5, color: Colors.red),
                   ),
                 ],
               )
@@ -78,18 +77,17 @@ class TProductCardVertical extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TProductTitleText(title: 'Fresh Pakcoy'),
-                  SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleWithVerifiedIcon(title: 'Vegetable'),
+                  const TProductTitleText(title: 'Fresh Pakcoy',  textAlign: TextAlign.start),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+                  const TBrandTitleWithVerifiedIcon(title: 'Vegetable', textAlign: TextAlign.start,),
 
                 ],
               ),
-      
             ),
 
             const Spacer(),
 
-            /// --- Price Rpw
+            /// --- Price Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
