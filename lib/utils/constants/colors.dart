@@ -10,5 +10,8 @@ class TColors{
   static const Color darkerGrey = Color(0xFF303030);
   static const Color darkerGreen = Color(0xFF013528);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color light = Color(0xFFF4F4F4);
+
+
 
 }

@@ -36,6 +36,9 @@ class TImages{
 
   //Profile
   static const String user = "assets/images/pfp.jpg";
+  static const String user2 = "assets/profilepicture/person1.png";
+  static const String user3 = "assets/profilepicture/person2.png";
+  static const String user4 = "assets/profilepicture/person3.png";
 
   //Product Images
   static const String product1 = "assets/images/product_veggies/brocoli.png";
