@@ -12,6 +12,7 @@ import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../address/address.dart';
 import '../profile/widgets/profile.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -48,7 +49,7 @@ class SettingScreen extends StatelessWidget {
                     const TSectionHeading(title: 'Account Settings', showActionButton: false,),
                     SizedBox(height: TSizes.spaceBtwItems),
 
-                    TSettingsMenuTile(icon: Iconsax.safe_home, title: 'My Addresses', subtitle: 'Set Shopping delivery'),
+                    TSettingsMenuTile(icon: Iconsax.safe_home, title: 'My Addresses', subtitle: 'Set Shopping delivery', onTap: ()=> Get.to(() => const UserAddressScreen())),
                     TSettingsMenuTile(icon: Iconsax.shopping_cart, title: 'My Cart', subtitle: 'Add, remove products and move to checkout', onTap: (){}),
                     TSettingsMenuTile(icon: Iconsax.bag_tick, title: 'My Orders', subtitle: 'On progress and Completed Orders', onTap: (){}),
                     TSettingsMenuTile(icon: Iconsax.bank, title: 'Bank Account', subtitle: 'Withdraw balance to registered bank account', onTap: (){}),
