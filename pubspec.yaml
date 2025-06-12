@@ -15,8 +15,10 @@ dependencies:
   http: ^1.1.0
   intl: ^0.18.1
   logger: ^2.0.1
+  lottie: ^3.3.1
   url_launcher: ^6.1.12
   carousel_slider: ^5.0.0
+  connectivity_plus: ^5.0.1
   flutter_native_splash: ^2.4.6
   smooth_page_indicator: ^1.1.0
 
@@ -34,6 +36,11 @@ dependencies:
   # Product Specific
   readmore: ^2.2.0
   flutter_rating_bar: ^4.0.1
+
+  # Firebase
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.7.0
+  cloud_firestore: ^4.13.1
 
 
 dev_dependencies:
@@ -58,6 +65,12 @@ flutter:
     - assets/images/banner/
     - assets/profilepicture/
     - assets/images/product_veggies/
+    - assets/paymentmethods/
+    - assets/images/
+    - assets/images/product_fruits/
+    - assets/images/product_herbs/
+    - assets/images/product_seeds/
+    - assets/images/product_nuts/
 
 
 
