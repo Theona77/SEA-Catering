@@ -33,18 +33,27 @@ class SuccessScreen extends StatelessWidget {
               children: [
                 Image(
                   image: AssetImage(image),
-                  width: MediaQuery.of(context).size.width * 0.8,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width * 0.8,
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .headlineMedium,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems),
                 Text(
                   subTitle,
-                  style: Theme.of(context).textTheme.labelMedium,
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .labelMedium,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
@@ -62,4 +71,4 @@ class SuccessScreen extends StatelessWidget {
       ),
     );
   }
-
+}
