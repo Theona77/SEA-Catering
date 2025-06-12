@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class THttpHelper{
@@ -34,13 +35,22 @@ class THttpHelper{
   }
 
   static Map<String, dynamic> _handleResponse(http.Response response){
+    print('STATUS: ${response.statusCode}');
+    print('BODY: ${response.body}');
+
     if(response.statusCode == 200){
-      return json.decode(response.body);
+      if(response.body.isEmpty){
+        return {"status": "success", "data": null};
+      }
+
+      try {
+        final jsonData = jsonDecode(response.body);
+        return jsonData;
+      } catch (e) {
+        throw Exception('Invalid JSON: $e');
+      }
     } else {
       throw Exception('Failed to load data: ${response.statusCode}');
     }
   }
-
-
-
 }

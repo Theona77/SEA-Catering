@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "231805258566",
+    "project_id": "agribridge4",
+    "storage_bucket": "agribridge4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231805258566:android:315963677a6ae4323db347",
+        "android_client_info": {
+          "package_name": "com.example.appppppp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231805258566-4kls7gehkshts38adpspuh974bq9o09o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6Yl_SXQkH5hqAgVggUntQc-g1SnfsAHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "231805258566-4kls7gehkshts38adpspuh974bq9o09o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "231805258566-k50ec6up9rt9vl1jpv7ul70eq9rcjfb5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appppppp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

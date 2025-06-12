@@ -1,59 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:appppppp/features/shop/screens/cart/widgets/cart_item_tile.dart';
+import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:appppppp/utils/constants/image_strings.dart';
 
-import '../../../../../common/widgets/images/t_rounded_image.dart';
-import '../../../../../common/widgets/texts/product_title_text.dart';
-import '../../../../../common/widgets/texts/t_brand_title_with_verified_icon.dart';
-import '../../../../../utils/constants/colors.dart';
-import '../../../../../utils/constants/image_strings.dart';
-import '../../../../../utils/constants/sizes.dart';
-import '../../../../../utils/helpers/helper_functions.dart';
+class TCartItems extends StatelessWidget {
+  const TCartItems({super.key, this.showAddRemoveButtons = true});
 
-
-class TCartItem extends StatelessWidget {
-  const TCartItem({
-    super.key,
-  });
+  final bool showAddRemoveButtons;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        /// Image
-        TRoundedImage(
-          imageUrl: TImages.product1,
-          width: 60,
-          height: 60,
-          padding: const EdgeInsets.all(TSizes.sm),
-          backgroundColor: THelperFunctions.isDarkMode(context)
-              ? TColors.darkerGrey
-              : TColors.light,
-        ),
+    final items = [
+      {
+        'image': TImages.product2,
+        'brand': 'TaniSegar',
+        'title': 'Kentang Segar',
+        'price': 'Rp 19.000'
+      },
+      {
+        'image': TImages.product1,
+        'brand': 'SayurLokal',
+        'title': 'Brokoli Hijau',
+        'price': 'Rp 21.000'
+      },
+    ];
 
-        const SizedBox(width: TSizes.spaceBtwItems),
-
-        /// Title, Price and Size
-        Expanded(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TBrandTitleWithVerifiedIcon(title: 'Vegetable'),
-              Flexible(child: TProductTitleText(title: 'Fresh Pakcoy', maxLines: 1,)),
-
-              /// Attributes
-              Text.rich(
-                  TextSpan(
-                      children: [
-                        TextSpan(text: 'Weight', style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(text: '500gr', style: Theme.of(context).textTheme.bodyLarge),
-                      ]
-                  )
-              )
-            ],
-          ),
-        ),
-
-      ],
+    return ListView.separated(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: items.length,
+      separatorBuilder: (_, __) =>
+      const SizedBox(height: TSizes.spaceBtwSections),
+      itemBuilder: (_, index) {
+        final item = items[index];
+        return TCartItemTile(
+          image: item['image']!,
+          brand: item['brand']!,
+          title: item['title']!,
+          price: item['price']!,
+          showAddRemoveButtons: showAddRemoveButtons,
+        );
+      },
     );
   }
 }

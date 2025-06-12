@@ -1,4 +1,6 @@
-
+import 'package:appppppp/data/repositories.authentication/authentication_repository.data.dart';
+import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart';
+import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart' as verifyEmailController;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,52 +10,80 @@ import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
 import '../../../../utils/helpers/helper_functions.dart';
+import '../../controllers/signup/verify_email_controller.dart' as controller;
 import '../login/login.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
-  const VerifyEmailScreen({super.key});
+  const VerifyEmailScreen({super.key, this.email});
+
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-     appBar: AppBar(
-       automaticallyImplyLeading: false,
-       actions: [
-         IconButton(onPressed: () => Get.offAll(() => const LoginScreen()), icon: const Icon(CupertinoIcons.clear))
-       ],
-     ),
-     body: SingleChildScrollView(
-       child: Padding(
-           padding: const EdgeInsets.all(TSizes.defaultSpace),
-           child: Column(
-             children: [
+    final controller = Get.put(VerifyEmailController());
 
-               /// Image
-               Image(
-                   image: const AssetImage(TImages.animation1),
-                   width: THelperFunctions.screenWidth()
-               ),
-               const SizedBox(height: TSizes.spaceBtwSections),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () => AuthenticationRepository.instance.logout(),
+            icon: const Icon(CupertinoIcons.clear),
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            children: [
+              /// Image
+              Image(
+                image: const AssetImage(TImages.animation1),
+                width: THelperFunctions.screenWidth(),
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
 
+              /// Title and SubTitle
+              Text(
+                TTexts.confirmEmail,
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              Text(
+                email ?? '',
+                style: Theme.of(context).textTheme.labelLarge,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              Text(
+                TTexts.confirmEmailSubTitle,
+                style: Theme.of(context).textTheme.labelMedium,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
 
-               /// Title and SubTitle
-               Text(TTexts.confirmEmail, style: Theme.of(context).textTheme.headlineMedium, textAlign: TextAlign.center),
-               const SizedBox(height: TSizes.spaceBtwItems),
-               Text('blabla@email.com', style: Theme.of(context).textTheme.labelLarge, textAlign: TextAlign.center),
-               const SizedBox(height: TSizes.spaceBtwItems),
-               Text(TTexts.confirmEmailSubTitle, style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center),
-               const SizedBox(height: TSizes.spaceBtwSections),
-
-               /// Buttons
-               SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () => Get.to(() => const SuccessScreen()), child: const Text(TTexts.tContinue))),
-               const SizedBox(height: TSizes.spaceBtwItems),
-               SizedBox(width: double.infinity, child: TextButton(onPressed: (){}, child: const Text(TTexts.resendEmail))),
-
-
-             ],
-           ) ,
-       ),
-     ),
-   );
+              /// Buttons
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => controller.checkEmailVerificationStatus(),
+                  child: const Text(TTexts.tContinue),
+                ),
+              ),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () => controller.sendEmailVerification(),
+                  child: const Text(TTexts.resendEmail),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
