@@ -22,13 +22,19 @@ class TFullScreenLoader {
             color: THelperFunctions.isDarkMode(Get.context!) ? TColors.darkerGrey : TColors.white,
             width: double.infinity,
             height: double.infinity,
-            child: Column(
-              children: [
-                const SizedBox(height: 250), // Adjust the spacing as needed
-                TAnimationLoaderWidget(text : text, animation : animation)
-              ],
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 250),
+                    TAnimationLoaderWidget(text: text, animation: animation),
+                  ],
+                ),
+              ),
             ),
           ),
+
         ),
     );
   }

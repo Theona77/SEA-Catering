@@ -1,4 +1,4 @@
-import 'package:appppppp/data/repositories.authentication/authentication_repository.data.dart';
+import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
 import 'package:appppppp/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

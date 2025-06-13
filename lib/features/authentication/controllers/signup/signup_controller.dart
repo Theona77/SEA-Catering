@@ -1,6 +1,6 @@
 import 'package:appppppp/common/widgets/loaders/loaders.dart';
 import 'package:appppppp/common/widgets/network/network_manager.dart';
-import 'package:appppppp/data/repositories.authentication/authentication_repository.data.dart';
+import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
 import 'package:appppppp/data/repositories.authentication/user/user_model.dart';
 import 'package:appppppp/data/repositories.authentication/user/user_repository.dart';
 import 'package:appppppp/exception/firebase_exception.dart';
@@ -33,52 +33,59 @@ class SignUpController extends GetxController {
 
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
-
-      // Form validation
-      if (!signupFormKey.currentState!.validate())return;
-
-      // Privacy Policy Check
-      if (!privacyPolicy.value) {
-        TLoaders.warningSnackBar(
-          title: 'Accept Privacy Policy',
-          message: 'To create an account, you must accept the Privacy Policy & Terms of Use.',
-        );
+      if (!isConnected) {
+        //Remove Loader
+        TFullScreenLoader.stopLoading();
         return;
       }
 
-      // Register user in Firebase Authentication
-      final userCredential = await AuthenticationRepository.instance.registerWithEmailAndPassword(
-        email.text.trim(),
-        password.text.trim(),
-      );
+        // Form validation
+        if (!signupFormKey.currentState!.validate()) {
+          // Remove Loader
+          TFullScreenLoader.stopLoading();
+          return;
+        }
 
-      /// Save authenticated user data
-      final newUser = UserModel(
-        id: userCredential.user!.uid,
-        firstName: firstName.text.trim(),
-        lastName: lastName.text.trim(),
-        username: username.text.trim(),
-        email: email.text.trim(),
-        phoneNumber: phoneNumber.text.trim(),
-        profilePicture: '',
-      );
+        // Privacy Policy Check
+        if (!privacyPolicy.value) {
+          TLoaders.warningSnackBar(
+            title: 'Accept Privacy Policy',
+            message: 'To create an account, you must accept the Privacy Policy & Terms of Use.',
+          );
+          return;
+        }
 
-      final userRepository = Get.put(UserRepository());
-      await userRepository.saveUserRecord(newUser);
+        // Register user in Firebase Authentication
+        final userCredential = await AuthenticationRepository.instance.registerWithEmailAndPassword(
+          email.text.trim(),
+          password.text.trim(),
+        );
 
-      TFullScreenLoader.stopLoading();
+        /// Save authenticated user data
+        final newUser = UserModel(
+          id: userCredential.user!.uid,
+          firstName: firstName.text.trim(),
+          lastName: lastName.text.trim(),
+          username: username.text.trim(),
+          email: email.text.trim(),
+          phoneNumber: phoneNumber.text.trim(),
+          profilePicture: '',
+        );
 
-      // Show success message
-      TLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'Your account has been successfully registered!',
-      );
+        final userRepository = Get.put(UserRepository());
+        await userRepository.saveUserRecord(newUser);
 
-      // Move to Verify Email Screen
-      Get.to(() => const VerifyEmailScreen());
+        TFullScreenLoader.stopLoading();
 
-    } catch (e) {
+        // Show success message
+        TLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your account has been successfully registered!',
+        );
+
+        // Move to Verify Email Screen
+        Get.to(() => const VerifyEmailScreen());
+      } catch (e) {
       // Remove Loader
       TFullScreenLoader.stopLoading();
 

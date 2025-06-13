@@ -1,4 +1,4 @@
-import 'package:appppppp/data/repositories.authentication/authentication_repository.data.dart';
+import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
 import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart' as verifyEmailController;
 import 'package:flutter/cupertino.dart';
