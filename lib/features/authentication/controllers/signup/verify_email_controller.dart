@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:appppppp/common/widgets/loaders/loaders.dart';
 import 'package:appppppp/common/widgets/success_screen/success_screen.dart';
-import 'package:appppppp/data/repositories.authentication/authentication_repository.data.dart';
+import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
 import 'package:appppppp/utils/constants/image_strings.dart';
 import 'package:appppppp/utils/constants/text_string.dart';
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;

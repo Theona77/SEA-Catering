@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class THttpHelper{
-  static const String _baseUrl = '';
+  static const String _baseUrl = 'https://us-central1-agribridge4.cloudfunctions.net';
 
   static Future<Map<String, dynamic>> get(String endpoint) async{
     final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));
@@ -29,17 +29,12 @@ class THttpHelper{
   }
 
 
-  static Future<Map<String, dynamic>> delete(String endpoint) async{
-    final response = await http.delete(Uri.parse('$_baseUrl/$endpoint'));
-    return _handleResponse(response);
-  }
-
-  static Map<String, dynamic> _handleResponse(http.Response response){
+  static Map<String, dynamic> _handleResponse(http.Response response) {
     print('STATUS: ${response.statusCode}');
     print('BODY: ${response.body}');
 
-    if(response.statusCode == 200){
-      if(response.body.isEmpty){
+    if (response.statusCode == 200) {
+      if (response.body.isEmpty) {
         return {"status": "success", "data": null};
       }
 
@@ -47,7 +42,11 @@ class THttpHelper{
         final jsonData = jsonDecode(response.body);
         return jsonData;
       } catch (e) {
-        throw Exception('Invalid JSON: $e');
+        // Instead of throwing error on non-JSON, just wrap the plain text
+        return {
+          "status": "success",
+          "message": response.body
+        };
       }
     } else {
       throw Exception('Failed to load data: ${response.statusCode}');

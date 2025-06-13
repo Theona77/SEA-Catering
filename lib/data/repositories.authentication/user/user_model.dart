@@ -37,15 +37,16 @@ class UserModel {
     return usernameWithPrefix;
   }
 
-  static UserModel empty() => UserModel(
-    id: '',
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    phoneNumber: '',
-    profilePicture: '',
-  );
+  static UserModel empty() =>
+      UserModel(
+        id: '',
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        phoneNumber: '',
+        profilePicture: '',
+      );
 
   /// Concert model to JSON structure for storing data in firebase
   Map<String, dynamic> toJson() {
@@ -59,20 +60,30 @@ class UserModel {
     };
   }
 
-  factory UserModel.fromSnapShot(DocumentSnapshot<Map<String, dynamic>> document) {
-    final data = document.data();
-    if (data == null) {
-      return UserModel.empty();
+  factory UserModel.fromSnapShot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data()!;
+      return UserModel(
+        id: document.id,
+        firstName: data['FirstName'] ?? '',
+        lastName: data['LastName'] ?? '',
+        username: data['Username'] ?? '',
+        email: data['Email'] ?? '',
+        phoneNumber: data['PhoneNumber'] ?? '',
+        profilePicture: data['ProfilePicture'] ?? '',
+      );
+    } else {
+      // Return a default UserModel, or handle as you wish
+      return UserModel(
+        id: document.id,
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        phoneNumber: '',
+        profilePicture: '',
+      );
     }
-
-    return UserModel(
-      id: document.id,
-      firstName: data['FirstName'] ?? '',
-      lastName: data['LastName'] ?? '',
-      username: data['Username'] ?? '',
-      email: data['Email'] ?? '',
-      phoneNumber: data['PhoneNumber'] ?? '',
-      profilePicture: data['ProfilePicture'] ?? '',
-    );
   }
 }
