@@ -12,7 +12,6 @@ class TTexts {
   static const String homeAppbarSubTitle = "Name LastName";
 
 
-
   //-- Onboarding Texts
   static const String onBoardingTitle1 = "Choose your product";
   static const String onBoardingTitle2 = "Select Payment Method";

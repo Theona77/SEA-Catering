@@ -1,8 +1,11 @@
 import 'package:appppppp/common/widgets/icon/t_circular_icon.dart';
 import 'package:appppppp/common/widgets/images/t_rounded_image.dart';
 import 'package:appppppp/common/widgets/texts/product_title_text.dart';
+import 'package:appppppp/features/authentication/controllers/cart/CartController.dart';
+import 'package:appppppp/features/shop/controllers/wishlist.dart';
 import 'package:appppppp/features/shop/screens/product_details/product_detail.dart';
 import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -17,10 +20,24 @@ import '../../../styles/shadows.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class TProductCardVertical extends StatelessWidget{
-  const TProductCardVertical({super.key});
+  final String productId;
+  final String imageUrl;
+  final String title;
+  final String brand;
+  final String price;
+
+  const TProductCardVertical({
+    super.key,
+    required this.productId,
+    required this.imageUrl,
+    required this.title,
+    required this.brand,
+    required this.price,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final controller = WishlistController.instance;
     final dark = THelperFunctions.isDarkMode(context);
 
     /// Container with side paddings, colors, edges, radius and shadow
@@ -39,13 +56,13 @@ class TProductCardVertical extends StatelessWidget{
           children: [
             /// --- Thumbmail, Wishlist, Discount Tag
             TRoundedContainer(
-              height: 180,
+              height: 150,
               padding: const EdgeInsets.all(TSizes.sm),
               backgroundColor : dark ? Colors.black : Colors.white,
               child: Stack(
                 children: [
                   /// --- Thumbnail Image
-                  const TRoundedImage(imageUrl: TImages.product1, applyImageRadius: true),
+                  TRoundedImage(imageUrl: imageUrl, applyImageRadius: true),
       
                   /// --- Sale Tag
                   Positioned(
@@ -60,10 +77,25 @@ class TProductCardVertical extends StatelessWidget{
       
       
                   /// -- Favorite Icon Button
-                  const Positioned(
+                  Positioned(
                     top: 0,
                     right: 0,
-                    child: TCircularIcon(icon: Iconsax.heart5, color: Colors.red),
+                    child: Obx(() {
+                      final isFavorite = controller.isInWishlist(productId);
+                      return IconButton(
+                        icon: Icon(
+                          isFavorite ? Iconsax.heart5 : Iconsax.heart,
+                          color: isFavorite ? Colors.red : Colors.grey,
+                        ),
+                        onPressed: () {
+                          if (FirebaseAuth.instance.currentUser != null) {
+                            controller.toggleWishlist(productId);
+                          } else {
+                            Get.snackbar('Login Required', 'Please login to use wishlist feature.');
+                          }
+                        },
+                      );
+                    }),
                   ),
                 ],
               )
@@ -77,15 +109,15 @@ class TProductCardVertical extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TProductTitleText(title: 'Fresh Pakcoy',  textAlign: TextAlign.start),
+                  TProductTitleText(title: title,  textAlign: TextAlign.start),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  const TBrandTitleWithVerifiedIcon(title: 'Vegetable', textAlign: TextAlign.start,),
+                  TBrandTitleWithVerifiedIcon(title: brand, textAlign: TextAlign.start,),
 
                 ],
               ),
             ),
 
-            const Spacer(),
+            const SizedBox(height: TSizes.spaceBtwItems),
 
             /// --- Price Row
             Row(
@@ -94,25 +126,38 @@ class TProductCardVertical extends StatelessWidget{
                 /// -- Price
                 Padding(
                   padding: const EdgeInsets.only(left: TSizes.sm),
-                  child: const TProductPriceText(price: '35.0'),
+                  child: TProductPriceText(price: price),
                 ),
 
                 /// Add to Cart Button
-                Container(
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(TSizes.cardRadiusMd),
-                      bottomRight: Radius.circular(TSizes.productImageRadius),
+                GestureDetector(
+                  onTap: () {
+                    final cartController = Get.find<CartController>();
+                    cartController.addToCart(CartItem(
+                      id: productId,
+                      title: title,
+                      brand: brand,
+                      image: imageUrl,
+                      price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
+                    ));
+                    Get.snackbar('Added to Cart', '$title added to your cart');
+                  },
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(TSizes.cardRadiusMd),
+                        bottomRight: Radius.circular(TSizes.productImageRadius),
+                      ),
+                    ),
+                    child: const SizedBox(
+                      width: TSizes.iconLg * 1.2,
+                      height: TSizes.iconLg * 1.2,
+                      child: Center(child: Icon(Iconsax.add, color: TColors.white)),
                     ),
                   ),
-                  child: const SizedBox(
-                    width: TSizes.iconLg * 1.2,
-                    height: TSizes.iconLg * 1.2,
-                    child: Center(child: Icon(Iconsax.add, color: TColors.white)),
-
-                  ),
                 )
+
               ],
             )
 

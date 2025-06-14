@@ -1,5 +1,6 @@
+import 'package:appppppp/features/shop/controllers/wishlist.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:appppppp/common/widgets/icon/t_circular_icon.dart';
 import 'package:appppppp/common/widgets/images/t_rounded_image.dart';
 import 'package:appppppp/common/widgets/texts/product_price_text.dart';
 import 'package:appppppp/common/widgets/texts/product_title_text.dart';
@@ -9,8 +10,10 @@ import 'package:appppppp/utils/constants/colors.dart';
 import 'package:appppppp/utils/constants/sizes.dart';
 import 'package:appppppp/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
 
 class TProductCardHorizontal extends StatelessWidget {
+  final String id;
   final String imageUrl;
   final String title;
   final String brand;
@@ -18,6 +21,7 @@ class TProductCardHorizontal extends StatelessWidget {
 
   const TProductCardHorizontal({
     super.key,
+    required this.id,
     required this.imageUrl,
     required this.title,
     required this.brand,
@@ -26,6 +30,7 @@ class TProductCardHorizontal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = WishlistController.instance;
     final dark = THelperFunctions.isDarkMode(context);
 
     return Container(
@@ -43,6 +48,7 @@ class TProductCardHorizontal extends StatelessWidget {
             backgroundColor: dark ? TColors.darkerGreen : TColors.light,
             child: Stack(
               children: [
+                /// Product image
                 SizedBox(
                   height: 120,
                   width: 120,
@@ -51,6 +57,8 @@ class TProductCardHorizontal extends StatelessWidget {
                     applyImageRadius: true,
                   ),
                 ),
+
+                /// Discount label
                 Positioned(
                   top: 12,
                   child: TRoundedContainer(
@@ -69,17 +77,33 @@ class TProductCardHorizontal extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Positioned(
+
+                /// Wishlist icon
+                Positioned(
                   top: 0,
                   right: 0,
-                  child: TCircularIcon(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
-                  ),
+                  child: Obx(() {
+                    final isFavorite = controller.isInWishlist(id);
+                    return IconButton(
+                      icon: Icon(
+                        isFavorite ? Iconsax.heart5 : Iconsax.heart,
+                        color: isFavorite ? Colors.red : Colors.grey,
+                      ),
+                      onPressed: () {
+                        if (FirebaseAuth.instance.currentUser != null) {
+                          controller.toggleWishlist(id);
+                        } else {
+                          Get.snackbar('Login Required', 'Please login to use wishlist feature.');
+                        }
+                      },
+                    );
+                  }),
                 ),
               ],
             ),
           ),
+
+          /// Product Info
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(

@@ -35,7 +35,7 @@ class TImages{
   static const String banner5 = "assets/images/banner/indoorplants.png";
 
   //Profile
-  static const String user = "assets/images/pfp.jpg";
+  static const String user = "assets/profilepicture/fotoprofil.png";
   static const String user2 = "assets/profilepicture/person1.png";
   static const String user3 = "assets/profilepicture/person2.png";
   static const String user4 = "assets/profilepicture/person3.png";
@@ -127,10 +127,10 @@ class TImages{
   static const String mete = "assets/images/product_nuts/kacang mete.png";
   static const String pinus = "assets/images/product_nuts/kacang pinus.jpg";
   static const String polong = "assets/images/product_nuts/kacang polong.png";
-  static const String tanah = "assets/images/product_nuts/kacang tanah.png";
+  static const String tanah = "assets/images/product_nuts/Kacang tanah.png";
   static const String tunggak = "assets/images/product_nuts/kacang tunggak.jpg";
   static const String lentil = "assets/images/product_nuts/kacang lentil.jpg";
-  static const String pistaschio = "assets/images/product_nuts/kacang pistaschio.png";
+  static const String pistaschio = "assets/images/product_nuts/pistaschio.png";
 
   // Payment Method Images
   static const String bca = "assets/paymentmethods/BCA.png";

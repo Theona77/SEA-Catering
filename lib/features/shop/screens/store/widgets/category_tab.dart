@@ -12,6 +12,37 @@ class TCategoryTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, String>> products = [
+      {
+        'id': 'prod01',
+        'image': TImages.jeruk,
+        'title': 'Jeruk 500 g',
+        'brand': 'IndoFresh',
+        'price': 'Rp 30.000',
+      },
+      {
+        'id': 'prod02',
+        'image': TImages.grapeFruit,
+        'title': 'Anggur 750 g',
+        'brand': 'GreenGarden',
+        'price': 'Rp 45.000',
+      },
+      {
+        'id': 'prod03',
+        'image': TImages.strawberry,
+        'title': 'Strawberry 1 kg',
+        'brand': 'FarmFresh',
+        'price': 'Rp 55.000',
+      },
+      {
+        'id': 'prod04',
+        'image': TImages.kencur,
+        'title': 'Kencur 250 g',
+        'brand': 'FreshMart',
+        'price': 'Rp 55.000',
+      },
+    ];
+
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -19,22 +50,35 @@ class TCategoryTab extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              /// --- Brands
+              /// --- Brands Showcase
               const TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4]),
               const TBrandShowcase(images: [TImages.product2, TImages.product3, TImages.product4]),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              /// ---Products
-              TSectionHeading(title: 'You might like', onPressed: (){}),
+              /// --- Product Section
+              TSectionHeading(title: 'You might like', onPressed: () {}),
               const SizedBox(height: TSizes.spaceBtwItems),
 
-              TGridLayout(itemCount: 4, itemBuilder: (_, index) => const TProductCardVertical()),
+              TGridLayout(
+                itemCount: products.length,
+                itemBuilder: (_, index) {
+                  final product = products[index];
+                  return TProductCardVertical(
+                    productId: product['id']!,
+                    imageUrl: product['image']!,
+                    title: product['title']!,
+                    brand: product['brand']!,
+                    price: product['price']!,
+                  );
+                },
+              ),
               const SizedBox(height: TSizes.spaceBtwSections),
-          ],
+            ],
+          ),
         ),
-      ),
-    ]
+      ],
     );
   }
 }

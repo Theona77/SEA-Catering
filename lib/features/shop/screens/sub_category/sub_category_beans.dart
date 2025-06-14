@@ -10,24 +10,24 @@ class SubCategoriesSeedsScreens extends StatelessWidget {
   const SubCategoriesSeedsScreens({super.key});
 
   final List<Map<String, String>> topProducts = const [
-    {'title': 'Barley 10 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.barley},
-    {'title': 'Beras 100 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.beras},
-    {'title': 'Biji Jagung', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.bijiJagung},
-    {'title': 'Buck Wheat 10 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.buckWheat},
+    {'id': 'seed001', 'title': 'Barley 10 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.barley},
+    {'id': 'seed002', 'title': 'Beras 100 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.beras},
+    {'id': 'seed003', 'title': 'Biji Jagung', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.bijiJagung},
+    {'id': 'seed004', 'title': 'Buck Wheat 10 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.buckWheat},
   ];
 
   final List<Map<String, String>> frequentlyAdded = const [
-    {'title': 'Chia Seeds 10 g', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.chiaSeeds},
-    {'title': 'Flax Seeds 10 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.flaxseeds},
-    {'title': 'Millet 10 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.millet},
-    {'title': 'Oats 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.oats},
+    {'id': 'seed005', 'title': 'Chia Seeds 10 g', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.chiaSeeds},
+    {'id': 'seed006', 'title': 'Flax Seeds 10 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.flaxseeds},
+    {'id': 'seed007', 'title': 'Millet 10 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.millet},
+    {'id': 'seed008', 'title': 'Oats 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.oats},
   ];
 
   final List<Map<String, String>> recommended = const [
-    {'title': 'Biji Pumpkin 10 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.pumpkin},
-    {'title': 'Quinoa 10 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.quinoa},
-    {'title': 'Rye 10 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.rye},
-    {'title': 'Biji Selasih 10 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.selasih},
+    {'id': 'seed009', 'title': 'Biji Pumpkin 10 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.pumpkin},
+    {'id': 'seed010', 'title': 'Quinoa 10 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.quinoa},
+    {'id': 'seed011', 'title': 'Rye 10 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.rye},
+    {'id': 'seed012', 'title': 'Biji Selasih 10 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.selasih},
   ];
 
   @override
@@ -60,6 +60,7 @@ class SubCategoriesSeedsScreens extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = topProducts[index];
                     return TProductCardHorizontal(
+                      id: product['id']!,
                       imageUrl: product['image']!,
                       title: product['title']!,
                       brand: product['brand']!,
@@ -84,6 +85,7 @@ class SubCategoriesSeedsScreens extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = frequentlyAdded[index];
                     return TProductCardHorizontal(
+                      id: product['id']!,
                       imageUrl: product['image']!,
                       title: product['title']!,
                       brand: product['brand']!,
@@ -108,6 +110,7 @@ class SubCategoriesSeedsScreens extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = recommended[index];
                     return TProductCardHorizontal(
+                      id: product['id']!,
                       imageUrl: product['image']!,
                       title: product['title']!,
                       brand: product['brand']!,

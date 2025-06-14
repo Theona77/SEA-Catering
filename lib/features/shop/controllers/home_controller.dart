@@ -1,3 +1,6 @@
+import 'package:appppppp/data/repositories.authentication/user/user_model.dart';
+import 'package:appppppp/data/repositories.authentication/user/user_repository.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController{
@@ -7,5 +10,24 @@ class HomeController extends GetxController{
 
   void updatePageIndicator(index) {
     carousalCuurentIndex.value = index;
+  }
+
+  /// User data from Firestore
+  final Rx<UserModel> user = UserModel.empty().obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    fetchUserData();
+  }
+
+  Future<void> fetchUserData() async {
+    try {
+      final userId = FirebaseAuth.instance.currentUser!.uid;
+      final userData = await UserRepository.instance.getUser(userId);
+      user.value = userData;
+    } catch (e) {
+      print('Failed to fetch user: $e');
+    }
   }
 }
