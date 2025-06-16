@@ -113,10 +113,11 @@ class AllProducts extends StatelessWidget {
                 itemBuilder: (_, index) {
                   final product = allFruitProducts[index];
                   return TProductCardVertical(
-                    // imageUrl: product['image']!,
-                    // title: product['title']!,
-                    // brand: product['brand']!,
-                    // price: product['price']!,
+                    productId: product['id']!,
+                    imageUrl: product['image']!,
+                    title: product['title']!,
+                    brand: product['brand']!,
+                    price: product['price']!,
                   );
                 },
               ),

@@ -1,0 +1,73 @@
+import 'package:appppppp/utils/constants/image_strings.dart';
+
+final List<Map<String, String>> allProducts = [
+  // --- Fruits
+  {'id': 'fruit001', 'title': 'Jeruk 500 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.jeruk},
+  {'id': 'fruit002', 'title': 'Anggur 750 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.grapeFruit},
+  {'id': 'fruit003', 'title': 'Lime 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.lime},
+  {'id': 'fruit004', 'title': 'Lemon 250 g', 'brand': 'FreshFarm', 'price': 'Rp 55.000', 'image': TImages.lemon},
+  {'id': 'fruit005', 'title': 'Strawberry 1 kg', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.strawberry},
+  {'id': 'fruit006', 'title': 'Cherry 2 kg', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.cherry},
+  {'id': 'fruit007', 'title': 'Buah Naga 1 kg', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.buahNaga},
+  {'id': 'fruit008', 'title': 'Semangka 1 kg', 'brand': 'LocalFarm', 'price': 'Rp 60.000', 'image': TImages.semangka},
+  {'id': 'fruit009', 'title': 'Mango 250 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.mango},
+  {'id': 'fruit010', 'title': 'Papaya', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.papaya},
+  {'id': 'fruit011', 'title': 'Pineapple', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.pineapple},
+  {'id': 'fruit012', 'title': 'Banana', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.banana},
+
+  // --- Vegetables
+  {'id': 'veg001', 'title': 'Bayam 300 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.spinach},
+  {'id': 'veg002', 'title': 'Tomat Segar 500 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.tomato},
+  {'id': 'veg003', 'title': 'Jagung 1 kg', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.corn},
+  {'id': 'veg004', 'title': 'Mentimun 1 kg', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.cucumber},
+  {'id': 'veg005', 'title': 'Jamur Enoki 100 g', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.enoki},
+  {'id': 'veg006', 'title': 'Bayam Merah 100 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.redSpinach},
+  {'id': 'veg007', 'title': 'Kol 5 kg', 'brand': 'TaniSubur', 'price': 'Rp 145.000', 'image': TImages.cabbage},
+  {'id': 'veg008', 'title': 'Daun Bawang 3 kg', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.chives},
+  {'id': 'veg009', 'title': 'Cabai 250 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.chili},
+  {'id': 'veg010', 'title': 'Brocoli 50 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.product1},
+  {'id': 'veg011', 'title': 'Petai 300 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.beanSprouts},
+  {'id': 'veg012', 'title': 'Kentang 200 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.product3},
+
+  // --- Herbs
+  {'id': 'herb001', 'title': 'Gandaria 500 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.gandaria},
+  {'id': 'herb002', 'title': 'Cengkeh 750 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.cengkeh},
+  {'id': 'herb003', 'title': 'Kencur 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.kencur},
+  {'id': 'herb004', 'title': 'Lada 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.lada},
+  {'id': 'herb005', 'title': 'Bawang Merah 1 kg', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.bawangMerah},
+  {'id': 'herb006', 'title': 'Kunyit 300 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.kunyit},
+  {'id': 'herb007', 'title': 'Lengkuas 25 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.lengkuas},
+  {'id': 'herb008', 'title': 'Kayu Manis 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.kayuManis},
+  {'id': 'herb009', 'title': 'Bawang Putih 250 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.bawangPutih},
+  {'id': 'herb010', 'title': 'Kluwek 300 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.kluwek},
+  {'id': 'herb011', 'title': 'Kapulaga 100 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.kapulaga},
+  {'id': 'herb012', 'title': 'Bawang Bombai 500 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.bombai},
+
+  // --- Seeds
+  {'id': 'seed001', 'title': 'Barley 10 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.barley},
+  {'id': 'seed002', 'title': 'Beras 100 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.beras},
+  {'id': 'seed003', 'title': 'Biji Jagung', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.bijiJagung},
+  {'id': 'seed004', 'title': 'Buck Wheat 10 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.buckWheat},
+  {'id': 'seed005', 'title': 'Chia Seeds 10 g', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.chiaSeeds},
+  {'id': 'seed006', 'title': 'Flax Seeds 10 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.flaxseeds},
+  {'id': 'seed007', 'title': 'Millet 10 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.millet},
+  {'id': 'seed008', 'title': 'Oats 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.oats},
+  {'id': 'seed009', 'title': 'Biji Pumpkin 10 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.pumpkin},
+  {'id': 'seed010', 'title': 'Quinoa 10 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.quinoa},
+  {'id': 'seed011', 'title': 'Rye 10 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.rye},
+  {'id': 'seed012', 'title': 'Biji Selasih 10 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.selasih},
+
+  // --- Nuts
+  {'id': 'nuts001', 'title': 'Kacang Almond 10 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.almond},
+  {'id': 'nuts002', 'title': 'Kacang Arab 10 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.arab},
+  {'id': 'nuts003', 'title': 'Kacang Hijau 10 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.hijau},
+  {'id': 'nuts004', 'title': 'Kacang Pistaschio 10 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.pistaschio},
+  {'id': 'nuts005', 'title': 'Kacang Hitam 10 g', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.hitam},
+  {'id': 'nuts006', 'title': 'Kacang Kenari 10 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.kenari},
+  {'id': 'nuts007', 'title': 'Kacang Macadaima 10 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.macadaima},
+  {'id': 'nuts008', 'title': 'Kacang Merah 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.merah},
+  {'id': 'nuts009', 'title': 'Kacang Mete 10 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.mete},
+  {'id': 'nuts010', 'title': 'Kacang Pinus 10 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.pinus},
+  {'id': 'nuts011', 'title': 'Kacang Polong 10 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.polong},
+  {'id': 'nuts012', 'title': 'Kacang Tanah 10 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.tanah},
+];

@@ -1,107 +1,35 @@
+import 'package:appppppp/features/authentication/controllers/order/orderController.dart';
 import 'package:flutter/material.dart';
-import 'package:appppppp/rounded_container.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class TOrderListItems extends StatelessWidget {
   const TOrderListItems({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunctions.isDarkMode(context);
-    return ListView.separated(
-      shrinkWrap: true,
-      itemCount: 10,
-      separatorBuilder: (_, __) => const SizedBox(height: TSizes.spaceBtwItems),
-      itemBuilder: (_, index) => TRoundedContainer(
-        showBorder: true,
-        padding: const EdgeInsets.all(TSizes.md),
-        backgroundColor: dark ? TColors.black : TColors.light,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            /// Row 1
-            Row(
-              children: [
-                const Icon(Iconsax.ship),
-                const SizedBox(width: TSizes.spaceBtwItems / 2),
-                Expanded(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Processing',
-                        style: Theme.of(context).textTheme.bodyLarge!.apply(
-                          color: TColors.primary,
-                          fontWeightDelta: 1,
-                        ),
-                      ),
-                      Text(
-                        '10 Sep 2025',
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ],
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Iconsax.arrow_right_34, size: TSizes.iconSm),
-                ),
-              ],
-            ),
+    final orderController = OrderController.instance;
 
-            const SizedBox(height: TSizes.spaceBtwItems),
+    return Obx(() {
+      final orders = orderController.orderHistory;
+      if (orders.isEmpty) {
+        return const Center(child: Text("No orders yet."));
+      }
 
-            /// Row 2
-            Row(
-              children: [
-                /// Left Side
-                Expanded(
-                  child: Row(
-                    children: [
-                      const Icon(Iconsax.tag),
-                      const SizedBox(width: TSizes.spaceBtwItems / 2),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Order', style: Theme.of(context).textTheme.labelMedium),
-                            Text('[#2521nJ]', style: Theme.of(context).textTheme.titleMedium),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                /// Right Side
-                Expanded(
-                  child: Row(
-                    children: [
-                      const Icon(Iconsax.calendar),
-                      const SizedBox(width: TSizes.spaceBtwItems / 2),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Shipping Date', style: Theme.of(context).textTheme.labelMedium),
-                            Text('15 Sep 2025', style: Theme.of(context).textTheme.titleMedium),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+      return ListView.separated(
+        shrinkWrap: true,
+        itemCount: orders.length,
+        separatorBuilder: (_, __) => const Divider(),
+        itemBuilder: (_, index) {
+          final item = orders[index];
+          return ListTile(
+            leading: Image.asset(item.image, width: 50, height: 50),
+              title: Text(item.title),
+            subtitle: Text("Qty: ${item.quantity} • ${DateFormat('dd MMM yyyy – HH:mm').format(item.orderDate)}"),
+            trailing: Text('Rp ${(item.price * item.quantity).toStringAsFixed(0)}'),
+          );
+        },
+      );
+    });
   }
 }

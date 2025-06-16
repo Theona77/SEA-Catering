@@ -3,6 +3,7 @@ import 'package:appppppp/common/widgets/custom_shapes/containers/primary_header_
 import 'package:appppppp/common/widgets/images/t_circular_image.dart';
 import 'package:appppppp/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:appppppp/common/widgets/texts/section_heading.dart';
+import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
 import 'package:appppppp/features/shop/screens/cart/cart.dart';
 import 'package:appppppp/features/shop/screens/order/order.dart';
 import 'package:flutter/material.dart';
@@ -116,11 +117,24 @@ class SettingScreen extends StatelessWidget {
                       subtitle: 'Set image quality to be seen',
                       trailing: Switch(value: false, onChanged: (value){}),
                     ),
-                     ],
+                    const SizedBox(height: TSizes.spaceBtwSections),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          await AuthenticationRepository.instance.logout();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: TColors.white,
+                          foregroundColor: TColors.darkerGrey,
+                        ),
+                        child: const Text("Logout"),
+                      ),
+                    ),
+                  ],
                 ),
             )
           ],
-
         ),
       ),
     );

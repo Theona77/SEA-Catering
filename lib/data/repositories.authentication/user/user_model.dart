@@ -1,5 +1,3 @@
-import 'package:appppppp/exception/firebase_exception.dart';
-import 'package:appppppp/utils/formatters/formatter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
@@ -22,12 +20,11 @@ class UserModel {
   });
 
   String get fullName => '$firstName $lastName';
+  String get formattedPhoneNo => phoneNumber.isNotEmpty ? phoneNumber : 'Not set';
 
-  String get formattedPhoneNo => TFormatter.formatPhoneNumber(phoneNumber);
+  static List<String> nameParts(String fullName) => fullName.split(" ");
 
-  static List<String> nameParts(fullName) => fullName.split(" ");
-
-  static String generateUsername(fullName) {
+  static String generateUsername(String fullName) {
     List<String> nameParts = fullName.split(" ");
     String firstName = nameParts[0].toLowerCase();
     String lastName = nameParts.length > 1 ? nameParts[1].toLowerCase() : "";
@@ -37,33 +34,45 @@ class UserModel {
     return usernameWithPrefix;
   }
 
-  static UserModel empty() =>
-      UserModel(
-        id: '',
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        phoneNumber: '',
-        profilePicture: '',
-      );
+  static UserModel empty() => UserModel(
+    id: '',
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    phoneNumber: '',
+    profilePicture: '',
+  );
 
-  /// Concert model to JSON structure for storing data in firebase
+  /// Convert model to JSON structure for storing data in firebase
   Map<String, dynamic> toJson() {
     return {
+      'Email': email,
       'FirstName': firstName,
       'LastName': lastName,
       'Username': username,
-      'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
     };
   }
 
-  factory UserModel.fromSnapShot(
-      DocumentSnapshot<Map<String, dynamic>> document) {
-    if (document.data() != null) {
-      final data = document.data()!;
+  /// FIXED: Safe null handling in fromSnapShot
+  factory UserModel.fromSnapShot(DocumentSnapshot<Map<String, dynamic>> document) {
+    try {
+      // Check if document exists and has data
+      if (!document.exists) {
+        print("Document does not exist for ID: ${document.id}");
+        return UserModel.empty();
+      }
+
+      final data = document.data();
+
+      // Double check for null data
+      if (data == null) {
+        print("Document data is null for ID: ${document.id}");
+        return UserModel.empty();
+      }
+
       return UserModel(
         id: document.id,
         firstName: data['FirstName'] ?? '',
@@ -73,17 +82,9 @@ class UserModel {
         phoneNumber: data['PhoneNumber'] ?? '',
         profilePicture: data['ProfilePicture'] ?? '',
       );
-    } else {
-      // Return a default UserModel, or handle as you wish
-      return UserModel(
-        id: document.id,
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        phoneNumber: '',
-        profilePicture: '',
-      );
+    } catch (e) {
+      print("Error creating UserModel from snapshot: $e");
+      return UserModel.empty();
     }
   }
 }

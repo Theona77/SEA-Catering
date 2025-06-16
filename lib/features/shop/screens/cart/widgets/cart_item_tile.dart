@@ -5,23 +5,26 @@ import 'package:appppppp/common/widgets/texts/t_brand_title_with_verified_icon.d
 import 'package:appppppp/common/widgets/texts/product_price_text.dart';
 import 'package:appppppp/features/shop/screens/cart/widgets/add_remove_button.dart';
 import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
 import 'package:appppppp/utils/constants/colors.dart';
 import 'package:appppppp/utils/helpers/helper_functions.dart';
 
 class TCartItemTile extends StatelessWidget {
+  final String id;
   final String image;
   final String brand;
   final String title;
-  final String price;
+  final double price;
+  final int quantity;
   final bool showAddRemoveButtons;
 
   const TCartItemTile({
     super.key,
+    required this.id,
     required this.image,
     required this.brand,
     required this.title,
     required this.price,
+    required this.quantity,
     this.showAddRemoveButtons = true,
   });
 
@@ -35,7 +38,6 @@ class TCartItemTile extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// -- Product Image
             TRoundedImage(
               width: 60,
               height: 60,
@@ -43,36 +45,46 @@ class TCartItemTile extends StatelessWidget {
               backgroundColor: dark ? Colors.black : TColors.light,
             ),
             const SizedBox(width: TSizes.spaceBtwItems),
-
-            /// -- Product Info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TBrandTitleWithVerifiedIcon(title: brand),
                   TProductTitleText(title: title),
-                  TProductPriceText(price: price),
+                  TProductPriceText(price: 'Rp ${price.toStringAsFixed(0)}'),
                 ],
               ),
             ),
           ],
         ),
 
-        /// -- Optional Add/Remove Buttons
-        if (showAddRemoveButtons) const SizedBox(height: TSizes.spaceBtwItems),
-        if (showAddRemoveButtons)
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  SizedBox(width: 70),
-                  TProductQuantityWithAddRemoveButton(),
-                ],
-              ),
-              TProductPriceText(price: 'Rp 18.000'),
-            ],
+        const SizedBox(height: TSizes.spaceBtwItems),
+
+        /// --- Quantity & Total Price
+        showAddRemoveButtons
+            ? Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                const SizedBox(width: 70),
+                TProductQuantityWithAddRemoveButton(
+                  productId: id,
+                  quantity: quantity,
+                ),
+              ],
+            ),
+            TProductPriceText(
+              price: 'Rp ${(price * quantity).toStringAsFixed(0)}',
+            ),
+          ],
+        )
+            : Align(
+          alignment: Alignment.centerRight,
+          child: TProductPriceText(
+            price: 'Rp ${(price * quantity).toStringAsFixed(0)}',
           ),
+        ),
       ],
     );
   }

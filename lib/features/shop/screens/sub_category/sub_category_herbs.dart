@@ -10,24 +10,24 @@ class SubCategoriesHerbsScreens extends StatelessWidget {
   const SubCategoriesHerbsScreens({super.key});
 
   final List<Map<String, String>> topProducts = const [
-    {'title': 'Gandaria 500 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.gandaria},
-    {'title': 'Cengkeh 750 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.cengkeh},
-    {'title': 'Kencur 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.kencur},
-    {'title': 'lada 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.lada},
+    {'id': 'herb001', 'title': 'Gandaria 500 g', 'brand': 'IndoFresh', 'price': 'Rp 30.000', 'image': TImages.gandaria},
+    {'id': 'herb002', 'title': 'Cengkeh 750 g', 'brand': 'GreenGarden', 'price': 'Rp 45.000', 'image': TImages.cengkeh},
+    {'id': 'herb003', 'title': 'Kencur 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.kencur},
+    {'id': 'herb004', 'title': 'Lada 250 g', 'brand': 'FreshMart', 'price': 'Rp 55.000', 'image': TImages.lada},
   ];
 
   final List<Map<String, String>> frequentlyAdded = const [
-    {'title': 'Bawang Merah 1 kg', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.bawangMerah},
-    {'title': 'Kunyit 300 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.kunyit},
-    {'title': 'Lengkuas 25 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.lengkuas},
-    {'title': 'Kayu Manis 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.kayuManis},
+    {'id': 'herb005', 'title': 'Bawang Merah 1 kg', 'brand': 'FarmFresh', 'price': 'Rp 55.000', 'image': TImages.bawangMerah},
+    {'id': 'herb006', 'title': 'Kunyit 300 g', 'brand': 'CherryKing', 'price': 'Rp 40.000', 'image': TImages.kunyit},
+    {'id': 'herb007', 'title': 'Lengkuas 25 g', 'brand': 'TaniSubur', 'price': 'Rp 60.000', 'image': TImages.lengkuas},
+    {'id': 'herb008', 'title': 'Kayu Manis 10 g', 'brand': 'LocalFarm', 'price': 'Rp 30.000', 'image': TImages.kayuManis},
   ];
 
   final List<Map<String, String>> recommended = const [
-    {'title': 'Bawang Putih 250 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.bawangPutih},
-    {'title': 'Kluwek 300 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.kluwek},
-    {'title': 'Kapulaga 100 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.kapulaga},
-    {'title': 'Bawang Bombai 500 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.bombai},
+    {'id': 'herb009', 'title': 'Bawang Putih 250 g', 'brand': 'GreenLeaf', 'price': 'Rp 12.000', 'image': TImages.bawangPutih},
+    {'id': 'herb010', 'title': 'Kluwek 300 g', 'brand': 'EcoFresh', 'price': 'Rp 15.000', 'image': TImages.kluwek},
+    {'id': 'herb011', 'title': 'Kapulaga 100 g', 'brand': 'AgriMarket', 'price': 'Rp 14.000', 'image': TImages.kapulaga},
+    {'id': 'herb012', 'title': 'Bawang Bombai 500 g', 'brand': 'SayurBox', 'price': 'Rp 20.000', 'image': TImages.bombai},
   ];
 
   @override
@@ -60,6 +60,7 @@ class SubCategoriesHerbsScreens extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = topProducts[index];
                     return TProductCardHorizontal(
+                      id: product['id']!,
                       imageUrl: product['image']!,
                       title: product['title']!,
                       brand: product['brand']!,
@@ -84,6 +85,7 @@ class SubCategoriesHerbsScreens extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = frequentlyAdded[index];
                     return TProductCardHorizontal(
+                      id: product['id']!,
                       imageUrl: product['image']!,
                       title: product['title']!,
                       brand: product['brand']!,
@@ -108,6 +110,8 @@ class SubCategoriesHerbsScreens extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final product = recommended[index];
                     return TProductCardHorizontal(
+                      id: product['id']!,
+
                       imageUrl: product['image']!,
                       title: product['title']!,
                       brand: product['brand']!,

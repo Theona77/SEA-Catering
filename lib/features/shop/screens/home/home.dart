@@ -1,3 +1,4 @@
+import 'package:appppppp/data/allproduct/allproduct.dart';
 import 'package:appppppp/features/shop/screens/all_products.dart';
 import 'package:appppppp/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:appppppp/features/shop/screens/home/widgets/home_categories.dart';
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -70,12 +72,22 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: TSizes.spaceBtwItems),
 
                   /// -- Popular Products --
-                  TGridLayout(itemCount: 6, itemBuilder: (_, index) => const TProductCardVertical(),),
+                  TGridLayout(
+                    itemCount: allProducts.length,
+                    itemBuilder: (_, index) {
+                      final product = allProducts[index];
+                      return TProductCardVertical(
+                        productId: product['id']!,
+                        imageUrl: product['image']!,
+                        title: product['title']!,
+                        brand: product['brand']!,
+                        price: product['price']!,
+                      );
+                    },
+                  ),
                 ],
               )
             ),
-
-
           ],
         ),
       )
