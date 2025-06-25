@@ -1,16 +1,6 @@
-# appppppp
-
-A new Flutter project.
+## SEA Catering
+A catering mobile application using flutter for Compfest Academy. 
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+How to use the app?
+The app hasn't been deployed yet so you can download the zip file and run it in your own local computer. Using chrome is possible but be mindful it's for mobile view
