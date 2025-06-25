@@ -1,37 +1,45 @@
 {
   "project_info": {
-    "project_number": "231805258566",
-    "project_id": "agribridge4",
-    "storage_bucket": "agribridge4.firebasestorage.app"
+    "project_number": "404906785626",
+    "project_id": "sea-catering-5fed1",
+    "storage_bucket": "sea-catering-5fed1.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:231805258566:android:315963677a6ae4323db347",
+        "mobilesdk_app_id": "1:404906785626:android:f709895b4b78620e7a5163",
         "android_client_info": {
           "package_name": "com.example.appppppp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "231805258566-4kls7gehkshts38adpspuh974bq9o09o.apps.googleusercontent.com",
+          "client_id": "404906785626-1vknnlri8nr1ducvequmb6ibhqm8cp8e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appppppp",
+            "certificate_hash": "792367e7cb5345072c80cd5d781154b3f334ca30"
+          }
+        },
+        {
+          "client_id": "404906785626-440g4lhlmc75jia10u1uq7d9he4nrg94.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB6Yl_SXQkH5hqAgVggUntQc-g1SnfsAHE"
+          "current_key": "AIzaSyC3fS11mYXDfWfc4h2MAlPsM0Oah19UwXU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "231805258566-4kls7gehkshts38adpspuh974bq9o09o.apps.googleusercontent.com",
+              "client_id": "404906785626-440g4lhlmc75jia10u1uq7d9he4nrg94.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "231805258566-k50ec6up9rt9vl1jpv7ul70eq9rcjfb5.apps.googleusercontent.com",
+              "client_id": "404906785626-4gko4a0p02pog7ha20jni758846lcaik.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.example.appppppp"

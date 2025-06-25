@@ -17,10 +17,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         return windows;
       case TargetPlatform.linux:
@@ -36,39 +33,51 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCbadnFXaSYECGcCkCiGMRt1TjwkIRcq0s',
-    appId: '1:231805258566:web:63433fcdce5dc2613db347',
-    messagingSenderId: '231805258566',
-    projectId: 'agribridge4',
-    authDomain: 'agribridge4.firebaseapp.com',
-    storageBucket: 'agribridge4.firebasestorage.app',
+    apiKey: 'AIzaSyDWUrwjmEakg8w7T8_xf-nULcxHNT0We_Y',
+    appId: '1:404906785626:web:c25ae1b089395e347a5163',
+    messagingSenderId: '404906785626',
+    projectId: 'sea-catering-5fed1',
+    authDomain: 'sea-catering-5fed1.firebaseapp.com',
+    storageBucket: 'sea-catering-5fed1.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB6Yl_SXQkH5hqAgVggUntQc-g1SnfsAHE',
-    appId: '1:231805258566:android:315963677a6ae4323db347',
-    messagingSenderId: '231805258566',
-    projectId: 'agribridge4',
-    storageBucket: 'agribridge4.firebasestorage.app',
+    apiKey: 'AIzaSyC3fS11mYXDfWfc4h2MAlPsM0Oah19UwXU',
+    appId: '1:404906785626:android:f709895b4b78620e7a5163',
+    messagingSenderId: '404906785626',
+    projectId: 'sea-catering-5fed1',
+    storageBucket: 'sea-catering-5fed1.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCdMvBsFUNtTEFYJxRtWwxBUeMb9uLp4To',
-    appId: '1:231805258566:ios:5164f45731cb57ae3db347',
-    messagingSenderId: '231805258566',
-    projectId: 'agribridge4',
-    storageBucket: 'agribridge4.firebasestorage.app',
-    iosClientId: '231805258566-k50ec6up9rt9vl1jpv7ul70eq9rcjfb5.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDmZlPH48Lw6cQFltR-zj1eZgnLLd2iaFU',
+    appId: '1:404906785626:ios:6c057622efc28d7b7a5163',
+    messagingSenderId: '404906785626',
+    projectId: 'sea-catering-5fed1',
+    storageBucket: 'sea-catering-5fed1.firebasestorage.app',
+    androidClientId: '404906785626-1vknnlri8nr1ducvequmb6ibhqm8cp8e.apps.googleusercontent.com',
+    iosClientId: '404906785626-4gko4a0p02pog7ha20jni758846lcaik.apps.googleusercontent.com',
     iosBundleId: 'com.example.appppppp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCbadnFXaSYECGcCkCiGMRt1TjwkIRcq0s',
-    appId: '1:231805258566:web:3b5d0fb48b145f683db347',
-    messagingSenderId: '231805258566',
-    projectId: 'agribridge4',
-    authDomain: 'agribridge4.firebaseapp.com',
-    storageBucket: 'agribridge4.firebasestorage.app',
+    apiKey: 'AIzaSyDWUrwjmEakg8w7T8_xf-nULcxHNT0We_Y',
+    appId: '1:404906785626:web:62bcc4fcf6b6d4607a5163',
+    messagingSenderId: '404906785626',
+    projectId: 'sea-catering-5fed1',
+    authDomain: 'sea-catering-5fed1.firebaseapp.com',
+    storageBucket: 'sea-catering-5fed1.firebasestorage.app',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDmZlPH48Lw6cQFltR-zj1eZgnLLd2iaFU',
+    appId: '1:404906785626:ios:6c057622efc28d7b7a5163',
+    messagingSenderId: '404906785626',
+    projectId: 'sea-catering-5fed1',
+    storageBucket: 'sea-catering-5fed1.firebasestorage.app',
+    androidClientId: '404906785626-1vknnlri8nr1ducvequmb6ibhqm8cp8e.apps.googleusercontent.com',
+    iosClientId: '404906785626-4gko4a0p02pog7ha20jni758846lcaik.apps.googleusercontent.com',
+    iosBundleId: 'com.example.appppppp',
   );
 
 }
