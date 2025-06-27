@@ -1,4 +1,4 @@
-import 'package:sea_catering/exception/firebase_exception.dart';
+import 'package:sea_catering/exception/firebase_auth_exception.dart';
 import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:sea_catering/features/authentication/screens/login/login.dart';
 import 'package:sea_catering/features/authentication/screens/onboarding.dart';
@@ -10,6 +10,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../../exception/firebase_exceptions.dart';
+import '../../exception/format_exceptions.dart';
+import '../../exception/platform_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();

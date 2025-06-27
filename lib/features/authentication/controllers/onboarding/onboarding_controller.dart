@@ -6,11 +6,21 @@ import 'package:get_storage/get_storage.dart';
 import '../../screens/login/login.dart';
 
 class OnBoardingController extends GetxController {
+  static OnBoardingController get instance => Get.find();
+
+  //Variables
   final pageController = PageController();
   RxInt currentPageIndex = 0.obs;
 
-  void updatePageIndicator(int index) {
+  // Update current index when page scroll
+  void updatePageIndicator(index) {
     currentPageIndex.value = index;
+  }
+
+  // Jump to specific dot selected page
+  void dotNavigationClick(index){
+    currentPageIndex.value = index;
+    pageController.jumpTo(index);
   }
 
   void skipToLastPage() {
@@ -21,15 +31,17 @@ class OnBoardingController extends GetxController {
     );
   }
 
+  // Update Curremt Index and jump to next page
   void nextPage() {
-    final storage = GetStorage();
-
     if (currentPageIndex.value == 2) {
+      final storage = GetStorage();
       if (kDebugMode) {
         print('==================== GET STORAGE Next Button ===================');
         print(storage.read('isFirstTime'));
       }
 
+
+      //
       storage.write('isFirstTime', false);
       Get.offAll(() => const LoginScreen());
     } else {

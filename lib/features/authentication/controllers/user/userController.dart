@@ -46,7 +46,7 @@ class UserController extends GetxController {
       print("Fetching user data for UID: $uid");
 
       // Using repository for better error handling
-      final userData = await _userRepository.getUser(uid);
+      final userData = await _userRepository.fetchUser(uid);
       user.value = userData;
 
       print("User data loaded successfully: ${userData.fullName}");

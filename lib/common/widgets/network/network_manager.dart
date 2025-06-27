@@ -44,4 +44,11 @@ class NetworkManager extends GetxController {
       return false;
     }
   }
+
+  // Dispose or close the active connectivity stream
+@override
+  void onClose(){
+  super.onClose();
+  _connectivitySubscription.cancel();
+  }
 }
