@@ -25,6 +25,8 @@ class TPromoSlider extends StatelessWidget {
         CarouselSlider(
           options: CarouselOptions(
             viewportFraction: 1,
+            height: 200,
+              autoPlay: true,
             onPageChanged: (index, _) => controller.updatePageIndicator(index)
           ),
           items: banners.map((url) => TRoundedImage(imageUrl: url)).toList()
@@ -37,8 +39,8 @@ class TPromoSlider extends StatelessWidget {
               children: [
                 for(int i = 0; i < banners.length; i++)
                   TCircularContainer(
-                    width: 20,
-                    height: 4,
+                    width: 8,
+                    height: 8,
                     margin: const EdgeInsets.only(right: 10),
                     backgroundColor: controller.carousalCuurentIndex.value == i ? TColors.primary : Colors.grey,
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sea_catering/utils/constants/sizes.dart';
 
 class SubscriptionForm extends StatefulWidget {
@@ -11,6 +12,8 @@ class SubscriptionForm extends StatefulWidget {
 
 class _SubscriptionFormState extends State<SubscriptionForm> {
   final _formKey = GlobalKey<FormState>();
+  bool _isSubmitting = false;
+
   String? _name;
   String? _phone;
   String? _plan;
@@ -35,23 +38,60 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
       setState(() => _totalPrice = 0);
       return;
     }
-    int planPrice = _planPrices[_plan!]!;
-    int mealCount = _mealTypes.length;
-    int dayCount = _deliveryDays.length;
-
+    final planPrice = _planPrices[_plan!]!;
     setState(() {
-      _totalPrice = planPrice * mealCount * dayCount * 4.3;
+      _totalPrice = planPrice * _mealTypes.length * _deliveryDays.length * 4.3;
     });
   }
 
-  void _submitForm() {
-    if (_formKey.currentState!.validate() && _mealTypes.isNotEmpty && _deliveryDays.isNotEmpty) {
-      _formKey.currentState!.save();
-      _calculatePrice();
-      // Submit to backend here
+  void _submitForm() async {
+    if (_isSubmitting) return; // prevent double submit
+
+    final form = _formKey.currentState;
+    if (form == null) return;
+
+    // Check for field-specific missing inputs
+    final textFieldsValid = form.validate();
+    if (!textFieldsValid) {
+      Get.snackbar('Error', 'Please fill in Name and Phone.');
+      return;
+    }
+
+    // Validate form
+    if (_plan == null || _mealTypes.isEmpty || _deliveryDays.isEmpty) {
+      Get.snackbar('Missing Selections', 'Select a plan, meal types and delivery days.');
+      return;
+    }
+
+    // Submit
+    form.save();
+    _calculatePrice();
+    setState(() => _isSubmitting = true);
+
+    try {
+      await FirebaseFirestore.instance.collection('subscriptions').add({
+        'name': _name,
+        'phone': _phone,
+        'plan': _plan,
+        'mealTypes': _mealTypes,
+        'deliveryDays': _deliveryDays,
+        'allergies': _allergies ?? '',
+        'totalPrice': _totalPrice,
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+
       Get.snackbar('Success', 'Subscription submitted successfully');
-    } else {
-      Get.snackbar('Error', 'Please complete all required fields');
+      form.reset();
+      setState(() {
+        _mealTypes.clear();
+        _deliveryDays.clear();
+        _plan = null;
+        _totalPrice = 0;
+      });
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to submit: $e');
+    } finally {
+      setState(() => _isSubmitting = false);
     }
   }
 
@@ -63,19 +103,20 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: ListView(
             children: [
+              const SizedBox(height: TSizes.spaceBtwInputFields),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Full Name'),
-                validator: (value) => value!.isEmpty ? 'Required' : null,
+                validator: (value) => value == null || value.isEmpty ? 'Required' : null,
                 onSaved: (value) => _name = value,
               ),
               const SizedBox(height: TSizes.spaceBtwInputFields),
-
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Active Phone Number'),
                 keyboardType: TextInputType.phone,
-                validator: (value) => value!.isEmpty ? 'Required' : null,
+                validator: (value) => value == null || value.isEmpty ? 'Required' : null,
                 onSaved: (value) => _phone = value,
               ),
 
@@ -122,18 +163,20 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
               )),
 
               const SizedBox(height: TSizes.spaceBtwInputFields),
-              const SizedBox(height: TSizes.spaceBtwInputFields),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Allergies (optional)'),
                 onSaved: (value) => _allergies = value,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: TSizes.spaceBtwInputFields),
               Text('Total Price: Rp${_totalPrice.toStringAsFixed(0)}',
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: _submitForm,
-                child: const Text('Submit'),
+                onPressed: _isSubmitting ? null : _submitForm,
+                child: _isSubmitting
+                    ? const SizedBox(
+                    width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2))
+                    : const Text('Submit'),
               )
             ],
           ),

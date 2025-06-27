@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
 
 class FoodCarousel extends StatelessWidget {
   const FoodCarousel({super.key});
@@ -7,20 +8,20 @@ class FoodCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Map<String, String>> foodCategories = [
-      {"title": "Meat", "image": "assets/images/meat.jpg"},
-      {"title": "Veggie", "image": "assets/images/veggie.jpg"},
-      {"title": "Soup", "image": "assets/images/soup.jpg"},
-      {"title": "Quick & Easy", "image": "assets/images/quick_easy.jpg"},
-      {"title": "Snacks", "image": "assets/images/snacks.jpg"},
-      {"title": "Drinks", "image": "assets/images/drinks.jpg"},
-      {"title": "Family Friendly", "image": "assets/images/family_friendly.jpg"},
+      {"title": "Meat", "image": TImages.meat},
+      {"title": "Veggie", "image": TImages.veggie},
+      {"title": "Soup", "image": TImages.soup},
+      {"title": "Quick & Easy", "image": TImages.quick_easy},
+      {"title": "Snacks", "image": TImages.snacks},
+      {"title": "Drinks", "image": TImages.drinks},
+      {"title": "Family Friendly", "image": TImages.family_friendly},
     ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "CHOOSE FROM OVER 100 FRESH FOODS EACH WEEK",
+          "There's food for Everyone!",
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 8),
