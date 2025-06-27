@@ -37,11 +37,13 @@ git clone https://github.com/your-username/sea-catering-app.git
 cd sea-catering-app
 ```
 
+
 ### 2. Install dependencies
 
 ```bash
 flutter pub get
 ```
+
 
 ### 3. Install dependencies
 
@@ -67,6 +69,8 @@ flutter pub get
 #### Make sure you enable:
 - Firestore Database
 - (Optional) Firebase Authentication if you add login features later
+
+
 
 ### 4. Environment Variables
 Create a .env file (optional) for storing private keys or API URLs (if used).
