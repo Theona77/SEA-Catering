@@ -1,6 +1,7 @@
-import 'package:appppppp/features/personalization/screens/settings/settings.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/features/personalization/screens/settings/settings.dart';
+import 'package:sea_catering/subscription.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -23,13 +24,13 @@ class NavigationMenu extends StatelessWidget {
              elevation: 0,
              selectedIndex: controller.selectedIndex.value,
              onDestinationSelected: (index) => controller.selectedIndex.value = index,
-             backgroundColor: darkMode ? TColors.darkerGreen : Colors.white,
-             indicatorColor: darkMode ? TColors.white.withOpacity(0.1) : TColors.darkerGreen.withOpacity(0.1),
+             backgroundColor: darkMode ? TColors.darkerBlue : Colors.white,
+             indicatorColor: darkMode ? TColors.white.withOpacity(0.1) : TColors.darkerBlue.withOpacity(0.1),
              destinations: const [
                NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-               NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
-               NavigationDestination(icon: Icon(Iconsax.heart), label: 'Wishlist'),
-               NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
+               NavigationDestination(icon: Icon(Iconsax.shop), label: 'Menu'),
+               NavigationDestination(icon: Icon(Iconsax.heart), label: 'Subscription'),
+               NavigationDestination(icon: Icon(Iconsax.user), label: 'Contact Us'),
          
              ],
          ),
@@ -42,6 +43,6 @@ class NavigationMenu extends StatelessWidget {
 class NavigationController extends GetxController{
   final Rx<int> selectedIndex = 0.obs;
 
-  final screens = [const HomeScreen(), const StoreScreen(), const FavoriteScreen(), const SettingScreen()];
+  final screens = [const HomeScreen(), const StoreScreen(), const SubscriptionForm(), const SettingScreen()];
 }
 

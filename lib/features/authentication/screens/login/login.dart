@@ -1,7 +1,7 @@
-import 'package:appppppp/common/widgets/login_signup/form_divider.dart';
-import 'package:appppppp/common/widgets/login_signup/social_buttons.dart';
-import 'package:appppppp/features/authentication/screens/login/widgets/login_header.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/login_signup/form_divider.dart';
+import 'package:sea_catering/common/widgets/login_signup/social_buttons.dart';
+import 'package:sea_catering/features/authentication/screens/login/widgets/login_header.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'widgets/login_form.dart';

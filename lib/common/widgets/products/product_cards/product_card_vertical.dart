@@ -1,10 +1,10 @@
-import 'package:appppppp/common/widgets/icon/t_circular_icon.dart';
-import 'package:appppppp/common/widgets/images/t_rounded_image.dart';
-import 'package:appppppp/common/widgets/texts/product_title_text.dart';
-import 'package:appppppp/features/authentication/controllers/cart/CartController.dart';
-import 'package:appppppp/features/shop/controllers/wishlist.dart';
-import 'package:appppppp/features/shop/screens/product_details/product_detail.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
+import 'package:sea_catering/common/widgets/images/t_rounded_image.dart';
+import 'package:sea_catering/common/widgets/texts/product_title_text.dart';
+import 'package:sea_catering/features/authentication/controllers/cart/CartController.dart';
+import 'package:sea_catering/features/shop/controllers/wishlist.dart';
+import 'package:sea_catering/features/shop/screens/product_details/product_detail.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -138,7 +138,7 @@ class TProductCardVertical extends StatelessWidget{
                       title: title,
                       brand: brand,
                       image: imageUrl,
-                      price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
+                      price: double.parse(price.replaceAll('', '').replaceAll('.', '')),
                     ));
                     Get.snackbar('Added to Cart', '$title added to your cart');
                   },

@@ -57,7 +57,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               child: const Text(
                 'Skip',
                 style: TextStyle(
-                  color: Colors.lightGreenAccent,
+                  color: Colors.lightBlue,
                   fontWeight: FontWeight.bold,
                 ),
               ),

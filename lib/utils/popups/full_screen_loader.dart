@@ -1,6 +1,6 @@
-import 'package:appppppp/common/widgets/loaders/animation_loader.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/loaders/animation_loader.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

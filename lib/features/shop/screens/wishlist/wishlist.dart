@@ -1,10 +1,10 @@
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/common/widgets/icon/t_circular_icon.dart';
-import 'package:appppppp/common/widgets/layouts/grid_layout.dart';
-import 'package:appppppp/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:appppppp/data/allproduct/allproduct.dart';
-import 'package:appppppp/features/shop/controllers/wishlist.dart';
-import 'package:appppppp/features/shop/screens/home/home.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
+import 'package:sea_catering/common/widgets/layouts/grid_layout.dart';
+import 'package:sea_catering/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:sea_catering/data/allproduct/allproduct.dart';
+import 'package:sea_catering/features/shop/controllers/wishlist.dart';
+import 'package:sea_catering/features/shop/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

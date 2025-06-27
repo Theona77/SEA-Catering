@@ -1,5 +1,5 @@
-import 'package:appppppp/utils/device/device_utility.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/utils/device/device_utility.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';

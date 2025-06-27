@@ -1,10 +1,10 @@
 
 
-import 'package:appppppp/common/widgets/loaders/loaders.dart';
-import 'package:appppppp/common/widgets/network/network_manager.dart';
-import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/popups/full_screen_loader.dart';
+import 'package:sea_catering/common/widgets/loaders/loaders.dart';
+import 'package:sea_catering/common/widgets/network/network_manager.dart';
+import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

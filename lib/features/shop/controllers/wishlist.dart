@@ -1,4 +1,4 @@
-import 'package:appppppp/data/repositories.authentication/wishlist/wishlistRepository.dart';
+import 'package:sea_catering/data/repositories.authentication/wishlist/wishlistRepository.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

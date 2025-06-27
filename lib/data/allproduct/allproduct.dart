@@ -1,4 +1,4 @@
-import 'package:appppppp/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
 
 final List<Map<String, String>> allProducts = [
   // --- Fruits

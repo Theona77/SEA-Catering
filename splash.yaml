@@ -1,13 +1,13 @@
 flutter_native_splash:
-  image: assets/images/logowhite.png
-  image_dark: assets/images/logowhite.png
+  image: assets/images/logo_catering.png
+  image_dark: assets/images/logo_catering.png
 
   background_image: assets/images/background.png
   background_image_dark: assets/images/background.png
 
   android_12:
-    image: assets/images/logowhite.png
-    image_dark: assets/images/logowhite.png
+    image: assets/images/logo_catering.png
+    image_dark: assets/images/logo_catering.png
 
     background_image: assets/images/background.png
     background_image_dark: assets/images/background.png

@@ -1,4 +1,4 @@
-import 'package:appppppp/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -33,7 +33,7 @@ class TLoaders extends GetxController {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: TColors.white,
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blueAccent,
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),

@@ -1,4 +1,4 @@
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../utils/constants/colors.dart';

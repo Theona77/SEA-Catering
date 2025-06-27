@@ -1,9 +1,9 @@
-import 'package:appppppp/exception/firebase_exception.dart';
-import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart';
-import 'package:appppppp/features/authentication/screens/login/login.dart';
-import 'package:appppppp/features/authentication/screens/onboarding.dart';
-import 'package:appppppp/features/authentication/screens/signup/verify_email.dart';
-import 'package:appppppp/navigation_menu.dart';
+import 'package:sea_catering/exception/firebase_exception.dart';
+import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart';
+import 'package:sea_catering/features/authentication/screens/login/login.dart';
+import 'package:sea_catering/features/authentication/screens/onboarding.dart';
+import 'package:sea_catering/features/authentication/screens/signup/verify_email.dart';
+import 'package:sea_catering/navigation_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';

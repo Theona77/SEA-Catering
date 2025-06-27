@@ -1,8 +1,8 @@
-import 'package:appppppp/common/widgets/icon/t_circular_icon.dart';
-import 'package:appppppp/features/authentication/controllers/cart/CartController.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
+import 'package:sea_catering/features/authentication/controllers/cart/CartController.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

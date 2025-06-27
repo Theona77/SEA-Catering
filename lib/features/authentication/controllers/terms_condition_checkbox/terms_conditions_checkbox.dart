@@ -1,8 +1,8 @@
-import 'package:appppppp/features/authentication/controllers/signup/signup_controller.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/constants/text_strings.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/features/authentication/controllers/signup/signup_controller.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/constants/text_strings.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 

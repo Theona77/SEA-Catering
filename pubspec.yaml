@@ -1,4 +1,4 @@
-name: SEA Catering
+name: sea_catering
 description: "A Flutter Catering project."
 
 publish_to: 'none'
@@ -42,6 +42,12 @@ dependencies:
   firebase_auth: ^4.17.6
   cloud_firestore: ^4.14.0
 
+  #Supabase
+  supabase_flutter: ^2.0.0
+  image_picker: ^1.0.0
+
+
+
 
 
 dev_dependencies:
@@ -57,8 +63,7 @@ flutter:
     - assets/logos/
     - assets/icons/
     - assets/images/background.png
-    - assets/images/logodark.png
-    - assets/images/logowhite.png
+    - assets/images/logo_catering.png
     - assets/images/pfp.jpg
     - assets/images/on_boarding_images/
     - assets/images/animations/

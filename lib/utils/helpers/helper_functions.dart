@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class THelperFunctions{
   static Color? getColor(String value){
     if(value == 'Green'){
-      return Colors.green;
+      return Colors.blueAccent;
     }
     return null;
 

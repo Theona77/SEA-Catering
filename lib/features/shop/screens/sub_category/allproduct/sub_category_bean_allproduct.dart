@@ -1,9 +1,9 @@
-import 'package:appppppp/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/common/widgets/layouts/grid_layout.dart';
-import 'package:appppppp/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/common/widgets/layouts/grid_layout.dart';
+import 'package:sea_catering/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 
 class AllFruitProductsScreen extends StatelessWidget {
   const AllFruitProductsScreen({super.key});

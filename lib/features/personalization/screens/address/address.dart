@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:appppppp/rounded_container.dart';
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/rounded_container.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 import 'add_bew_address.dart';
 import 'widgets/single_address.dart';
 
@@ -16,14 +16,14 @@ class UserAddressScreen extends StatelessWidget {
     // List of dummy addresses (can be from API or local DB later)
     final List<Map<String, dynamic>> addressList = [
       {
-        'name': 'Maikel',
-        'phone': '+62 82130255334',
+        'name': 'Brian',
+        'phone': '+62 8123456789',
         'address': 'Cikarang, Jawa Barat',
         'selected': true,
       },
       {
-        'name': 'Nabila',
-        'phone': '+62 81234567890',
+        'name': 'Theona',
+        'phone': '+62 8122321780',
         'address': 'Bandung, Jawa Barat',
         'selected': false,
       },

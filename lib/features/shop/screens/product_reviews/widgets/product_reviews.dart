@@ -1,9 +1,9 @@
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/features/shop/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
-import 'package:appppppp/features/shop/screens/product_reviews/widgets/rating_indicator.dart';
-import 'package:appppppp/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
-import 'package:appppppp/features/shop/screens/product_reviews/widgets/user_review_card.dart';
-import 'package:appppppp/utils/device/device_utility.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/features/shop/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
+import 'package:sea_catering/features/shop/screens/product_reviews/widgets/rating_indicator.dart';
+import 'package:sea_catering/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
+import 'package:sea_catering/features/shop/screens/product_reviews/widgets/user_review_card.dart';
+import 'package:sea_catering/utils/device/device_utility.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../utils/constants/colors.dart';

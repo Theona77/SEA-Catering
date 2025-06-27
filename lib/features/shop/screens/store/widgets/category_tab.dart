@@ -1,6 +1,6 @@
-import 'package:appppppp/common/widgets/layouts/grid_layout.dart';
-import 'package:appppppp/common/widgets/products/product_cards/product_card_vertical.dart';
-import 'package:appppppp/common/widgets/texts/section_heading.dart';
+import 'package:sea_catering/common/widgets/layouts/grid_layout.dart';
+import 'package:sea_catering/common/widgets/products/product_cards/product_card_vertical.dart';
+import 'package:sea_catering/common/widgets/texts/section_heading.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/brands/brand_show_case.dart';

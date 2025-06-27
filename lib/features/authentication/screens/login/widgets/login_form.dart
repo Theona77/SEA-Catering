@@ -1,6 +1,6 @@
-import 'package:appppppp/features/authentication/controllers/login/login_controller.dart';
-import 'package:appppppp/features/authentication/screens/signup/signup.dart';
-import 'package:appppppp/utils/validators/validation.dart';
+import 'package:sea_catering/features/authentication/controllers/login/login_controller.dart';
+import 'package:sea_catering/features/authentication/screens/signup/signup.dart';
+import 'package:sea_catering/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../navigation_menu.dart';
@@ -107,7 +107,7 @@ class TLoginForm extends StatelessWidget {
                   return Text(
                     TTexts.createAccount,
                     style: TextStyle(
-                      color: isDark ? Colors.white : TColors.darkerGreen,
+                      color: isDark ? Colors.white : TColors.darkerBlue,
                     ),
                   );
                 },

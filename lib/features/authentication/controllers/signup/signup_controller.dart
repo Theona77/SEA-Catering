@@ -1,13 +1,13 @@
-import 'package:appppppp/common/widgets/loaders/loaders.dart';
-import 'package:appppppp/common/widgets/network/network_manager.dart';
-import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
-import 'package:appppppp/data/repositories.authentication/user/user_model.dart';
-import 'package:appppppp/data/repositories.authentication/user/user_repository.dart';
-import 'package:appppppp/exception/firebase_exception.dart';
-import 'package:appppppp/features/authentication/screens/login/login.dart'; // <-- Ganti import ke LoginScreen
-import 'package:appppppp/features/authentication/screens/signup/verify_email.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/popups/full_screen_loader.dart';
+import 'package:sea_catering/common/widgets/loaders/loaders.dart';
+import 'package:sea_catering/common/widgets/network/network_manager.dart';
+import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
+import 'package:sea_catering/data/repositories.authentication/user/user_model.dart';
+import 'package:sea_catering/data/repositories.authentication/user/user_repository.dart';
+import 'package:sea_catering/exception/firebase_exception.dart';
+import 'package:sea_catering/features/authentication/screens/login/login.dart'; // <-- Ganti import ke LoginScreen
+import 'package:sea_catering/features/authentication/screens/signup/verify_email.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 

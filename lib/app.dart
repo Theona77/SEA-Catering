@@ -1,11 +1,11 @@
-import 'package:appppppp/bindings/general_bindings.dart';
-import 'package:appppppp/features/authentication/screens/onboarding.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/theme/theme.dart';
+import 'package:sea_catering/bindings/general_bindings.dart';
+import 'package:sea_catering/features/authentication/screens/onboarding.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:appppppp/features/authentication/screens/signup/signup.dart';
-import 'package:appppppp/features/authentication/screens/login/login.dart'; // pastikan import ini sesuai
+import 'package:sea_catering/features/authentication/screens/signup/signup.dart';
+import 'package:sea_catering/features/authentication/screens/login/login.dart'; // pastikan import ini sesuai
 
 
 class MyApp extends StatelessWidget {
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       initialBinding: GeneralBindings(),
       /// Show loader or Circular Progress Indicator meanwhile Authentication Repository is deciding to show relevant screen
-      home: const OnBoardingScreen(),
+      home: const Scaffold(backgroundColor: TColors.primary, body: Center(child: CircularProgressIndicator(color: Colors.white,),)),
       getPages: [
         GetPage(name: '/', page: () => const OnBoardingScreen()),
         GetPage(name: '/LoginScreen', page: () => const LoginScreen()),

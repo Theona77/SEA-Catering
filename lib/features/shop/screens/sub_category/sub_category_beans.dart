@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/common/widgets/images/t_rounded_image.dart';
-import 'package:appppppp/common/widgets/products/product_cards/product_card_horizontal.dart';
-import 'package:appppppp/common/widgets/texts/section_heading.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/common/widgets/images/t_rounded_image.dart';
+import 'package:sea_catering/common/widgets/products/product_cards/product_card_horizontal.dart';
+import 'package:sea_catering/common/widgets/texts/section_heading.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 
 class SubCategoriesSeedsScreens extends StatelessWidget {
   const SubCategoriesSeedsScreens({super.key});

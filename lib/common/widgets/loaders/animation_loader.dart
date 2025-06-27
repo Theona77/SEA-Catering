@@ -1,5 +1,5 @@
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -45,7 +45,7 @@ class TAnimationLoaderWidget extends StatelessWidget {
               child: OutlinedButton(
                 onPressed: onActionPressed,
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: TColors.darkerGreen,
+                  backgroundColor: TColors.darkerBlue,
                 ),
                 child: Text(
                   actionText ?? '',
