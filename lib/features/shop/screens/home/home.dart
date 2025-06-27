@@ -1,27 +1,19 @@
-import 'package:sea_catering/data/allproduct/allproduct.dart';
-import 'package:sea_catering/features/shop/screens/all_products.dart';
-import 'package:sea_catering/features/shop/screens/home/widgets/home_appbar.dart';
-import 'package:sea_catering/features/shop/screens/home/widgets/home_categories.dart';
-import 'package:sea_catering/features/shop/screens/home/widgets/promo_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:sea_catering/features/shop/screens/home/widgets/promo_slider.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
-import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
-import '../../../../common/widgets/layouts/grid_layout.dart';
-import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
+import '../../../../food_carousel.dart';
+import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
-import '../../../../utils/constants/text_strings.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(
         children: [
@@ -29,59 +21,95 @@ class HomeScreen extends StatelessWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                /// --- Header ---
+                /// --- Header / Banner ---
                 TPrimaryHeaderContainer(
-                  child: Column(
-                    children: [
-                      SizedBox(height: TSizes.spaceBtwSections),
-                      Text(TTexts.appName, style: Theme.of(context).textTheme.headlineLarge!.apply(color: Colors.white)),
-                      Text(TTexts.homeAppBarTitle, style: Theme.of(context).textTheme.labelMedium!.apply(color: Colors.white)),
-                      SizedBox(height: TSizes.spaceBtwSections),
-                      THomeAppBar(),
-                      SizedBox(height: TSizes.spaceBtwSections),
-                      TSearchContainer(text: 'Search in Store'),
-                      SizedBox(height: TSizes.spaceBtwSections),
-
-                      Padding(
-                        padding: EdgeInsets.only(left: TSizes.defaultSpace),
-                        child: Column(
-                          children: [
-                            TSectionHeading(title: 'Categories', showActionButton: false, textColor: Colors.white),
-                            SizedBox(height: TSizes.spaceBtwItems),
-                            THomeCategories(),
-                          ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(TSizes.defaultSpace),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image(
+                          height: 150,
+                          image: AssetImage(
+                            Theme.of(context).brightness == Brightness.dark
+                                ? TImages.lightAppLogo  // use light logo in dark mode
+                                : TImages.darkAppLogo,  // use dark logo in light mode
+                          ),
                         ),
-                      ),
-                      SizedBox(height: TSizes.spaceBtwSections),
-                    ],
+                        Text("SEA Catering", style: Theme.of(context).textTheme.headlineLarge!.apply(color: Colors.white)),
+                        const SizedBox(height: 8),
+                        Text("Healthy Meals, Anytime, Anywhere", style: Theme.of(context).textTheme.titleMedium!.apply(color: Colors.white)),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+                        Text(
+                          "SEA Catering is your trusted customizable healthy meal service with delivery across Indonesia.",
+                          style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),
+                        ),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+                      ],
+                    ),
                   ),
                 ),
 
-                /// --- Body ---
+                /// --- Features / Benefits ---
                 Padding(
                   padding: const EdgeInsets.all(TSizes.defaultSpace),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      TSectionHeading(title: "Why Choose SEA Catering?", showActionButton: false),
+
                       SizedBox(height: TSizes.spaceBtwSections),
-                      TSectionHeading(title: 'Popular Product', onPressed: () => Get.to(() => const AllProducts())),
-                      SizedBox(height: TSizes.spaceBtwItems),
-                      TGridLayout(
-                        itemCount: allProducts.length,
-                        itemBuilder: (_, index) {
-                          final product = allProducts[index];
-                          return TProductCardVertical(
-                            productId: product['id']!,
-                            imageUrl: product['image']!,
-                            title: product['title']!,
-                            brand: product['brand']!,
-                            price: product['price']!,
-                          );
-                        },
+
+                      /// --- Promo Slider ---
+                      const SizedBox(height: TSizes.spaceBtwItems),
+                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      const SizedBox(height: TSizes.spaceBtwItems *2),
+
+
+
+                      _buildFeatureCard(Icons.restaurant_menu, "Meal Customization", "Personalize your meals to fit your dietary needs."),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+
+                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+
+
+                      _buildFeatureCard(Icons.delivery_dining, "Nationwide Delivery", "We deliver to major cities across Indonesia."),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+
+                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+
+
+                      _buildFeatureCard(Icons.info_outline, "Nutritional Info", "Detailed nutritional information for every meal."),
+
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: FoodCarousel(),
                       ),
                     ],
                   ),
                 ),
+
+
+
+                /// --- Contact Section ---
+                Container(
+                  width: double.infinity,
+                  color: TColors.secondary.withOpacity(0.1),
+                  padding: const EdgeInsets.all(TSizes.defaultSpace),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Contact Us", style: Theme.of(context).textTheme.headlineSmall!.copyWith(fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 8),
+                      Text("Manager: Brian", style: Theme.of(context).textTheme.bodyMedium),
+                      Text("Phone: 08123456789", style: Theme.of(context).textTheme.bodyMedium),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: TSizes.spaceBtwSections),
               ],
             ),
           ),
@@ -106,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               },
-              backgroundColor: Colors.green,
+              backgroundColor: TColors.secondary,
               child: const Icon(Icons.chat),
             ),
           ),
@@ -114,5 +142,17 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
 
+  Widget _buildFeatureCard(IconData icon, String title, String description) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 2,
+      margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
+      child: ListTile(
+        leading: Icon(icon, size: 32, color: TColors.secondary),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(description),
+      ),
+    );
+  }
+}

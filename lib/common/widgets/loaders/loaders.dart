@@ -33,7 +33,7 @@ class TLoaders extends GetxController {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: TColors.white,
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: TColors.primary,
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 3),
       margin: const EdgeInsets.all(20),

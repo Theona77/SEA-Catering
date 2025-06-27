@@ -36,12 +36,39 @@ class TImages{
   static const String banner3 = "assets/images/banner/halfpricebanner.png";
   static const String banner4 = "assets/images/banner/hydrophonic.png";
   static const String banner5 = "assets/images/banner/indoorplants.png";
+  static const String banner6 = "assets/images/banner/1.png";
+  static const String banner7 = "assets/images/banner/2.png";
+  static const String banner8 = "assets/images/banner/3.png";
+  static const String banner9 = "assets/images/banner/4.png";
+  static const String banner10 = "assets/images/banner/5.png";
+  static const String banner11 = "assets/images/banner/6.png";
+  static const String banner12 = "assets/images/banner/7.png";
+  static const String banner13 = "assets/images/banner/8.png";
 
   //Profile
   static const String user = "assets/profilepicture/fotoprofil.png";
   static const String user2 = "assets/profilepicture/person1.png";
   static const String user3 = "assets/profilepicture/person2.png";
   static const String user4 = "assets/profilepicture/person3.png";
+
+  //Weight_Loss
+  static const String avocadotoast_poachedegg = "assets/images/weight_loss/avocadotoast_poached_egg.jpg";
+  static const String buddha_bowl = "assets/images/weight_loss/buddha_bowl.jpg";
+  static const String chicken_caesar_pasta_salad = "assets/images/weight_loss/chicken_caesar_pasta_salad.jpg";
+  static const String greek_yoghurt_banana = "assets/images/weight_loss/greek_yoghurt_banana.jpg";
+
+  //Image Carousel
+  static const String drinks = "assets/images/foodcarousel/drinks.png";
+  static const String family_friendly = "assets/images/foodcarousel/family_friendly.png";
+  static const String meat = "assets/images/foodcarousel/meat.png";
+  static const String quick_easy = "assets/images/foodcarousel/quick_easy.png";
+  static const String snacks = "assets/images/foodcarousel/snacks.png";
+  static const String soup = "assets/images/foodcarousel/soup.png";
+  static const String veggie = "assets/images/foodcarousel/veggie.png";
+
+
+
+
 
   //Product Images
   static const String product1 = "assets/images/product_veggies/brocoli.png";
