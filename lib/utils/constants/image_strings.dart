@@ -25,11 +25,13 @@ class TImages{
   static const String mailSent = "assets/images/animations/sentmail.gif";
 
   // Icon
-  static const String beans = "assets/icons/beans.png";
-  static const String nuts = "assets/icons/nuts.png";
-  static const String fruits = "assets/icons/fruits.png";
-  static const String veggies = "assets/icons/veggies.png";
-  static const String herbs = "assets/icons/herbs.png";
+  static const String drink_logo = "assets/icons/drink_logo.png";
+  static const String meat_logo = "assets/icons/meat_logo.png";
+  static const String soup_logo = "assets/icons/soup_logo.png";
+  static const String snack_logo = "assets/icons/snack_logo.png";
+  static const String quick_logo = "assets/icons/quickneasy_logo.png";
+  static const String fam_logo = "assets/icons/familyfriendly_logo.png";
+  static const String veggie_logo = "assets/icons/veggie_logo.png";
 
   //Banner
   static const String banner1 = "assets/images/banner/earthdaybanner.png";
@@ -68,13 +70,13 @@ class TImages{
   static const String veggie = "assets/images/foodcarousel/veggie.png";
 
   //Experience Carousel
-  static const String signcar = "assets/images/foodcarousel/2.png";
-  static const String ordercar = "assets/images/foodcarousel/3.png";
-  static const String customizecar = "assets/images/foodcarousel/4.png";
-  static const String paycar = "assets/images/foodcarousel/5.png";
-  static const String delivercar = "assets/images/foodcarousel/6.png";
-  static const String enjoycar = "assets/images/foodcarousel/7.png";
-  static const String ratecar = "assets/images/foodcarousel/8.png";
+  static const String signcar = "assets/images/experiencecarousel/2.png";
+  static const String ordercar = "assets/images/experiencecarousel/3.png";
+  static const String customizecar = "assets/images/experiencecarousel/4.png";
+  static const String paycar = "assets/images/experiencecarousel/5.png";
+  static const String delivercar = "assets/images/experiencecarousel/6.png";
+  static const String enjoycar = "assets/images/experiencecarousel/7.png";
+  static const String ratecar = "assets/images/experiencecarousel/8.png";
 
 
 

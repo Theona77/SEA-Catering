@@ -63,7 +63,7 @@ class TProductMetaData extends StatelessWidget {
         Row(
           children: [
             TCircularImage(
-              image: TImages.veggies,
+              image: TImages.veggie_logo,
               width: 32,
               height: 32,
               overlayColor: darkMode ? TColors.white : TColors.black,

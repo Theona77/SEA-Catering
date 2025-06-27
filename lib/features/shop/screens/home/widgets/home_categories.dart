@@ -15,29 +15,39 @@ class THomeCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> categories = [
       {
-        'image': TImages.veggies,
-        'title': 'Vegetables',
+        'image': TImages.veggie_logo,
+        'title': 'Veggie',
         'screen': () => const SubCategoriesScreens(),
       },
       {
-        'image': TImages.fruits,
-        'title': 'Fruits',
+        'image': TImages.drink_logo,
+        'title': 'Drinks',
         'screen': () => const SubCategoriesFruitScreens(),
       },
       {
-        'image': TImages.beans,
-        'title': 'Nuts',
+        'image': TImages.meat_logo,
+        'title': 'Meats',
         'screen': () => const SubCategoriesNutsScreens(),
       },
       {
-        'image': TImages.herbs,
-        'title': 'Herbs',
+        'image': TImages.soup_logo,
+        'title': 'Soups',
         'screen': () => const SubCategoriesHerbsScreens(),
       },
       {
-        'image': TImages.beans,
-        'title': 'Seeds',
+        'image': TImages.quick_logo,
+        'title': 'Quick',
         'screen': () => const SubCategoriesSeedsScreens(),
+      },
+      {
+        'image': TImages.snack_logo,
+        'title': 'Snacks',
+        'screen': () => const SubCategoriesNutsScreens(),
+      },
+      {
+        'image': TImages.fam_logo,
+        'title': 'Healthy',
+        'screen': () => const SubCategoriesNutsScreens(),
       },
     ];
 

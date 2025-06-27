@@ -31,7 +31,8 @@ class THttpHelper{
 
   static Map<String, dynamic> _handleResponse(http.Response response) {
     print('STATUS: ${response.statusCode}');
-    print('BODY: ${response.body}');
+    debugPrint('BODY: ${response.body}', wrapWidth: 1024);
+
 
     if (response.statusCode == 200) {
       if (response.body.isEmpty) {
