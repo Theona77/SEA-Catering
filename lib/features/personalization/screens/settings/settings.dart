@@ -12,6 +12,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../subscription_screen.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
@@ -69,6 +70,12 @@ class SettingScreen extends StatelessWidget {
                         title: 'My Orders',
                         subtitle: 'On progress and Completed Orders',
                         onTap: () => Get.to(() => const OrderScreen()),
+                    ),
+                    TSettingsMenuTile(
+                      icon: Iconsax.calendar_1,
+                      title: 'My Subscriptions',
+                      subtitle: 'Manage your meal plan subscription',
+                      onTap: () => Get.to(() => const SubscriptionScreen()),
                     ),
                     TSettingsMenuTile(
                         icon: Iconsax.bank,

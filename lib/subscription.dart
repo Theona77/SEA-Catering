@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -45,31 +46,35 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
   }
 
   void _submitForm() async {
-    if (_isSubmitting) return; // prevent double submit
+    if (_isSubmitting) return;
 
     final form = _formKey.currentState;
     if (form == null) return;
 
-    // Check for field-specific missing inputs
     final textFieldsValid = form.validate();
     if (!textFieldsValid) {
       Get.snackbar('Error', 'Please fill in Name and Phone.');
       return;
     }
 
-    // Validate form
     if (_plan == null || _mealTypes.isEmpty || _deliveryDays.isEmpty) {
       Get.snackbar('Missing Selections', 'Select a plan, meal types and delivery days.');
       return;
     }
 
-    // Submit
     form.save();
     _calculatePrice();
     setState(() => _isSubmitting = true);
 
     try {
+      final userId = FirebaseAuth.instance.currentUser?.uid;
+      if (userId == null) {
+        Get.snackbar('Error', 'You must be logged in to submit.');
+        return;
+      }
+
       await FirebaseFirestore.instance.collection('subscriptions').add({
+        'user_id': userId,
         'name': _name,
         'phone': _phone,
         'plan': _plan,
@@ -94,6 +99,8 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
       setState(() => _isSubmitting = false);
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
