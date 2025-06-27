@@ -69,6 +69,7 @@ flutter:
     - assets/images/on_boarding_images/
     - assets/images/animations/
     - assets/icons/
+    - assets/images/banner/indonesia.png
     - assets/images/banner/
     - assets/profilepicture/
     - assets/images/product_veggies/
@@ -80,6 +81,7 @@ flutter:
     - assets/images/product_nuts/
     - assets/images/weight_loss/
     - assets/images/foodcarousel/
+    - assets/images/experiencecarousel/
 
 
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sea_catering/experience.dart';
 import 'package:sea_catering/features/shop/screens/home/widgets/promo_slider.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
@@ -78,17 +79,106 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(height: TSizes.spaceBtwItems),
 
                       Image.asset(
-                        'assets/images/banner/indonesia.png',
+                        TImages.indonesia,
                         width: double.infinity,
                         fit: BoxFit.cover,
+                        height: 300,
                       ),
 
-                      const SizedBox(height: TSizes.spaceBtwSections),
 
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: FoodCarousel(),
                       ),
+
+                      const SizedBox(height: TSizes.spaceBtwSections),
+
+                      Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "What's Inside of SEA Catering ?",
+                              style: Theme.of(context).textTheme.titleLarge!.apply(color: Colors.white),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 8),
+
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text("✓ ", style: TextStyle(color: Colors.white)),
+                                Flexible(
+                                  child: Text(
+                                    "Fresh, quality produce",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 4),
+
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text("✓ ", style: TextStyle(color: Colors.white)),
+                                Flexible(
+                                  child: Text(
+                                    "Healthy Low Calorie Foods",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+
+                            const SizedBox(height: 4),
+
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text("✓ ", style: TextStyle(color: Colors.white)),
+                                Flexible(
+                                  child: Text(
+                                    "Top-notch proteins",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 4),
+
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text("✓ ", style: TextStyle(color: Colors.white)),
+                                Flexible(
+                                  child: Text(
+                                    "Less Sugar or Even Sugar Free!",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 4),
+
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text("✓ ", style: TextStyle(color: Colors.white)),
+                                Flexible(
+                                  child: Text(
+                                    "Mismatch based on your preference!",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
 
                       const SizedBox(height: TSizes.spaceBtwSections),
 
@@ -116,7 +206,7 @@ class HomeScreen extends StatelessWidget {
 
                       Padding(
                         padding: const EdgeInsets.all(16),
-                        child: FoodCarousel(),
+                        child: ExperienceCarousel(),
                       ),
                     ],
                   ),
