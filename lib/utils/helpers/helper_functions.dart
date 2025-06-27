@@ -2,11 +2,13 @@ import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
+
 
 class THelperFunctions{
   static Color? getColor(String value){
     if(value == 'Green'){
-      return Colors.blueAccent;
+      return TColors.primary;
     }
     return null;
 

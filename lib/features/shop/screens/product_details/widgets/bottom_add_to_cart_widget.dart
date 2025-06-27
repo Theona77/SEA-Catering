@@ -41,7 +41,7 @@ class TBottomAddToCart extends StatelessWidget{
 
               const TCircularIcon(
                 icon: Iconsax.add,
-                backgroundColor: Colors.blueAccent,
+                backgroundColor: TColors.primary,
                 width: 40,
                 height: 40,
                 color: TColors.white,
@@ -55,9 +55,9 @@ class TBottomAddToCart extends StatelessWidget{
             onPressed: (){},
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.all(TSizes.md),
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: TColors.primary,
               foregroundColor: Colors.white,
-              side: const BorderSide(color: Colors.blueAccent),
+              side: const BorderSide(color: TColors.primary),
             ),
             child: const Text("Add to Cart"),
           )

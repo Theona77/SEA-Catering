@@ -8,6 +8,8 @@ import 'package:sea_catering/utils/theme/custom_themes/outlined_button_theme.dar
 import 'package:flutter/material.dart';
 import 'package:sea_catering/utils/theme/custom_themes/text_theme.dart';
 
+import '../constants/colors.dart';
+
 
 class AppTheme {
   AppTheme._();
@@ -16,7 +18,7 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
-    primaryColor: Colors.blueAccent,
+    primaryColor: TColors.primary,
     scaffoldBackgroundColor: Colors.white ,
     textTheme: AppTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
@@ -34,7 +36,7 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
-    primaryColor: Colors.blueAccent,
+    primaryColor: TColors.primary,
     scaffoldBackgroundColor: Colors.black ,
     textTheme: AppTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
