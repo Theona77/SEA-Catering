@@ -1,6 +1,6 @@
 # SEA Catering - Flutter Mobile App 🍽️
 
-SEA Catering is a Flutter-based mobile application that allows users to subscribe to customizable healthy meal plans. The app supports features such as subscription forms, meal plan selection, promo sliders, and Firebase integration for data storage.
+SEA Catering is a Flutter-based mobile application that allows users to subscribe to customizable healthy meal plans. The app supports features such as subscription forms, meal plan selection, promo sliders, and Firebase integration for data storage. 
 
 ---
 
@@ -9,9 +9,12 @@ SEA Catering is a Flutter-based mobile application that allows users to subscrib
 - Meal plan subscription with customizable options.
 - Dynamic price calculation based on user input.
 - Firebase Firestore integration for real-time database storage.
-- Carousel slider for promotional banners.
+- Edit address and profile picture
+- Edit profile picture information
+- Carousel slider for promotional banners, foods, and experience.
 - Form validation with user feedback.
-- Admin-ready setup instructions.
+- Light and Dark Mode
+
 
 ---
 
