@@ -1,7 +1,7 @@
-import 'package:appppppp/common/widgets/images/t_circular_image.dart';
-import 'package:appppppp/common/widgets/texts/product_price_text.dart';
-import 'package:appppppp/common/widgets/texts/product_title_text.dart';
-import 'package:appppppp/common/widgets/texts/t_brand_title_with_verified_icon.dart';
+import 'package:sea_catering/common/widgets/images/t_circular_image.dart';
+import 'package:sea_catering/common/widgets/texts/product_price_text.dart';
+import 'package:sea_catering/common/widgets/texts/product_title_text.dart';
+import 'package:sea_catering/common/widgets/texts/t_brand_title_with_verified_icon.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../rounded_container.dart';

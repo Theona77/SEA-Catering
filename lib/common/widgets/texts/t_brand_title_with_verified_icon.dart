@@ -1,7 +1,7 @@
-import 'package:appppppp/common/widgets/texts/t_brand_title_text.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/enums.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/common/widgets/texts/t_brand_title_text.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/enums.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

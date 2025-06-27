@@ -1,8 +1,8 @@
-import 'package:appppppp/features/authentication/controllers/signup/signup_controller.dart';
-import 'package:appppppp/features/authentication/controllers/terms_condition_checkbox/terms_conditions_checkbox.dart';
-import 'package:appppppp/utils/validators/validation.dart';
+import 'package:sea_catering/features/authentication/controllers/signup/signup_controller.dart';
+import 'package:sea_catering/features/authentication/controllers/terms_condition_checkbox/terms_conditions_checkbox.dart';
+import 'package:sea_catering/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';

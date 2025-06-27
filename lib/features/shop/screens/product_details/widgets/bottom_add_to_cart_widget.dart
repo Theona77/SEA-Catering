@@ -1,4 +1,4 @@
-import 'package:appppppp/common/widgets/icon/t_circular_icon.dart';
+import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -41,7 +41,7 @@ class TBottomAddToCart extends StatelessWidget{
 
               const TCircularIcon(
                 icon: Iconsax.add,
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.blueAccent,
                 width: 40,
                 height: 40,
                 color: TColors.white,
@@ -55,9 +55,9 @@ class TBottomAddToCart extends StatelessWidget{
             onPressed: (){},
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.all(TSizes.md),
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.blueAccent,
               foregroundColor: Colors.white,
-              side: const BorderSide(color: Colors.green),
+              side: const BorderSide(color: Colors.blueAccent),
             ),
             child: const Text("Add to Cart"),
           )

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:appppppp/common/widgets/images/t_rounded_image.dart';
-import 'package:appppppp/common/widgets/texts/product_title_text.dart';
-import 'package:appppppp/common/widgets/texts/t_brand_title_with_verified_icon.dart';
-import 'package:appppppp/common/widgets/texts/product_price_text.dart';
-import 'package:appppppp/features/shop/screens/cart/widgets/add_remove_button.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/images/t_rounded_image.dart';
+import 'package:sea_catering/common/widgets/texts/product_title_text.dart';
+import 'package:sea_catering/common/widgets/texts/t_brand_title_with_verified_icon.dart';
+import 'package:sea_catering/common/widgets/texts/product_price_text.dart';
+import 'package:sea_catering/features/shop/screens/cart/widgets/add_remove_button.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 
 class TCartItemTile extends StatelessWidget {
   final String id;

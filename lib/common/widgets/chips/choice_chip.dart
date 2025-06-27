@@ -1,5 +1,5 @@
-import 'package:appppppp/common/widgets/custom_shapes/containers/circular_container.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/custom_shapes/containers/circular_container.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';

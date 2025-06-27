@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class THttpHelper{
-  static const String _baseUrl = 'https://us-central1-agribridge4.cloudfunctions.net';
+  static const String _baseUrl = '';
 
   static Future<Map<String, dynamic>> get(String endpoint) async{
     final response = await http.get(Uri.parse('$_baseUrl/$endpoint'));

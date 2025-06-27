@@ -1,4 +1,4 @@
-import 'package:appppppp/features/shop/models/wishlist.dart';
+import 'package:sea_catering/features/shop/models/wishlist.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 

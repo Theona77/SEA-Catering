@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 
 class TLoginHeader extends StatelessWidget{
   const TLoginHeader({super.key});

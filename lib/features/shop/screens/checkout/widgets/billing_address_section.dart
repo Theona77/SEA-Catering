@@ -1,5 +1,5 @@
-import 'package:appppppp/common/widgets/texts/section_heading.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/common/widgets/texts/section_heading.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class TBillingAddressSection extends StatelessWidget {

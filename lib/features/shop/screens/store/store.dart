@@ -1,9 +1,9 @@
-import 'package:appppppp/common/widgets/custom_shapes/containers/search_container.dart';
-import 'package:appppppp/common/widgets/layouts/grid_layout.dart';
-import 'package:appppppp/common/widgets/products/cart/cart_menu_icon.dart';
-import 'package:appppppp/common/widgets/texts/section_heading.dart';
-import 'package:appppppp/features/shop/screens/store/widgets/category_tab.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:sea_catering/common/widgets/layouts/grid_layout.dart';
+import 'package:sea_catering/common/widgets/products/cart/cart_menu_icon.dart';
+import 'package:sea_catering/common/widgets/texts/section_heading.dart';
+import 'package:sea_catering/features/shop/screens/store/widgets/category_tab.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/brands/brand_card.dart';

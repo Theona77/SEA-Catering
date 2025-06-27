@@ -1,20 +1,20 @@
-import 'package:appppppp/features/authentication/controllers/order/orderController.dart';
+import 'package:sea_catering/features/authentication/controllers/order/orderController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/common/widgets/products/cart/coupon_widget.dart';
-import 'package:appppppp/common/widgets/success_screen/success_screen.dart';
-import 'package:appppppp/features/authentication/controllers/cart/CartController.dart';
-import 'package:appppppp/features/shop/screens/cart/widgets/cart_item.dart';
-import 'package:appppppp/features/shop/screens/checkout/widgets/billing_address_section.dart';
-import 'package:appppppp/features/shop/screens/checkout/widgets/billing_amount_section.dart';
-import 'package:appppppp/features/shop/screens/checkout/widgets/billing_payment_section.dart';
-import 'package:appppppp/navigation_menu.dart';
-import 'package:appppppp/rounded_container.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/common/widgets/products/cart/coupon_widget.dart';
+import 'package:sea_catering/common/widgets/success_screen/success_screen.dart';
+import 'package:sea_catering/features/authentication/controllers/cart/CartController.dart';
+import 'package:sea_catering/features/shop/screens/cart/widgets/cart_item.dart';
+import 'package:sea_catering/features/shop/screens/checkout/widgets/billing_address_section.dart';
+import 'package:sea_catering/features/shop/screens/checkout/widgets/billing_amount_section.dart';
+import 'package:sea_catering/features/shop/screens/checkout/widgets/billing_payment_section.dart';
+import 'package:sea_catering/navigation_menu.dart';
+import 'package:sea_catering/rounded_container.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 
 class CheckoutScreen extends StatelessWidget {
   const CheckoutScreen({super.key});

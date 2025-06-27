@@ -1,4 +1,4 @@
-import 'package:appppppp/features/shop/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
+import 'package:sea_catering/features/shop/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
 import 'package:flutter/material.dart';
 
 

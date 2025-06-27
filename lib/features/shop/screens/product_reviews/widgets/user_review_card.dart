@@ -1,5 +1,5 @@
-import 'package:appppppp/features/shop/screens/product_reviews/widgets/rating_indicator.dart';
-import 'package:appppppp/rounded_container.dart';
+import 'package:sea_catering/features/shop/screens/product_reviews/widgets/rating_indicator.dart';
+import 'package:sea_catering/rounded_container.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 

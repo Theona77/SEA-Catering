@@ -1,6 +1,6 @@
-import 'package:appppppp/data/repositories.authentication/authentication_repository.dart';
-import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart';
-import 'package:appppppp/features/authentication/controllers/signup/verify_email_controller.dart' as verifyEmailController;
+import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
+import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart';
+import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart' as verifyEmailController;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -39,7 +39,7 @@ class VerifyEmailScreen extends StatelessWidget {
             children: [
               /// Image
               Image(
-                image: const AssetImage(TImages.animation1),
+                image: const AssetImage(TImages.onBoardingImage5),
                 width: THelperFunctions.screenWidth(),
               ),
               const SizedBox(height: TSizes.spaceBtwSections),

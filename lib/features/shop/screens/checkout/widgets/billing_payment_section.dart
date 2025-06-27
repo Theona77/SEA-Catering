@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:appppppp/common/widgets/texts/section_heading.dart';
-import 'package:appppppp/rounded_container.dart';
-import 'package:appppppp/utils/constants/colors.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/common/widgets/texts/section_heading.dart';
+import 'package:sea_catering/rounded_container.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 
 class TBillingPaymentSection extends StatefulWidget {
   const TBillingPaymentSection({super.key});

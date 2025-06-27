@@ -1,8 +1,8 @@
 
 
-import 'package:appppppp/common/widgets/loaders/loaders.dart';
-import 'package:appppppp/data/repositories.authentication/categories/category_repository.dart';
-import 'package:appppppp/features/shop/models/category_model.dart';
+import 'package:sea_catering/common/widgets/loaders/loaders.dart';
+import 'package:sea_catering/data/repositories.authentication/categories/category_repository.dart';
+import 'package:sea_catering/features/shop/models/category_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

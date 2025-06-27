@@ -1,6 +1,6 @@
-import 'package:appppppp/common/widgets/appbar/appbar.dart';
-import 'package:appppppp/features/shop/screens/order/widgets/order_list.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
+import 'package:sea_catering/common/widgets/appbar/appbar.dart';
+import 'package:sea_catering/features/shop/screens/order/widgets/order_list.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

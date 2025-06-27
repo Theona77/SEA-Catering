@@ -1,5 +1,5 @@
 
-import 'package:appppppp/features/authentication/screens/password_configuration/reset_password.dart';
+import 'package:sea_catering/features/authentication/screens/password_configuration/reset_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

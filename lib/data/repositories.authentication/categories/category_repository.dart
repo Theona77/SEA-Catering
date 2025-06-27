@@ -1,7 +1,7 @@
 
 
-import 'package:appppppp/exception/firebase_exception.dart';
-import 'package:appppppp/features/shop/models/category_model.dart';
+import 'package:sea_catering/exception/firebase_exception.dart';
+import 'package:sea_catering/features/shop/models/category_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';

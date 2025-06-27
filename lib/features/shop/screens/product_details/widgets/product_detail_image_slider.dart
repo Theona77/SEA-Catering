@@ -1,4 +1,4 @@
-import 'package:appppppp/utils/helpers/helper_functions.dart';
+import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

@@ -1,14 +1,17 @@
 class TImages{
-  static const String darkAppLogo = "assets/images/logodark.png";
-  static const String lightAppLogo = "assets/images/logowhite.png";
+  static const String darkAppLogo = "assets/images/logo_catering.png";
+  static const String lightAppLogo = "assets/images/logo_catering.png";
 
   //Background
   static const String background = "assets/images/background.png";
 
   //On Boarding Images
-  static const String onBoardingImage1 = "assets/images/on_boarding_images/deliveryservice.gif";
-  static const String onBoardingImage2 = "assets/images/on_boarding_images/deliverymanridingscooter.gif";
-  static const String onBoardingImage3 = "assets/images/on_boarding_images/onlinedeliveryservice.gif";
+  static const String onBoardingImage3 = "assets/images/on_boarding_images/enjoy_food.gif";
+  static const String onBoardingImage2 = "assets/images/on_boarding_images/searching_food.gif";
+  static const String onBoardingImage1 = "assets/images/on_boarding_images/food_served.gif";
+  static const String onBoardingImage4 = "assets/images/on_boarding_images/delivery_bike.gif";
+  static const String onBoardingImage5 = "assets/images/on_boarding_images/man_think.gif";
+  static const String onBoardingImage6 = "assets/images/on_boarding_images/payment_done.gif";
 
   //Social Logo
   static const String google = "assets/logos/google.png";

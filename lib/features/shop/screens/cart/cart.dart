@@ -1,10 +1,10 @@
-import 'package:appppppp/common/widgets/texts/product_price_text.dart';
-import 'package:appppppp/common/widgets/texts/product_title_text.dart';
-import 'package:appppppp/common/widgets/texts/t_brand_title_with_verified_icon.dart';
-import 'package:appppppp/features/authentication/controllers/cart/CartController.dart';
-import 'package:appppppp/features/shop/screens/cart/widgets/add_remove_button.dart';
-import 'package:appppppp/features/shop/screens/cart/widgets/cart_item.dart';
-import 'package:appppppp/features/shop/screens/cart/widgets/cart_item_tile.dart';
+import 'package:sea_catering/common/widgets/texts/product_price_text.dart';
+import 'package:sea_catering/common/widgets/texts/product_title_text.dart';
+import 'package:sea_catering/common/widgets/texts/t_brand_title_with_verified_icon.dart';
+import 'package:sea_catering/features/authentication/controllers/cart/CartController.dart';
+import 'package:sea_catering/features/shop/screens/cart/widgets/add_remove_button.dart';
+import 'package:sea_catering/features/shop/screens/cart/widgets/cart_item.dart';
+import 'package:sea_catering/features/shop/screens/cart/widgets/cart_item_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

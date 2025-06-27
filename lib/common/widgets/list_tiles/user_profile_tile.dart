@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:appppppp/features/authentication/controllers/user/userController.dart';
-import 'package:appppppp/common/widgets/images/t_circular_image.dart';
-import 'package:appppppp/utils/constants/image_strings.dart';
-import 'package:appppppp/utils/constants/sizes.dart';
-import 'package:appppppp/utils/constants/colors.dart';
+import 'package:sea_catering/features/authentication/controllers/user/userController.dart';
+import 'package:sea_catering/common/widgets/images/t_circular_image.dart';
+import 'package:sea_catering/utils/constants/image_strings.dart';
+import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/constants/colors.dart';
 
 class TUserProfileTile extends StatelessWidget {
   final VoidCallback onPressed;
