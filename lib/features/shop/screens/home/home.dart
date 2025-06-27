@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
 
                       /// --- Promo Slider ---
                       const SizedBox(height: TSizes.spaceBtwItems),
-                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      TPromoSlider(banners: [TImages.banner6, TImages.banner7, TImages.banner8]),
                       const SizedBox(height: TSizes.spaceBtwItems *2),
 
 
@@ -70,19 +70,21 @@ class HomeScreen extends StatelessWidget {
                       _buildFeatureCard(Icons.restaurant_menu, "Meal Customization", "Personalize your meals to fit your dietary needs."),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
-                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      TPromoSlider(banners: [TImages.banner1, TImages.banner9, TImages.banner10, TImages.banner11]),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
 
                       _buildFeatureCard(Icons.delivery_dining, "Nationwide Delivery", "We deliver to major cities across Indonesia."),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
-                      TPromoSlider(banners: [TImages.banner1, TImages.banner2, TImages.banner3, TImages.banner4, TImages.banner5]),
+                      TPromoSlider(banners: [TImages.banner13, TImages.banner12]),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
 
                       _buildFeatureCard(Icons.info_outline, "Nutritional Info", "Detailed nutritional information for every meal."),
 
+                      const SizedBox(height: TSizes.spaceBtwItems),
+                      const SizedBox(height: TSizes.spaceBtwItems),
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: FoodCarousel(),

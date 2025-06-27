@@ -67,9 +67,6 @@ class TImages{
   static const String veggie = "assets/images/foodcarousel/veggie.png";
 
 
-
-
-
   //Product Images
   static const String product1 = "assets/images/product_veggies/brocoli.png";
   static const String product2 = "assets/images/product_veggies/lettuce.png";
