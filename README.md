@@ -35,3 +35,31 @@ Follow these steps to run the project locally on your machine.
 ```bash
 git clone https://github.com/your-username/sea-catering-app.git
 cd sea-catering-app
+```
+
+### 2. Install dependencies
+
+```bash
+flutter pub get
+```
+
+### 3. Install dependencies
+
+## 🔐 Add your Firebase config:
+
+- Go to Firebase Console
+- Create a new project (or use existing)
+- Add an Android/iOS/Web app
+- Download the config file and place it in the correct location:
+
+## For Android:
+
+```bash
+/android/app/google-services.json
+```
+
+## For iOS:
+
+```bash
+/ios/Runner/GoogleService-Info.plist
+```
