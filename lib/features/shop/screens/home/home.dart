@@ -22,33 +22,45 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 /// --- Header / Banner ---
+
                 TPrimaryHeaderContainer(
                   child: Padding(
                     padding: const EdgeInsets.all(TSizes.defaultSpace),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image(
-                          height: 150,
-                          image: AssetImage(
-                            Theme.of(context).brightness == Brightness.dark
-                                ? TImages.lightAppLogo  // use light logo in dark mode
-                                : TImages.darkAppLogo,  // use dark logo in light mode
+                    child: SizedBox(
+                      width: double.infinity,  // Ensures content stretches to full width
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image(
+                            height: 150,
+                            width: double.infinity,  // Optional: make logo stretch full width (or remove if you want to control logo size)
+                            fit: BoxFit.contain,
+                            image: AssetImage(
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? TImages.lightAppLogo
+                                  : TImages.darkAppLogo,
+                            ),
                           ),
-                        ),
-                        Text("SEA Catering", style: Theme.of(context).textTheme.headlineLarge!.apply(color: Colors.white)),
-                        const SizedBox(height: 8),
-                        Text("Healthy Meals, Anytime, Anywhere", style: Theme.of(context).textTheme.titleMedium!.apply(color: Colors.white)),
-                        const SizedBox(height: TSizes.spaceBtwSections),
-                        Text(
-                          "SEA Catering is your trusted customizable healthy meal service with delivery across Indonesia.",
-                          style: Theme.of(context).textTheme.bodyMedium!.apply(color: Colors.white),
-                        ),
-                        const SizedBox(height: TSizes.spaceBtwSections),
-                      ],
+                          Center(
+                            child: Text(
+                              "SEA Catering",
+                              style: Theme.of(context).textTheme.headlineLarge!.apply(color: Colors.white),
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Center(
+                            child: Text(
+                              "Healthy Meals, Anytime, Anywhere",
+                              style: Theme.of(context).textTheme.titleMedium!.apply(color: Colors.white),
+                            ),
+                          ),
+                          const SizedBox(height: TSizes.spaceBtwSections),
+                        ],
+                      ),
                     ),
                   ),
                 ),
+
 
                 /// --- Features / Benefits ---
                 Padding(
@@ -57,15 +69,34 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TSectionHeading(title: "Why Choose SEA Catering?", showActionButton: false),
+                      const SizedBox(height: TSizes.spaceBtwItems),
 
-                      SizedBox(height: TSizes.spaceBtwSections),
+                      Text(
+                        "SEA Catering is your trusted, customizable healthy meal service that brings nutritious, delicious meals right to your doorstep. Whether you're focused on fitness, managing specific dietary needs, or simply looking for convenient healthy meals, we've got you covered across Indonesia.",
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+
+                      Image.asset(
+                        'assets/images/banner/indonesia.png',
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+
+                      const SizedBox(height: TSizes.spaceBtwSections),
+
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: FoodCarousel(),
+                      ),
+
+                      const SizedBox(height: TSizes.spaceBtwSections),
+
 
                       /// --- Promo Slider ---
                       const SizedBox(height: TSizes.spaceBtwItems),
                       TPromoSlider(banners: [TImages.banner6, TImages.banner7, TImages.banner8]),
-                      const SizedBox(height: TSizes.spaceBtwItems *2),
-
-
+                      const SizedBox(height: TSizes.spaceBtwItems * 2),
 
                       _buildFeatureCard(Icons.restaurant_menu, "Meal Customization", "Personalize your meals to fit your dietary needs."),
                       const SizedBox(height: TSizes.spaceBtwItems),
@@ -73,18 +104,16 @@ class HomeScreen extends StatelessWidget {
                       TPromoSlider(banners: [TImages.banner1, TImages.banner9, TImages.banner10, TImages.banner11]),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
-
                       _buildFeatureCard(Icons.delivery_dining, "Nationwide Delivery", "We deliver to major cities across Indonesia."),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
                       TPromoSlider(banners: [TImages.banner13, TImages.banner12]),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
-
                       _buildFeatureCard(Icons.info_outline, "Nutritional Info", "Detailed nutritional information for every meal."),
+                      const SizedBox(height: TSizes.spaceBtwItems),
+                      const SizedBox(height: TSizes.spaceBtwItems),
 
-                      const SizedBox(height: TSizes.spaceBtwItems),
-                      const SizedBox(height: TSizes.spaceBtwItems),
                       Padding(
                         padding: const EdgeInsets.all(16),
                         child: FoodCarousel(),
