@@ -4,6 +4,7 @@ class TImages{
 
   //Background
   static const String background = "assets/images/background.png";
+  static const String indonesia = "assets/images/banner/indonesia.png";
 
   //On Boarding Images
   static const String onBoardingImage3 = "assets/images/on_boarding_images/enjoy_food.gif";
@@ -65,6 +66,16 @@ class TImages{
   static const String snacks = "assets/images/foodcarousel/snacks.png";
   static const String soup = "assets/images/foodcarousel/soup.png";
   static const String veggie = "assets/images/foodcarousel/veggie.png";
+
+  //Experience Carousel
+  static const String signcar = "assets/images/foodcarousel/2.png";
+  static const String ordercar = "assets/images/foodcarousel/3.png";
+  static const String customizecar = "assets/images/foodcarousel/4.png";
+  static const String paycar = "assets/images/foodcarousel/5.png";
+  static const String delivercar = "assets/images/foodcarousel/6.png";
+  static const String enjoycar = "assets/images/foodcarousel/7.png";
+  static const String ratecar = "assets/images/foodcarousel/8.png";
+
 
 
   //Product Images
