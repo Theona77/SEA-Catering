@@ -3,13 +3,14 @@
 import 'package:sea_catering/common/widgets/loaders/loaders.dart';
 import 'package:sea_catering/common/widgets/network/network_manager.dart';
 import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
+import 'package:sea_catering/features/authentication/controllers/user/userController.dart';
 import 'package:sea_catering/utils/constants/image_strings.dart';
 import 'package:sea_catering/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class loginController extends GetxController {
+class LoginController extends GetxController {
 
   // Variables
   final rememberMe = false.obs;
@@ -18,6 +19,7 @@ class loginController extends GetxController {
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
   @override
   void onInit() {
@@ -28,6 +30,40 @@ class loginController extends GetxController {
     password.text = savedPassword is String ? savedPassword : '';
 
     super.onInit();
+  }
+
+  /// -- Google SignIn Authentication
+  Future<void> googleSIgnIn() async{
+    try{
+      // Start Loading
+      TFullScreenLoader.openLoadingDialog('Logging you in...', TImages.animation3);
+
+      //Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if(!isConnected){
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      //Google Authentication
+      final userCredentials = await AuthenticationRepository.instance.signInWithGoogle();
+
+      //Save User record
+      await userController.saveUserRecord(userCredentials);
+
+      //Remove loader
+      TFullScreenLoader.stopLoading();
+
+      //Redirect
+      AuthenticationRepository.instance.screenRedirect();
+
+
+    } catch(e){
+
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh snap', message: e.toString());
+
+    }
   }
 
 

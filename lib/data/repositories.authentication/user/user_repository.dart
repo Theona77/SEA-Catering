@@ -10,8 +10,8 @@ import '../../../exception/format_exceptions.dart';
 import '../../../exception/platform_exceptions.dart';
 
 class UserRepository extends GetxController {
-  static UserRepository get instance => Get.find();
 
+  static UserRepository get instance => Get.find();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   /// Function to save user data to Firestore.
@@ -39,6 +39,8 @@ class UserRepository extends GetxController {
       throw Exception('Something went wrong. Please try again!');
     }
   }
+
+
 
 
   /// Function to fetch user details based on user ID
@@ -75,6 +77,9 @@ class UserRepository extends GetxController {
     }
   }
 
+
+
+
   /// Function to update user data
   Future<void> updateUser(UserModel user) async {
     try {
@@ -92,6 +97,8 @@ class UserRepository extends GetxController {
       throw Exception('Failed to update user: $e');
     }
   }
+
+
 
   /// Function to check if user exists
   Future<bool> userExists(String userId) async {
