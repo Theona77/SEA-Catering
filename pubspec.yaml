@@ -83,16 +83,14 @@ flutter:
     - assets/images/banner/indonesia.png
     - assets/images/banner/
     - assets/profilepicture/
-    - assets/images/product_veggies/
     - assets/paymentmethods/
     - assets/images/
-    - assets/images/product_fruits/
-    - assets/images/product_herbs/
-    - assets/images/product_seeds/
-    - assets/images/product_nuts/
     - assets/images/weight_loss/
     - assets/images/foodcarousel/
     - assets/images/experiencecarousel/
+    - assets/images/foods/
+    - assets/images/drinks/
+    - assets/images/veggies/
 
 
 

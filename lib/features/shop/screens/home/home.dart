@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sea_catering/experience.dart';
 import 'package:sea_catering/features/shop/screens/home/widgets/promo_slider.dart';
 
+import '../../../../ai_chat.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../food_carousel.dart';
@@ -73,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(height: TSizes.spaceBtwItems),
 
                       Text(
-                        "SEA Catering is your trusted, customizable healthy meal service that brings nutritious, delicious meals right to your doorstep. Whether you're focused on fitness, managing specific dietary needs, or simply looking for convenient healthy meals, we've got you covered across Indonesia.",
+                        "SEA Catering is your trusted, customizable healthy meal service that brings nutritious, delicious meals right to your doorstep. Whether you're focused on fitness, managing specific Dietary needs, or simply looking for convenient healthy meals, we've got you covered across Indonesia.",
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       const SizedBox(height: TSizes.spaceBtwItems),
@@ -188,7 +189,7 @@ class HomeScreen extends StatelessWidget {
                       TPromoSlider(banners: [TImages.banner6, TImages.banner7, TImages.banner8]),
                       const SizedBox(height: TSizes.spaceBtwItems * 2),
 
-                      _buildFeatureCard(Icons.restaurant_menu, "Meal Customization", "Personalize your meals to fit your dietary needs."),
+                      _buildFeatureCard(Icons.restaurant_menu, "Meal Customization", "Personalize your meals to fit your Dietary needs."),
                       const SizedBox(height: TSizes.spaceBtwItems),
 
                       TPromoSlider(banners: [TImages.banner1, TImages.banner9, TImages.banner10, TImages.banner11]),
@@ -236,29 +237,26 @@ class HomeScreen extends StatelessWidget {
           ),
 
           /// --- Chat Button ---
+          /// --- Chat Button ---
           Positioned(
             bottom: 20,
             right: 20,
             child: FloatingActionButton(
               onPressed: () {
-                showDialog(
+                showModalBottomSheet(
                   context: context,
-                  builder: (_) => AlertDialog(
-                    title: const Text('Contact Manager'),
-                    content: const Text('Manager: Brian\nPhone: 08123456789'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text('Close'),
-                      ),
-                    ],
+                  isScrollControlled: true,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                   ),
+                  builder: (_) => const AIChatBox(),
                 );
               },
               backgroundColor: TColors.secondary,
               child: const Icon(Icons.chat),
             ),
           ),
+
         ],
       ),
     );

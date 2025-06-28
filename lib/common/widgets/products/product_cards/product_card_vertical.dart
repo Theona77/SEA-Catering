@@ -56,20 +56,18 @@ class TProductCardVertical extends StatelessWidget {
             /// --- Image & Wishlist & Discount Tag
             TRoundedContainer(
               height: 150,
-              padding: const EdgeInsets.all(TSizes.sm),
+              radius: TSizes.productImageRadius,
               backgroundColor: dark ? Colors.black : Colors.white,
               child: Stack(
+                fit: StackFit.expand,
                 children: [
-                  /// --- Centered Image
-                  Center(
-                    child: TRoundedImage(
-                      imageUrl: imageUrl,
-                      applyImageRadius: true,
-                      fit: BoxFit.contain, // Maintain aspect ratio
-                    ),
+                  TRoundedImage(
+                    imageUrl: imageUrl,
+                    applyImageRadius: true,
+                    fit: BoxFit.cover, // This makes the image fill the entire container
                   ),
 
-                  /// --- Discount Tag
+                  /// Discount Tag
                   Positioned(
                     top: 12,
                     left: 8,
@@ -81,7 +79,7 @@ class TProductCardVertical extends StatelessWidget {
                     ),
                   ),
 
-                  /// --- Wishlist Icon
+                  /// Wishlist Icon
                   Positioned(
                     top: 0,
                     right: 0,
@@ -105,6 +103,7 @@ class TProductCardVertical extends StatelessWidget {
                 ],
               ),
             ),
+
 
             const SizedBox(height: TSizes.spaceBtwItems / 2),
 

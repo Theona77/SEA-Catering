@@ -55,6 +55,20 @@ class TImages{
   static const String user3 = "assets/profilepicture/person2.png";
   static const String user4 = "assets/profilepicture/person3.png";
 
+  // Veggies
+  static const String balsamic_spinach = "assets/images/veggies/balsamic_spinach.jpg";
+  static const String bokchoy_garlic = "assets/images/veggies/bokchoy_garlic.jpg";
+  static const String cabbage_salad = "assets/images/veggies/cabbage_salad.jpg";
+  static const String caprese_salad = "assets/images/veggies/caprese_salad.jpg";
+  static const String celerysalad_apple = "assets/images/veggies/celerysalad_apple.jpg";
+  static const String corn_steamed = "assets/images/veggies/corn_steamed.jpg";
+  static const String parmesan_brussel_sprout = "assets/images/veggies/parmesan_brussel_sprout.jpg";
+  static const String roasted_cauliflower = "assets/images/veggies/roasted_cauliflower.jpg";
+  static const String roasted_garlic_mushroom = "assets/images/veggies/roasted_garlic_mushroom.jpg";
+  static const String roasted_greenbeans = "assets/images/veggies/roasted_greenbeans.jpg";
+  static const String sauteed_carrots = "assets/images/veggies/sauteed_carrots.jpg";
+
+
   //Weight_Loss
   static const String avocadotoast_poachedegg = "assets/images/weight_loss/avocadotoast_poached_egg.jpg";
   static const String buddha_bowl = "assets/images/weight_loss/buddha_bowl.jpg";
@@ -65,7 +79,7 @@ class TImages{
   static const String lentil_soup = "assets/images/weight_loss/lentil_soup.jpg";
   static const String mixedberry_smoothie = "assets/images/weight_loss/mixedberry_smoothie.jpg";
   static const String oatmeal_blueberry = "assets/images/weight_loss/oatmeal_blueberry.jpg";
-  static const String quinoa_stirfry_veggoes = "assets/images/weight_loss/quinoa_stirfry_veggoes.jpg";
+  static const String quinoa_stirfry_veggoes = "assets/images/weight_loss/quinoa_stirfry_veggies.jpg";
   static const String salmon_veggies = "assets/images/weight_loss/salmon_veggies.jpg";
   static const String shrimp_cauliflower_rice = "assets/images/weight_loss/shrimp_cauliflower_rice.jpg";
   static const String tuna_salad_wrap = "assets/images/weight_loss/tuna_salad_wrap.jpg";
@@ -74,10 +88,65 @@ class TImages{
   static const String zucchini_noodles_with_pesto = "assets/images/weight_loss/zucchini_noodles_with_pesto.jpg";
 
   //Drinks
+  static const String apple_juice = "assets/images/drinks/apple_juice.jpg";
+  static const String avocado_juice = "assets/images/drinks/avocado_juice.jpg";
+  static const String cucumber_mint_smoothie = "assets/images/drinks/cucumber_mint_smoothie.jpg";
+  static const String cucumber_watermelon = "assets/images/drinks/cucumber_watermelon.jpg";
+  static const String detox = "assets/images/drinks/detox.jpg";
+  static const String dragonfruit_smoothie = "assets/images/drinks/dragonfruit_smoothie.jpg";
+  static const String lemonnade = "assets/images/drinks/lemonnade.jpg";
+  static const String orange_juice = "assets/images/drinks/orange_juice.jpg";
+  static const String peanut_banana_smoothie = "assets/images/drinks/peanut_butter_banana_smoothie.jpg";
+  static const String soymilk = "assets/images/drinks/soymilk.jpg";
+  static const String summer_mango_smoothie = "assets/images/drinks/summer_mango_smoothie.jpg";
 
+  static const String eggplant_garlicsauce = "assets/images/drinks/eggplant_garlicsauce.jpg";
 
-
-
+  // Foods
+  static const String air_friedchicken_salad = "assets/images/foods/air_friedchicken_salad.jpg";
+  static const String beef_broccoli_carrot = "assets/images/foods/beef_broccoli_carrot.jpg";
+  static const String blueberry_yoghurt_toast = "assets/images/foods/blueberry_yoghurt_toast.jpg";
+  static const String capcay_seafood = "assets/images/foods/capcay seafood.jpg";
+  static const String chicken_curry = "assets/images/foods/chicken_curry.jpg";
+  static const String chicken_soup = "assets/images/foods/chicken_soup.jpg";
+  static const String chocolate_chia_pudding = "assets/images/foods/chocolate_chia_pudding.jpg";
+  static const String creamy_cauliflower_soup = "assets/images/foods/creamy_cauliflower_soup.jpg";
+  static const String creamy_mushroom_soup = "assets/images/foods/creamy_mushroom_soup.jpg";
+  static const String crispy_garlic_frenchfries = "assets/images/foods/cripsy_garlic_frenchfries.jpg";
+  static const String dimsum_siumai = "assets/images/foods/dimsum_siumai.jpg";
+  static const String egg_drop_soup = "assets/images/foods/egg_drop_soup.jpg";
+  static const String egg_roll = "assets/images/foods/egg_roll.jpg";
+  static const String es_dawet_sugarfree = "assets/images/foods/es_dawet_sugarfree.jpg";
+  static const String fried_rice = "assets/images/foods/fried_rice.jpg";
+  static const String fruit_salad = "assets/images/foods/fruit_salad.jpg";
+  static const String grilled_halloumi_salad = "assets/images/foods/grilled_halloumi_salad.jpg";
+  static const String groundmeat_mashed_potato = "assets/images/foods/groundmeat_mashed_potato.jpg";
+  static const String high_protein_oatmeal = "assets/images/foods/high_protein_oatmeal.jpg";
+  static const String homemade_chicken_nugget = "assets/images/foods/homemade_chicken_nugget.jpg";
+  static const String italian_meatballs = "assets/images/foods/italian_meatballs.jpg";
+  static const String japanese_katsu = "assets/images/foods/japanese_katsu.jpg";
+  static const String japanese_miso_soup = "assets/images/foods/japanese_miso_soup.jpg";
+  static const String mung_bean_porridge = "assets/images/foods/mung_bean_porridge.jpg";
+  static const String mushroom_chicken = "assets/images/foods/mushroom_chicken.jpg";
+  static const String mushroom_pie = "assets/images/foods/mushroom_pie.jpg";
+  static const String oatmeal_cookie = "assets/images/foods/oatmeal_cookie.jpg";
+  static const String orange_chicken = "assets/images/foods/orange_chicken.jpg";
+  static const String pakcoy_garlic = "assets/images/foods/pakcoy_garlic.jpg";
+  static const String pancake_strawberry_blueberry = "assets/images/foods/pancake_strawberry_blueberry.jpg";
+  static const String pho = "assets/images/foods/pho.jpg";
+  static const String potato_leak_soup = "assets/images/foods/potato_leak_soup.jpg";
+  static const String rainbow_fruit_skewers = "assets/images/foods/rainbow_fruit_skewers.jpg";
+  static const String satay_paprika = "assets/images/foods/satay_paprika.jpg";
+  static const String spagetthi_bolognese = "assets/images/foods/spagetthi_bolognese.jpg";
+  static const String steak_blackpepper = "assets/images/foods/steak_blackpepper.jpg";
+  static const String stir_fry_kwetiau = "assets/images/foods/stir_fry_kwetiau.jpg";
+  static const String sweet_potato_soup = "assets/images/foods/sweet_potato_soup.jpg";
+  static const String sweetsour_fish = "assets/images/foods/sweetsour_fish.jpg";
+  static const String waffle_skewers = "assets/images/foods/waffle_skewers.jpg";
+  static const String wonton_soup = "assets/images/foods/wonton_soup.jpg";
+  static const String yellowrice = "assets/images/foods/yellowrice.jpg";
+  static const String thai_coconut_soup = "assets/images/foods/thai_coconut_soup.jpg";
+  static const String tomato_basil_soup = "assets/images/foods/tomato_basil_soup.jpg";
 
 
   //Image Carousel

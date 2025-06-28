@@ -1,12 +1,15 @@
-import 'package:sea_catering/features/shop/screens/sub_category/sub_category_beans.dart';
-import 'package:sea_catering/features/shop/screens/sub_category/sub_category_herbs.dart';
-import 'package:sea_catering/features/shop/screens/sub_category/sub_category_nuts.dart';
+import 'package:sea_catering/features/shop/screens/sub_category/sub_category_meat.dart';
+import 'package:sea_catering/features/shop/screens/sub_category/sub_category_soups.dart';
+import 'package:sea_catering/features/shop/screens/sub_category/sub_category_healthy.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sea_catering/features/shop/screens/sub_category/sub_category.dart';
-import 'package:sea_catering/features/shop/screens/sub_category/sub_category_fruit.dart';
+import 'package:sea_catering/features/shop/screens/sub_category/sub_category_veggies.dart';
+import 'package:sea_catering/features/shop/screens/sub_category/sub_category_drink.dart';
 import 'package:sea_catering/common/widgets/image_text_widgets/vertical_image_text.dart';
 import 'package:sea_catering/utils/constants/image_strings.dart';
+
+import '../../sub_category/sub_category_quick.dart';
+import '../../sub_category/sub_category_snacks.dart';
 
 class THomeCategories extends StatelessWidget {
   const THomeCategories({super.key});
@@ -17,37 +20,37 @@ class THomeCategories extends StatelessWidget {
       {
         'image': TImages.veggie_logo,
         'title': 'Veggie',
-        'screen': () => const SubCategoriesScreens(),
+        'screen': () => const SubCategoriesVeggiesScreens(),
       },
       {
         'image': TImages.drink_logo,
         'title': 'Drinks',
-        'screen': () => const SubCategoriesFruitScreens(),
+        'screen': () => const SubCategoriesDrinkScreens(),
       },
       {
         'image': TImages.meat_logo,
         'title': 'Meats',
-        'screen': () => const SubCategoriesNutsScreens(),
+        'screen': () => const SubCategoriesMeatScreens(),
       },
       {
         'image': TImages.soup_logo,
         'title': 'Soups',
-        'screen': () => const SubCategoriesHerbsScreens(),
+        'screen': () => const SubCategoriesSoupsScreens(),
       },
       {
         'image': TImages.quick_logo,
         'title': 'Quick',
-        'screen': () => const SubCategoriesSeedsScreens(),
+        'screen': () => const SubCategoriesQuickScreens(),
       },
       {
         'image': TImages.snack_logo,
         'title': 'Snacks',
-        'screen': () => const SubCategoriesNutsScreens(),
+        'screen': () => const SubCategoriesSnacksScreens(),
       },
       {
         'image': TImages.fam_logo,
         'title': 'Healthy',
-        'screen': () => const SubCategoriesNutsScreens(),
+        'screen': () => const SubCategoriesHealthyScreens(),
       },
     ];
 

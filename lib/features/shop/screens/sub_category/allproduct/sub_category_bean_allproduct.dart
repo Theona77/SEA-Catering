@@ -12,72 +12,72 @@ class AllFruitProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, String>> allFruitProducts = [
       {
-        'id': 'prod001',
-        'title': 'Jeruk 500 g',
-        'brand': 'IndoFresh',
+        'id': 'drink001',
+        'title': 'Mixed Berry Smoothie',
+        'brand': 'Protein',
         'price': 'Rp 30.000',
-        'image': TImages.jeruk
+        'image': TImages.mixedberry_smoothie
       },
       {
         'id': 'prod002',
         'title': 'Anggur 750 g',
-        'brand': 'GreenGarden',
+        'brand': 'Royal',
         'price': 'Rp 45.000',
         'image': TImages.grapeFruit
       },
       {
         'id': 'prod003',
         'title': 'Lime 250 g',
-        'brand': 'FreshMart',
+        'brand': 'Diet',
         'price': 'Rp 55.000',
         'image': TImages.lime
       },
       {
         'id': 'prod004',
         'title': 'Strawberry 1 kg',
-        'brand': 'FarmFresh',
+        'brand': 'Royal',
         'price': 'Rp 55.000',
         'image': TImages.strawberry
       },
       {
         'id': 'prod005',
         'title': 'Buah Naga 1 kg',
-        'brand': 'TaniSubur',
+        'brand': 'Diet',
         'price': 'Rp 60.000',
         'image': TImages.buahNaga
       },
       {
         'id': 'prod006',
         'title': 'Semangka 1 kg',
-        'brand': 'LocalFarm',
+        'brand': 'Diet',
         'price': 'Rp 60.000',
         'image': TImages.semangka
       },
       {
         'id': 'prod007',
         'title': 'Mango 250 g',
-        'brand': 'GreenLeaf',
+        'brand': 'Royal',
         'price': 'Rp 12.000',
         'image': TImages.mango
       },
       {
         'id': 'prod008',
         'title': 'Papaya',
-        'brand': 'EcoFresh',
+        'brand': 'Royal',
         'price': 'Rp 15.000',
         'image': TImages.papaya
       },
       {
         'id': 'prod009',
         'title': 'Pineapple',
-        'brand': 'AgriMarket',
+        'brand': 'Royal',
         'price': 'Rp 14.000',
         'image': TImages.pineapple
       },
       {
         'id': 'prod010',
         'title': 'Banana',
-        'brand': 'SayurBox',
+        'brand': 'Royal',
         'price': 'Rp 20.000',
         'image': TImages.banana
       },

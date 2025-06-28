@@ -1,52 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/device/device_utility.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 
-class TSearchContainer extends StatelessWidget {
+class TSearchContainer extends StatefulWidget {
   const TSearchContainer({
     super.key,
-    required this.text,
+    required this.onSearchChanged,
     this.icon = Iconsax.search_normal,
     this.showBackground = true,
     this.showBorder = true,
-    this.onTap,
-    this.padding = const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
   });
 
-  final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
-  final VoidCallback? onTap;
-  final EdgeInsetsGeometry padding;
+  final Function(String) onSearchChanged;
+
+  @override
+  State<TSearchContainer> createState() => _TSearchContainerState();
+}
+
+class _TSearchContainerState extends State<TSearchContainer> {
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Padding(
-        padding: padding,
-        child: Container(
-          width: TDeviceUtils.getScreenWidth(context),
-          padding: const EdgeInsets.all(TSizes.md),
-          decoration: BoxDecoration(
-              color: showBackground ? dark ? Colors.black : TColors.white : Colors.transparent,
-              borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
-              border: showBorder ? Border.all(color: Colors.grey) : null
+    return Container(
+      width: double.infinity, // Full width inside parent layout
+      decoration: BoxDecoration(
+        color: widget.showBackground
+            ? (dark ? Colors.black : TColors.white)
+            : Colors.transparent,
+        borderRadius: BorderRadius.circular(TSizes.cardRadiusLg),
+        border: widget.showBorder ? Border.all(color: Colors.grey) : null,
+      ),
+      child: Row(
+        children: [
+          const SizedBox(width: TSizes.md),
+          Icon(widget.icon, color: Colors.blueGrey),
+          const SizedBox(width: TSizes.spaceBtwItems),
+          Expanded(
+            child: TextField(
+              controller: _controller,
+              decoration: const InputDecoration(
+                hintText: 'Search product...',
+                border: InputBorder.none,
+                focusedBorder: InputBorder.none,
+                enabledBorder: InputBorder.none,
+              ),
+              style: TextStyle(color: dark ? Colors.white : Colors.black),
+              onChanged: widget.onSearchChanged,
+            ),
           ),
-          child: Row(
-            children: [
-              Icon(icon, color: Colors.blueGrey),
-              const SizedBox(width: TSizes.spaceBtwItems),
-              Text(text, style: Theme.of(context).textTheme.bodySmall)
-            ],
-          ),
-        ),
+          const SizedBox(width: TSizes.md),
+        ],
       ),
     );
   }
