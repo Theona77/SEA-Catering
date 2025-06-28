@@ -1,11 +1,10 @@
-
-
-import 'package:sea_catering/common/widgets/loaders/loaders.dart';
-import 'package:sea_catering/data/repositories.authentication/categories/category_repository.dart';
-import 'package:sea_catering/features/shop/models/category_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../../../common/widgets/loaders/loaders.dart';
+import '../../../data/repositories.authentication/categories/category_repository.dart';
+import '../models/category_model.dart';
 
 class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();
@@ -28,7 +27,7 @@ class CategoryController extends GetxController {
 
       // Fetch categories from data source (Firestore, APi, etc.)
       final categories = await _categoryRepository.getAllCategories();
-      
+
       // Update the categories list
       allCategories.assignAll(categories);
 
@@ -41,8 +40,8 @@ class CategoryController extends GetxController {
     }
   }
 
-  /// -- Load selected category data
+/// -- Load selected category data
 
-  /// Get Category or Sub-Category Products.
+/// Get Category or Sub-Category Products.
 
 }

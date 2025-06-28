@@ -60,6 +60,25 @@ class TImages{
   static const String buddha_bowl = "assets/images/weight_loss/buddha_bowl.jpg";
   static const String chicken_caesar_pasta_salad = "assets/images/weight_loss/chicken_caesar_pasta_salad.jpg";
   static const String greek_yoghurt_banana = "assets/images/weight_loss/greek_yoghurt_banana.jpg";
+  static const String grilled_chicken_salad = "assets/images/weight_loss/grilled_chicken_salad.jpg";
+  static const String mango_coconut_chiaseed_pudding = "assets/images/weight_loss/mango_coconut_chiaseed_pudding.jpg";
+  static const String lentil_soup = "assets/images/weight_loss/lentil_soup.jpg";
+  static const String mixedberry_smoothie = "assets/images/weight_loss/mixedberry_smoothie.jpg";
+  static const String oatmeal_blueberry = "assets/images/weight_loss/oatmeal_blueberry.jpg";
+  static const String quinoa_stirfry_veggoes = "assets/images/weight_loss/quinoa_stirfry_veggoes.jpg";
+  static const String salmon_veggies = "assets/images/weight_loss/salmon_veggies.jpg";
+  static const String shrimp_cauliflower_rice = "assets/images/weight_loss/shrimp_cauliflower_rice.jpg";
+  static const String tuna_salad_wrap = "assets/images/weight_loss/tuna_salad_wrap.jpg";
+  static const String turkey_avocado_wrap = "assets/images/weight_loss/turkey_avocado_wrap.jpg";
+  static const String vegan_pesto = "assets/images/weight_loss/vegan_pesto.jpg";
+  static const String zucchini_noodles_with_pesto = "assets/images/weight_loss/zucchini_noodles_with_pesto.jpg";
+
+  //Drinks
+
+
+
+
+
 
   //Image Carousel
   static const String drinks = "assets/images/foodcarousel/drinks.png";

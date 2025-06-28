@@ -1,7 +1,7 @@
-import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../../common/widgets/icon/t_circular_icon.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
@@ -15,11 +15,11 @@ class TBottomAddToCart extends StatelessWidget{
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace, vertical: TSizes.defaultSpace/2),
       decoration: BoxDecoration(
-        color: dark ? TColors.darkerGrey : TColors.light,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(TSizes.cardRadiusLg),
-          topRight: Radius.circular(TSizes.cardRadiusLg),
-        )
+          color: dark ? TColors.darkerGrey : TColors.light,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(TSizes.cardRadiusLg),
+            topRight: Radius.circular(TSizes.cardRadiusLg),
+          )
       ),
 
       child: Row(
@@ -41,23 +41,23 @@ class TBottomAddToCart extends StatelessWidget{
 
               const TCircularIcon(
                 icon: Iconsax.add,
-                backgroundColor: TColors.primary,
+                backgroundColor: Colors.green,
                 width: 40,
                 height: 40,
                 color: TColors.white,
               ),
 
             ],
-            
+
           ),
 
           ElevatedButton(
             onPressed: (){},
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.all(TSizes.md),
-              backgroundColor: TColors.primary,
+              backgroundColor: Colors.green,
               foregroundColor: Colors.white,
-              side: const BorderSide(color: TColors.primary),
+              side: const BorderSide(color: Colors.green),
             ),
             child: const Text("Add to Cart"),
           )

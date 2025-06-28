@@ -1,6 +1,7 @@
-import 'package:sea_catering/common/widgets/texts/section_heading.dart';
-import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../common/widgets/texts/section_heading.dart';
+import '../../../../../utils/constants/sizes.dart';
 
 class TBillingAddressSection extends StatelessWidget {
   const TBillingAddressSection({super.key});
