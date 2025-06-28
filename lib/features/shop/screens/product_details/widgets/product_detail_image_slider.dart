@@ -30,7 +30,7 @@ class TProductImageSlider extends StatelessWidget {
             /// Main Large Image
             SizedBox(height: 400, child: Padding(
               padding: EdgeInsets.all(TSizes.productImageRadius * 2),
-              child: Center(child: Image(image: AssetImage(TImages.product1))),
+              child: Center(child: Image(image: AssetImage(TImages.mixedberry_smoothie))),
             ),),
 
             /// Image Slider
@@ -51,7 +51,7 @@ class TProductImageSlider extends StatelessWidget {
                       backgroundColor: dark ? TColors.black : TColors.white,
                       border: Border.all(color: TColors.secondary),
                       padding: const EdgeInsets.all(TSizes.sm),
-                      imageUrl: TImages.product3
+                      imageUrl: TImages.lemonnade
                   ),
                 ),
               ),

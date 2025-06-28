@@ -44,6 +44,8 @@ class ProductDetail extends StatelessWidget {
 
                   /// Price, Title, Stack dan Brand
                   TProductMetaData(),
+                  const SizedBox(height: TSizes.spaceBtwSections/3),
+
 
                   /// Attributes
                   TProductAttributes(),
@@ -57,15 +59,21 @@ class ProductDetail extends StatelessWidget {
                   const TSectionHeading(title: 'Description', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   ReadMoreText(
-                    'Fresh Pakcoy, also known as bok choy, is a crisp and tender leafy green vegetable that’s perfect for a variety of dishes—from stir-fries and soups to salads and steamed sides. Grown with care and harvested at peak freshness, our pakcoy offers a mild, slightly sweet flavor and a satisfying crunch in every bite. Packed with essential vitamins like A, C, and K, as well as antioxidants and fiber, it’s a nutritious choice for health-conscious meals. Whether youre cooking at home or adding freshness to your market lineup, this premium-quality pakcoy is a must-have staple in any kitchen.',
+                    'Our Mixed Berry Smoothie is a refreshing, nutrient-packed drink made with a blend of blueberries, strawberries, and raspberries. Perfect for a quick breakfast or post-workout recovery, it delivers a naturally sweet, fruity flavor. Rich in antioxidants, this smoothie helps support your immune system and skin health.\n\n'
+                    '\u2022 Calories: 180 kcal\n'
+                        '\u2022 Protein: 8g\n'
+                        '\u2022 Carbohydrates: 22g (Natural fruit sugars)\n'
+                        '\u2022 Fiber: 4g\n'
+                        '\u2022 Fat: 5g (From Greek yoghurt and chia seeds)\n'
+                        '\u2022 Rich in Vitamin C, Antioxidants, and Potassium',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: ' Show more',
-                    trimExpandedText: ' Less',
-                    moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-
+                    trimExpandedText: ' Show less',
+                    moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
+
 
 
                   /// Review
