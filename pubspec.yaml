@@ -41,6 +41,7 @@ dependencies:
   firebase_core: ^2.27.0
   firebase_auth: ^4.17.6
   cloud_firestore: ^4.14.0
+  google_sign_in: ^6.1.6
 
   #Supabase
   supabase_flutter: ^2.0.0
@@ -48,14 +49,24 @@ dependencies:
 
 
 
-
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^5.0.0
+
+flutter_native_splash:
+  image: assets/images/logo_catering.png
+  image_dark: assets/images/logo_catering.png
+  background_image: assets/images/background.png
+  background_image_dark: assets/images/background.png
+
+  android_12:
+    image: assets/images/logo_catering.png
+    image_dark: assets/images/logo_catering.png
+    background_image: assets/images/background.png
+    background_image_dark: assets/images/background.png
+
+  web: false
 
 flutter:
   uses-material-design: true
@@ -72,16 +83,14 @@ flutter:
     - assets/images/banner/indonesia.png
     - assets/images/banner/
     - assets/profilepicture/
-    - assets/images/product_veggies/
     - assets/paymentmethods/
     - assets/images/
-    - assets/images/product_fruits/
-    - assets/images/product_herbs/
-    - assets/images/product_seeds/
-    - assets/images/product_nuts/
     - assets/images/weight_loss/
     - assets/images/foodcarousel/
     - assets/images/experiencecarousel/
+    - assets/images/foods/
+    - assets/images/drinks/
+    - assets/images/veggies/
 
 
 

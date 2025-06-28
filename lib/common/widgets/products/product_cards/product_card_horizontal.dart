@@ -11,6 +11,8 @@ import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
+import '../../../../button_add_to_cart.dart';
+import '../../../../features/authentication/controllers/cart/CartController.dart';
 
 class TProductCardHorizontal extends StatelessWidget {
   final String id;
@@ -31,6 +33,7 @@ class TProductCardHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = WishlistController.instance;
+    final cartController = Get.find<CartController>();
     final dark = THelperFunctions.isDarkMode(context);
 
     return Container(
@@ -42,25 +45,26 @@ class TProductCardHorizontal extends StatelessWidget {
       ),
       child: Row(
         children: [
+          /// Product Image Container
           TRoundedContainer(
             height: 120,
-            padding: const EdgeInsets.all(TSizes.sm),
+            width: 120,
+            radius: TSizes.productImageRadius,
             backgroundColor: dark ? TColors.darkerBlue : TColors.light,
             child: Stack(
+              fit: StackFit.expand,
               children: [
                 /// Product image
-                SizedBox(
-                  height: 120,
-                  width: 120,
-                  child: TRoundedImage(
-                    imageUrl: imageUrl,
-                    applyImageRadius: true,
-                  ),
+                TRoundedImage(
+                  imageUrl: imageUrl,
+                  applyImageRadius: true,
+                  fit: BoxFit.cover,
                 ),
 
                 /// Discount label
                 Positioned(
                   top: 12,
+                  left: 8,
                   child: TRoundedContainer(
                     radius: TSizes.sm,
                     backgroundColor: TColors.secondary.withOpacity(0.8),
@@ -126,22 +130,19 @@ class TProductCardHorizontal extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(child: TProductPriceText(price: price)),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(TSizes.cardRadiusMd),
-                            bottomRight:
-                            Radius.circular(TSizes.productImageRadius),
-                          ),
-                        ),
-                        child: const SizedBox(
-                          width: TSizes.iconLg * 1.2,
-                          height: TSizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(Iconsax.add, color: TColors.white),
-                          ),
-                        ),
+
+                      /// Increment Button
+                      TAddToCartButton(
+                        onAdd: () {
+                          cartController.addToCart(CartItem(
+                            id: id,
+                            title: title,
+                            brand: brand,
+                            image: imageUrl,
+                            price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
+                          ));
+                          Get.snackbar('Added to Cart', '$title added to your cart');
+                        },
                       ),
                     ],
                   ),

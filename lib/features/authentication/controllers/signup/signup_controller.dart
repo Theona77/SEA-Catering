@@ -3,7 +3,7 @@ import 'package:sea_catering/common/widgets/network/network_manager.dart';
 import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
 import 'package:sea_catering/data/repositories.authentication/user/user_model.dart';
 import 'package:sea_catering/data/repositories.authentication/user/user_repository.dart';
-import 'package:sea_catering/exception/firebase_exception.dart';
+import 'package:sea_catering/exception/firebase_auth_exception.dart';
 import 'package:sea_catering/features/authentication/screens/login/login.dart'; // <-- Ganti import ke LoginScreen
 import 'package:sea_catering/features/authentication/screens/signup/verify_email.dart';
 import 'package:sea_catering/utils/constants/image_strings.dart';
@@ -28,69 +28,72 @@ class SignUpController extends GetxController {
   /// Signup
   void signup() async {
     try {
-      // Start loading
-      TFullScreenLoader.openLoadingDialog('We are processing your information', TImages.animation2);
+      // 1. Show Loading Animation
+      TFullScreenLoader.openLoadingDialog(
+        'We are processing your information',
+        TImages.mailSent,
+      );
 
-      // Check internet connectivity
+      // 2. Internet Check
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        //Remove Loader
         TFullScreenLoader.stopLoading();
         return;
       }
 
-        // Form validation
-        if (!signupFormKey.currentState!.validate()) {
-          // Remove Loader
-          TFullScreenLoader.stopLoading();
-          return;
-        }
-
-        // Privacy Policy Check
-        if (!privacyPolicy.value) {
-          TLoaders.warningSnackBar(
-            title: 'Accept Privacy Policy',
-            message: 'To create an account, you must accept the Privacy Policy & Terms of Use.',
-          );
-          return;
-        }
-
-        // Register user in Firebase Authentication
-        final userCredential = await AuthenticationRepository.instance.registerWithEmailAndPassword(
-          email.text.trim(),
-          password.text.trim(),
-        );
-
-        /// Save authenticated user data
-        final newUser = UserModel(
-          id: userCredential.user!.uid,
-          firstName: firstName.text.trim(),
-          lastName: lastName.text.trim(),
-          username: username.text.trim(),
-          email: email.text.trim(),
-          phoneNumber: phoneNumber.text.trim(),
-          profilePicture: '',
-        );
-
-        final userRepository = Get.put(UserRepository());
-        await userRepository.saveUserRecord(newUser);
-
+      // 3. Form Validation
+      if (!signupFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
+        return;
+      }
 
-        // Show success message
-        TLoaders.successSnackBar(
-          title: 'Congratulations',
-          message: 'Your account has been successfully registered!',
+      // 4. Privacy Policy Validation
+      if (!privacyPolicy.value) {
+        TLoaders.warningSnackBar(
+          title: 'Accept Privacy Policy',
+          message: 'To continue, you must accept our Privacy Policy.',
         );
+        return;
+      }
 
-        // Move to Verify Email Screen
-        Get.to(() => const VerifyEmailScreen());
-      } catch (e) {
+      // 5. Firebase Sign Up
+      final userCredential = await AuthenticationRepository.instance
+          .registerWithEmailAndPassword(email.text.trim(), password.text.trim());
+
+      // 6. Save user to Firestore
+      final newUser = UserModel(
+        id: userCredential.user!.uid,
+        firstName: firstName.text.trim(),
+        lastName: lastName.text.trim(),
+        username: username.text.trim(),
+        email: email.text.trim(),
+        phoneNumber: phoneNumber.text.trim(),
+        profilePicture: '',
+      );
+
+      final userRepository = Get.put(UserRepository());
+      await userRepository.saveUserRecord(newUser);
+
+
       // Remove Loader
       TFullScreenLoader.stopLoading();
 
-      // Show some Generic Error to the user
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      //S+ Show Success Message
+      TLoaders.successSnackBar(
+        title: 'Congratulations',
+        message: 'Account created! Please verify your email.',
+      );
+
+      // 9. Navigate to Email Verification Screen
+      Get.to(() => const VerifyEmailScreen());
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+
+      // Optional: Hide technical error like malformed JSON
+      final errorMessage = e.toString().contains('JsonReader') ?
+      'Something went wrong. Please try again.' : e.toString();
+
+      TLoaders.errorSnackBar(title: 'Error', message: errorMessage);
     }
   }
 }

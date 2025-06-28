@@ -1,4 +1,5 @@
-import 'package:sea_catering/exception/firebase_exception.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sea_catering/exception/firebase_auth_exception.dart';
 import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart';
 import 'package:sea_catering/features/authentication/screens/login/login.dart';
 import 'package:sea_catering/features/authentication/screens/onboarding.dart';
@@ -10,6 +11,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import '../../exception/firebase_exceptions.dart';
+import '../../exception/format_exceptions.dart';
+import '../../exception/platform_exceptions.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -101,9 +106,43 @@ class AuthenticationRepository extends GetxController {
       throw Exception('Something went wrong. Please try again');
     }
   }
+
+  /// ----------------------Identity Social SIgn Up ---------------------------------------------
+
+
+  /// [GoogleAuthentication] - valid for any authentication
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+      // Trigger the authentication flow
+      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
+
+      //Obtain auth detail for rwq
+      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
+
+      //Create new ccredential
+      final credentials = GoogleAuthProvider.credential(accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+
+      //Once signed in, return user credential
+      return await _auth.signInWithCredential(credentials);
+
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code);
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw Exception('Something went wrong. Please try again');
+    }
+  }
+
+
   /// [LogoutUSer] - valid for any authentication
   Future<void> logout() async {
     try {
+      await GoogleSignIn().signOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const LoginScreen());
     } on FirebaseAuthException catch (e) {

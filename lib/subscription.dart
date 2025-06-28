@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sea_catering/utils/constants/sizes.dart';
+import 'package:sea_catering/utils/validators/validation.dart';
 
 class SubscriptionForm extends StatefulWidget {
   const SubscriptionForm({Key? key}) : super(key: key);
@@ -114,16 +115,19 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
           child: ListView(
             children: [
               const SizedBox(height: TSizes.spaceBtwInputFields),
+              
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Full Name'),
-                validator: (value) => value == null || value.isEmpty ? 'Required' : null,
+                validator: (value)  => TValidator.validateEmptyText('Full name', value),
                 onSaved: (value) => _name = value,
               ),
+              
               const SizedBox(height: TSizes.spaceBtwInputFields),
+              
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Active Phone Number'),
                 keyboardType: TextInputType.phone,
-                validator: (value) => value == null || value.isEmpty ? 'Required' : null,
+                validator: (value) => TValidator.validatePhoneNumber(value),
                 onSaved: (value) => _phone = value,
               ),
 

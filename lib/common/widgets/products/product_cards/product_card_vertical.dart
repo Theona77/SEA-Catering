@@ -1,25 +1,24 @@
-import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
-import 'package:sea_catering/common/widgets/images/t_rounded_image.dart';
-import 'package:sea_catering/common/widgets/texts/product_title_text.dart';
-import 'package:sea_catering/features/authentication/controllers/cart/CartController.dart';
-import 'package:sea_catering/features/shop/controllers/wishlist.dart';
-import 'package:sea_catering/features/shop/screens/product_details/product_detail.dart';
-import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../features/authentication/controllers/cart/CartController.dart';
+import '../../../../features/shop/controllers/wishlist.dart';
+import '../../../../features/shop/screens/product_details/product_detail.dart';
+import '../../../../utils/helpers/helper_functions.dart';
+import '../../images/t_rounded_image.dart';
 import '../../texts/product_price_text.dart';
 import '../../../../rounded_container.dart';
+import '../../texts/product_title_text.dart';
 import '../../texts/t_brand_title_with_verified_icon.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../styles/shadows.dart';
 import '../../../../utils/constants/sizes.dart';
 
-class TProductCardVertical extends StatelessWidget{
+class TProductCardVertical extends StatelessWidget {
   final String productId;
   final String imageUrl;
   final String title;
@@ -40,33 +39,38 @@ class TProductCardVertical extends StatelessWidget{
     final controller = WishlistController.instance;
     final dark = THelperFunctions.isDarkMode(context);
 
-    /// Container with side paddings, colors, edges, radius and shadow
     return GestureDetector(
       onTap: () => Get.to(() => const ProductDetail()),
       child: Container(
         width: 180,
+        height: 300, // Give it fixed height to enforce layout structure
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [TShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(TSizes.productImageRadius),
-          color: dark ? TColors.darkerGrey : Colors.white
+          color: dark ? TColors.darkerGrey : Colors.white,
         ),
-      
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// --- Thumbmail, Wishlist, Discount Tag
+            /// --- Image & Wishlist & Discount Tag
             TRoundedContainer(
               height: 150,
-              padding: const EdgeInsets.all(TSizes.sm),
-              backgroundColor : dark ? Colors.black : Colors.white,
+              radius: TSizes.productImageRadius,
+              backgroundColor: dark ? Colors.black : Colors.white,
               child: Stack(
+                fit: StackFit.expand,
                 children: [
-                  /// --- Thumbnail Image
-                  TRoundedImage(imageUrl: imageUrl, applyImageRadius: true),
-      
-                  /// --- Sale Tag
+                  TRoundedImage(
+                    imageUrl: imageUrl,
+                    applyImageRadius: true,
+                    fit: BoxFit.cover, // This makes the image fill the entire container
+                  ),
+
+                  /// Discount Tag
                   Positioned(
                     top: 12,
+                    left: 8,
                     child: TRoundedContainer(
                       radius: TSizes.sm,
                       backgroundColor: TColors.secondary.withOpacity(0.8),
@@ -74,9 +78,8 @@ class TProductCardVertical extends StatelessWidget{
                       child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black)),
                     ),
                   ),
-      
-      
-                  /// -- Favorite Icon Button
+
+                  /// Wishlist Icon
                   Positioned(
                     top: 0,
                     right: 0,
@@ -98,73 +101,68 @@ class TProductCardVertical extends StatelessWidget{
                     }),
                   ),
                 ],
-              )
+              ),
             ),
-      
-            const SizedBox(height: TSizes.spaceBtwItems/2),
-      
-            /// --- Details
+
+
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
+
+            /// --- Title & Brand
             Padding(
-              padding: const EdgeInsets.only(left: TSizes.sm),
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TProductTitleText(title: title,  textAlign: TextAlign.start),
+                  TProductTitleText(title: title, textAlign: TextAlign.start),
                   const SizedBox(height: TSizes.spaceBtwItems / 2),
-                  TBrandTitleWithVerifiedIcon(title: brand, textAlign: TextAlign.start,),
-
+                  TBrandTitleWithVerifiedIcon(title: brand, textAlign: TextAlign.start),
                 ],
               ),
             ),
 
-            const SizedBox(height: TSizes.spaceBtwItems),
+            const Spacer(), // Push Price Row to bottom
 
-            /// --- Price Row
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                /// -- Price
-                Padding(
-                  padding: const EdgeInsets.only(left: TSizes.sm),
-                  child: TProductPriceText(price: price),
-                ),
-
-                /// Add to Cart Button
-                GestureDetector(
-                  onTap: () {
-                    final cartController = Get.find<CartController>();
-                    cartController.addToCart(CartItem(
-                      id: productId,
-                      title: title,
-                      brand: brand,
-                      image: imageUrl,
-                      price: double.parse(price.replaceAll('', '').replaceAll('.', '')),
-                    ));
-                    Get.snackbar('Added to Cart', '$title added to your cart');
-                  },
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(TSizes.cardRadiusMd),
-                        bottomRight: Radius.circular(TSizes.productImageRadius),
+            /// --- Price + Add Button
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TProductPriceText(price: price),
+                  GestureDetector(
+                    onTap: () {
+                      final cartController = Get.find<CartController>();
+                      cartController.addToCart(CartItem(
+                        id: productId,
+                        title: title,
+                        brand: brand,
+                        image: imageUrl,
+                        price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
+                      ));
+                      Get.snackbar('Added to Cart', '$title added to your cart');
+                    },
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(TSizes.cardRadiusMd),
+                          bottomRight: Radius.circular(TSizes.productImageRadius),
+                        ),
+                      ),
+                      child: const SizedBox(
+                        width: TSizes.iconLg * 1.2,
+                        height: TSizes.iconLg * 1.2,
+                        child: Center(child: Icon(Iconsax.add, color: TColors.white)),
                       ),
                     ),
-                    child: const SizedBox(
-                      width: TSizes.iconLg * 1.2,
-                      height: TSizes.iconLg * 1.2,
-                      child: Center(child: Icon(Iconsax.add, color: TColors.white)),
-                    ),
                   ),
-                )
-
-              ],
-            )
-
+                ],
+              ),
+            ),
+            const SizedBox(height: TSizes.spaceBtwItems / 2),
           ],
         ),
       ),
     );
   }
 }
-
