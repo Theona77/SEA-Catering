@@ -17,7 +17,7 @@ class TProductAttributes extends StatelessWidget{
       children: [
         ///Desc
         TProductTitleText(
-          title: 'This is the Decription of the product, max 5 lines',
+          title: 'Our Mixed Berry Smoothie is a refreshing, nutrient-packed drink made with a blend of blueberries, strawberries, and raspberries. Perfect for a quick breakfast or post-workout recovery, it delivers a naturally sweet, fruity flavor. Rich in antioxidants, this smoothie helps support your immune system and skin health.',
           smallSize: true,
           maxLines: 5,
         ),

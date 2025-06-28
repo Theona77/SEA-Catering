@@ -45,7 +45,7 @@ class TProductMetaData extends StatelessWidget {
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
         /// Title
-        const TProductTitleText(title: 'Fresh Pakcoy'),
+        const TProductTitleText(title: 'Mixed Berry Smoothie'),
         const SizedBox(height: TSizes.spaceBtwItems / 1.5),
 
         /// Stack Status
