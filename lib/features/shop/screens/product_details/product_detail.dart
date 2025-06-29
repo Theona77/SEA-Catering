@@ -19,6 +19,7 @@ import '../../../../product_attributes.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../testimony/testimonial_screen.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({super.key});
@@ -73,6 +74,24 @@ class ProductDetail extends StatelessWidget {
                     moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                     lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
+
+                  /// --- Testimonial Form Trigger ---
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  TSectionHeading(title: 'Share your Experience', showActionButton: false),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(5, (index) {
+                      return IconButton(
+                        icon: const Icon(Iconsax.star, color: TColors.primary),
+                        onPressed: () {
+                          Get.to(() => const TestimonialFormScreen(productId: '',));
+                        },
+                      );
+                    }),
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+
 
 
 
