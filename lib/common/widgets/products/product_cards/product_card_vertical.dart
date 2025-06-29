@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../features/authentication/controllers/cart/CartController.dart';
@@ -14,7 +13,6 @@ import '../../../../rounded_container.dart';
 import '../../texts/product_title_text.dart';
 import '../../texts/t_brand_title_with_verified_icon.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../styles/shadows.dart';
 import '../../../../utils/constants/sizes.dart';
 
@@ -37,13 +35,13 @@ class TProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = WishlistController.instance;
+    final cartController = CartController.instance;
     final dark = THelperFunctions.isDarkMode(context);
 
     return GestureDetector(
       onTap: () => Get.to(() => const ProductDetail()),
       child: Container(
         width: 180,
-        height: 300, // Give it fixed height to enforce layout structure
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
           boxShadow: [TShadowStyle.verticalProductShadow],
@@ -53,7 +51,7 @@ class TProductCardVertical extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// --- Image & Wishlist & Discount Tag
+            /// --- Image, Wishlist, Discount Tag ---
             TRoundedContainer(
               height: 150,
               radius: TSizes.productImageRadius,
@@ -64,10 +62,8 @@ class TProductCardVertical extends StatelessWidget {
                   TRoundedImage(
                     imageUrl: imageUrl,
                     applyImageRadius: true,
-                    fit: BoxFit.cover, // This makes the image fill the entire container
+                    fit: BoxFit.cover,
                   ),
-
-                  /// Discount Tag
                   Positioned(
                     top: 12,
                     left: 8,
@@ -78,8 +74,6 @@ class TProductCardVertical extends StatelessWidget {
                       child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: Colors.black)),
                     ),
                   ),
-
-                  /// Wishlist Icon
                   Positioned(
                     top: 0,
                     right: 0,
@@ -104,10 +98,9 @@ class TProductCardVertical extends StatelessWidget {
               ),
             ),
 
-
             const SizedBox(height: TSizes.spaceBtwItems / 2),
 
-            /// --- Title & Brand
+            /// --- Title & Brand ---
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
               child: Column(
@@ -120,46 +113,82 @@ class TProductCardVertical extends StatelessWidget {
               ),
             ),
 
-            const Spacer(), // Push Price Row to bottom
+            const Spacer(),
 
-            /// --- Price + Add Button
+            /// --- Price & Quantity Button ---
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm),
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.sm, vertical: TSizes.sm),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TProductPriceText(price: price),
-                  GestureDetector(
-                    onTap: () {
-                      final cartController = Get.find<CartController>();
-                      cartController.addToCart(CartItem(
-                        id: productId,
-                        title: title,
-                        brand: brand,
-                        image: imageUrl,
-                        price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
-                      ));
-                      Get.snackbar('Added to Cart', '$title added to your cart');
-                    },
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(TSizes.cardRadiusMd),
-                          bottomRight: Radius.circular(TSizes.productImageRadius),
+
+                  Obx(() {
+                    final quantity = cartController.cartItems[productId]?.quantity ?? 0;
+
+                    if (quantity == 0) {
+                      return GestureDetector(
+                        onTap: () {
+                          cartController.addToCart(CartItem(
+                            id: productId,
+                            title: title,
+                            brand: brand,
+                            image: imageUrl,
+                            price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
+                          ));
+                          Get.snackbar('Added to Cart', '$title added to your cart');
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: const EdgeInsets.all(8),
+                          child: const Icon(Iconsax.add, color: Colors.white),
                         ),
-                      ),
-                      child: const SizedBox(
-                        width: TSizes.iconLg * 1.2,
-                        height: TSizes.iconLg * 1.2,
-                        child: Center(child: Icon(Iconsax.add, color: TColors.white)),
-                      ),
-                    ),
-                  ),
+                      );
+                    } else {
+                      return Row(
+                        children: [
+                          GestureDetector(
+                            onTap: () => cartController.decreaseQuantity(productId),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.green,
+                                shape: BoxShape.circle,
+                              ),
+                              padding: const EdgeInsets.all(4),
+                              child: const Icon(Icons.remove, color: Colors.white, size: 16),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            '$quantity',
+                            style: TextStyle(
+                              color: dark ? Colors.white : Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          GestureDetector(
+                            onTap: () => cartController.increaseQuantity(productId),
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                color: Colors.green,
+                                shape: BoxShape.circle,
+                              ),
+                              padding: const EdgeInsets.all(4),
+                              child: const Icon(Icons.add, color: Colors.white, size: 16),
+                            ),
+                          ),
+                        ],
+                      );
+                    }
+                  }),
                 ],
               ),
             ),
-            const SizedBox(height: TSizes.spaceBtwItems / 2),
           ],
         ),
       ),
