@@ -11,7 +11,6 @@ import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:sea_catering/utils/helpers/helper_functions.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:get/get.dart';
-import '../../../../button_add_to_cart.dart';
 import '../../../../features/authentication/controllers/cart/CartController.dart';
 
 class TProductCardHorizontal extends StatelessWidget {
@@ -33,7 +32,7 @@ class TProductCardHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = WishlistController.instance;
-    final cartController = Get.find<CartController>();
+    final cartController = CartController.instance;
     final dark = THelperFunctions.isDarkMode(context);
 
     return Container(
@@ -54,7 +53,6 @@ class TProductCardHorizontal extends StatelessWidget {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                /// Product image
                 TRoundedImage(
                   imageUrl: imageUrl,
                   applyImageRadius: true,
@@ -131,19 +129,78 @@ class TProductCardHorizontal extends StatelessWidget {
                     children: [
                       Flexible(child: TProductPriceText(price: price)),
 
-                      /// Increment Button
-                      TAddToCartButton(
-                        onAdd: () {
-                          cartController.addToCart(CartItem(
-                            id: id,
-                            title: title,
-                            brand: brand,
-                            image: imageUrl,
-                            price: double.parse(price.replaceAll('Rp ', '').replaceAll('.', '')),
-                          ));
-                          Get.snackbar('Added to Cart', '$title added to your cart');
-                        },
-                      ),
+                      /// Global Quantity Button
+                      Obx(() {
+                        final quantity = cartController.cartItems[id]?.quantity ?? 0;
+
+                        return quantity == 0
+                            ? GestureDetector(
+                          onTap: () {
+                            cartController.addToCart(CartItem(
+                              id: id,
+                              title: title,
+                              brand: brand,
+                              image: imageUrl,
+                              price: double.parse(price.replaceAll(RegExp(r'[^0-9]'), '')),
+                            ));
+                            Get.snackbar('Added to Cart', '$title added to your cart');
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(TSizes.cardRadiusMd),
+                                bottomRight: Radius.circular(TSizes.productImageRadius),
+                              ),
+                            ),
+                            child: SizedBox(
+                              width: TSizes.iconLg * 1.2,
+                              height: TSizes.iconLg * 1.2,
+                              child: const Center(
+                                child: Icon(Iconsax.add, color: TColors.white),
+                              ),
+                            ),
+                          ),
+                        )
+                            : Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            GestureDetector(
+                              onTap: () => cartController.decreaseQuantity(id),
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.green,
+                                  shape: BoxShape.circle,
+                                ),
+                                padding: const EdgeInsets.all(4),
+                                child: const Icon(Icons.remove, color: Colors.white, size: 16),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(
+                                '$quantity',
+                                style: TextStyle(
+                                  color: dark ? Colors.white : Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                        ),
+
+                        GestureDetector(
+                              onTap: () => cartController.increaseQuantity(id),
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  color: Colors.green,
+                                  shape: BoxShape.circle,
+                                ),
+                                padding: const EdgeInsets.all(4),
+                                child: const Icon(Icons.add, color: Colors.white, size: 16),
+                              ),
+                            ),
+                          ],
+                        );
+                      }),
                     ],
                   ),
                 ],
