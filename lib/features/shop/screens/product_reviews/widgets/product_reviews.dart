@@ -8,12 +8,14 @@ import 'package:flutter/material.dart';
 
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
+import '../../testimony/testimonial_screen.dart';
 
 class ProductReviewScreen extends StatelessWidget {
   const ProductReviewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final dark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       /// -- App bar
       appBar: const TAppBar(
@@ -37,6 +39,30 @@ class ProductReviewScreen extends StatelessWidget {
               TOverallProductRating(),
               TRatingBarIndicator(rating: 3.5,),
               Text("12,161", style: Theme.of(context).textTheme.bodySmall),
+
+              const SizedBox(height: TSizes.spaceBtwSections),
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: TColors.primary,
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TestimonialFormScreen(productId: 'your_product_id_here'),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Write a Review",
+                    style: TextStyle(color: dark ? Colors.white : Colors.black),
+                  ),
+                ),
+              ),
+
+
               const SizedBox(height: TSizes.spaceBtwSections),
 
               /// User Reviews List
