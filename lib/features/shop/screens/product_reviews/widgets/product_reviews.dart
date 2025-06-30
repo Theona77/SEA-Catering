@@ -1,79 +1,91 @@
-import 'package:sea_catering/common/widgets/appbar/appbar.dart';
-import 'package:sea_catering/features/shop/screens/product_reviews/widgets/progress_indicator_and_rating.dart';
-import 'package:sea_catering/features/shop/screens/product_reviews/widgets/rating_indicator.dart';
-import 'package:sea_catering/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
-import 'package:sea_catering/features/shop/screens/product_reviews/widgets/user_review_card.dart';
-import 'package:sea_catering/utils/device/device_utility.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../utils/constants/colors.dart';
+import 'package:iconsax/iconsax.dart';
+import '../../../../../common/widgets/appbar/appbar.dart';
+import '../../../../../common/widgets/texts/section_heading.dart';
+import '../../../../../rating_count.dart';
+import '../../../../../testimonial_model.dart';
+import '../../../../../testimonial_service.dart';
 import '../../../../../utils/constants/sizes.dart';
-import '../../testimony/testimonial_screen.dart';
 
 class ProductReviewScreen extends StatelessWidget {
-  const ProductReviewScreen({super.key});
+  final String productId;
+  const ProductReviewScreen({Key? key, required this.productId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final dark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      /// -- App bar
-      appBar: const TAppBar(
-        title: Text('Reviews & Ratings'),
-        showBackArrow: true,
-      ),
-
-      /// -- Body
+      appBar: const TAppBar(title: Text('Reviews & Ratings'), showBackArrow: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Ratings and reviews are verified and are from people who use the same type of service that you use.",
+              const TSectionHeading(title: 'Testimonials', showActionButton: false),
+              const SizedBox(height: 8),
+
+              StreamBuilder<List<Testimonial>>(
+                stream: getTestimonials(productId),
+                builder: (ctx, snap) {
+                  if (snap.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  final list = snap.data ?? [];
+                  if (list.isEmpty) return const Text('No testimonials yet.');
+
+                  return ListView.builder(
+                    itemCount: list.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (ctx, i) {
+                      final t = list[i];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(t.customerName, style: const TextStyle(fontWeight: FontWeight.bold)),
+                                    const SizedBox(height: 4),
+                                    Row(
+                                      children: List.generate(5, (j) => Icon(
+                                        j < t.rating ? Iconsax.star5 : Iconsax.star,
+                                        color: Colors.amber,
+                                        size: 16,
+                                      )),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(t.message),
+                                  ],
+                                ),
+                              ),
+                              const CircleAvatar(
+                                backgroundColor: Colors.deepPurple,
+                                radius: 24,
+                                child: Icon(Icons.person, color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
+
+              const Divider(),
               const SizedBox(height: TSizes.spaceBtwItems),
-
-              /// Overall Product Ratings
-              TOverallProductRating(),
-              TRatingBarIndicator(rating: 3.5,),
-              Text("12,161", style: Theme.of(context).textTheme.bodySmall),
-
+              const Text("Ratings and reviews are verified and are from people who use the same type of service that you use."),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              const Text("Overall Rating: 4.5"),
+              ReviewSection(productId: productId),
               const SizedBox(height: TSizes.spaceBtwSections),
-              Center(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: TColors.primary,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => TestimonialFormScreen(productId: 'your_product_id_here'),
-                      ),
-                    );
-                  },
-                  child: Text(
-                    "Write a Review",
-                    style: TextStyle(color: dark ? Colors.white : Colors.black),
-                  ),
-                ),
-              ),
-
-
-              const SizedBox(height: TSizes.spaceBtwSections),
-
-              /// User Reviews List
-              UserReviewCard(),
-              UserReviewCard(),
-              UserReviewCard(),
-              UserReviewCard(),
-
-
-
-
             ],
           ),
         ),

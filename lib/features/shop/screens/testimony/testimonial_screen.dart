@@ -6,6 +6,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/helpers/helper_functions.dart';
+import '../../../../testimonial_service.dart';
 
 class TestimonialFormScreen extends StatefulWidget {
   final String productId;
@@ -31,13 +32,12 @@ class _TestimonialFormScreenState extends State<TestimonialFormScreen> {
     setState(() => _isSubmitting = true);
 
     try {
-      await FirebaseFirestore.instance.collection('testimonials').add({
-        'productId': widget.productId,
-        'customerName': _nameController.text,
-        'message': _messageController.text,
-        'rating': _rating,
-        'createdAt': Timestamp.now(),
-      });
+      await submitTestimonial(
+        productId: widget.productId,
+        customerName: _nameController.text,
+        message: _messageController.text,
+        rating: _rating,
+      );
 
       Get.back();
       Get.snackbar('Thank you!', 'Your review has been submitted.');
@@ -47,6 +47,7 @@ class _TestimonialFormScreenState extends State<TestimonialFormScreen> {
 
     setState(() => _isSubmitting = false);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -138,3 +139,5 @@ class _TestimonialFormScreenState extends State<TestimonialFormScreen> {
     );
   }
 }
+
+

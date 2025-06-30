@@ -1,67 +1,88 @@
-import 'package:sea_catering/common/widgets/appbar/appbar.dart';
-import 'package:sea_catering/common/widgets/custom_shapes/curved_edges/curved_edges_widget.dart';
-import 'package:sea_catering/common/widgets/icon/t_circular_icon.dart';
-import 'package:sea_catering/common/widgets/images/t_rounded_image.dart';
-import 'package:sea_catering/common/widgets/texts/section_heading.dart';
-import 'package:sea_catering/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
-import 'package:sea_catering/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
-import 'package:sea_catering/features/shop/screens/product_details/widgets/product_meta_data.dart';
-import 'package:sea_catering/features/shop/screens/product_details/widgets/rating_share_widget.dart';
-import 'package:sea_catering/features/shop/screens/product_reviews/widgets/product_reviews.dart';
-import 'package:sea_catering/utils/helpers/helper_functions.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../../../../common/widgets/texts/section_heading.dart';
+import '../../../../../features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
+import '../../../../../features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
+import '../../../../../features/shop/screens/product_details/widgets/product_meta_data.dart';
+import '../../../../../features/shop/screens/product_details/widgets/rating_share_widget.dart';
+import '../../../../../features/shop/screens/product_reviews/widgets/product_reviews.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/sizes.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 import '../../../../product_attributes.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
-import '../../../../utils/constants/sizes.dart';
 import '../testimony/testimonial_screen.dart';
 
 class ProductDetail extends StatelessWidget {
   const ProductDetail({super.key});
 
+  Stream<QuerySnapshot> getTestimonials(String productId) {
+    return FirebaseFirestore.instance
+        .collection('testimonials')
+        .where('productId', isEqualTo: productId)
+        .snapshots();
+  }
+
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
+
     return Scaffold(
-      bottomNavigationBar: TBottomAddToCart(),
+      bottomNavigationBar: const TBottomAddToCart(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            /// ---  1. Product Image Slider
-            TProductImageSlider(),
+            const TProductImageSlider(),
 
-            /// ---  2. Product Details
             Padding(
-              padding: EdgeInsets.only(right: TSizes.defaultSpace, left: TSizes.defaultSpace, bottom: TSizes.defaultSpace),
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace, vertical: TSizes.defaultSpace),
               child: Column(
                 children: [
-                  /// Rating and Share Button
-                  TRatingAndShare(),
+                  /// Rating and Share Button with StreamBuilder
+                  StreamBuilder<QuerySnapshot>(
+                    stream: getTestimonials('drink001'),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const CircularProgressIndicator();
+                      }
 
-                  /// Price, Title, Stack dan Brand
-                  TProductMetaData(),
-                  const SizedBox(height: TSizes.spaceBtwSections/3),
+                      final reviews = snapshot.data?.docs ?? [];
+                      double totalRating = 0;
+                      for (var doc in reviews) {
+                        totalRating += (doc['rating'] ?? 0).toDouble();
+                      }
+                      double averageRating = reviews.isEmpty ? 0 : totalRating / reviews.length;
 
+                      return TRatingAndShare(
+                        averageRating: averageRating,
+                        totalReviews: reviews.length,
+                      );
+                    },
+                  ),
 
-                  /// Attributes
-                  TProductAttributes(),
+                  const TProductMetaData(),
+                  const SizedBox(height: TSizes.spaceBtwSections / 3),
+
+                  const TProductAttributes(),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
-                  /// Checkout Button
-                  SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: Text('Checkout'))),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Checkout'),
+                    ),
+                  ),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
-                  /// Description
                   const TSectionHeading(title: 'Description', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  ReadMoreText(
+                  const ReadMoreText(
                     'Our Mixed Berry Smoothie is a refreshing, nutrient-packed drink made with a blend of blueberries, strawberries, and raspberries. Perfect for a quick breakfast or post-workout recovery, it delivers a naturally sweet, fruity flavor. Rich in antioxidants, this smoothie helps support your immune system and skin health.\n\n'
-                    '\u2022 Calories: 180 kcal\n'
+                        '\u2022 Calories: 180 kcal\n'
                         '\u2022 Protein: 8g\n'
                         '\u2022 Carbohydrates: 22g (Natural fruit sugars)\n'
                         '\u2022 Fiber: 4g\n'
@@ -75,9 +96,8 @@ class ProductDetail extends StatelessWidget {
                     lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 
-                  /// --- Testimonial Form Trigger ---
                   const SizedBox(height: TSizes.spaceBtwSections),
-                  TSectionHeading(title: 'Share your Experience', showActionButton: false),
+                  const TSectionHeading(title: 'Share your Experience', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -85,24 +105,23 @@ class ProductDetail extends StatelessWidget {
                       return IconButton(
                         icon: const Icon(Iconsax.star, color: TColors.primary),
                         onPressed: () {
-                          Get.to(() => const TestimonialFormScreen(productId: '',));
+                          Get.to(() => const TestimonialFormScreen(productId: 'drink001'));
                         },
                       );
                     }),
                   ),
+
                   const SizedBox(height: TSizes.spaceBtwSections),
-
-
-
-
-                  /// Review
                   const Divider(),
                   const SizedBox(height: TSizes.spaceBtwItems),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TSectionHeading(title: 'Reviews(199)', showActionButton: false),
-                      IconButton(icon: const Icon(Iconsax.arrow_right_3, size: 18), onPressed: () => Get.to(() => const ProductReviewScreen())),
+                      const TSectionHeading(title: 'Reviews', showActionButton: false),
+                      IconButton(
+                        icon: const Icon(Iconsax.arrow_right_3, size: 18),
+                        onPressed: () => Get.to(() => const ProductReviewScreen(productId: 'drink001')),
+                      ),
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
@@ -114,6 +133,4 @@ class ProductDetail extends StatelessWidget {
       ),
     );
   }
-
-
 }
