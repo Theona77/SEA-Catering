@@ -48,7 +48,7 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
 
   void _submitForm() async {
     if (_isSubmitting) return;
-    print('Current UID: ${FirebaseAuth.instance.currentUser?.uid}'); // ✅ Add here for debugging
+    print('Current UID: ${FirebaseAuth.instance.currentUser?.uid}');
 
 
     if (_formKey.currentState?.validate() != true) return;
@@ -145,15 +145,29 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
               ),
               const SizedBox(height: TSizes.spaceBtwInputFields),
               const Text('Select Plan'),
-              ..._planPrices.keys.map((plan) => RadioListTile(
-                title: Text('$plan (Rp${_planPrices[plan]})'),
-                value: plan,
-                groupValue: _plan,
-                onChanged: (value) => setState(() {
-                  _plan = value as String;
-                  _calculatePrice();
-                }),
+              ..._planPrices.keys.map((plan) => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RadioListTile(
+                    title: Text('$plan (Rp${_planPrices[plan]})'),
+                    value: plan,
+                    groupValue: _plan,
+                    onChanged: (value) => setState(() {
+                      _plan = value as String;
+                      _calculatePrice();
+                    }),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0, bottom: 16.0),
+                    child: Image.asset(
+                      'assets/images/menu_catering.png',
+                      height: 500, // Bigger image height
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
               )),
+
               const SizedBox(height: TSizes.spaceBtwInputFields),
               const Text('Select Meal Types (at least one)'),
               ..._mealOptions.map((meal) => CheckboxListTile(
