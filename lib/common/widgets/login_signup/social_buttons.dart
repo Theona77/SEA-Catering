@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import '../../../features/authentication/controllers/login/login_controller.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/image_strings.dart';
@@ -12,54 +9,32 @@ class TSocialButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.grey), borderRadius: BorderRadius.circular(100)),
-          child: IconButton(
-              onPressed: ()=>controller.googleSIgnIn(),
-              icon: const Image(
-                width: TSizes.iconMd,
-                  height: TSizes.iconMd,
-                  image: AssetImage(TImages.google),
-              ),
-          ),
-        ),
-
+        _socialButton(TImages.google),
         const SizedBox(width: TSizes.spaceBtwItems),
-
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.grey), borderRadius: BorderRadius.circular(100)),
-          child: IconButton(
-            onPressed: (){},
-            icon: const Image(
-              width: TSizes.iconMd,
-              height: TSizes.iconMd,
-              image: AssetImage(TImages.facebook),
-            ),
-          ),
-        ),
-
+        _socialButton(TImages.facebook),
         const SizedBox(width: TSizes.spaceBtwItems),
-
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.grey), borderRadius: BorderRadius.circular(100)),
-          child: IconButton(
-            onPressed: ()=>controller.googleSIgnIn(),
-            icon: const Image(
-              width: TSizes.iconMd,
-              height: TSizes.iconMd,
-              image: AssetImage(TImages.apple),
-            ),
-          ),
-        ),
-
-
-
-
+        _socialButton(TImages.apple),
       ],
+    );
+  }
+
+  Widget _socialButton(String assetImage) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: TColors.accent),
+        borderRadius: BorderRadius.circular(100),
+      ),
+      child: IconButton(
+        onPressed: () {},
+        icon: Image.asset(
+          assetImage,
+          width: TSizes.iconMd,
+          height: TSizes.iconMd,
+        ),
+      ),
     );
   }
 }

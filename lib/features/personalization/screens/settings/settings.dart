@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../admin_dashboard_screen.dart';
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
 import '../../../../subscription_screen.dart';
 import '../../../../utils/constants/colors.dart';
@@ -99,7 +100,15 @@ class SettingScreen extends StatelessWidget {
                         icon: Iconsax.security_card,
                         title: 'Account Privacy',
                         subtitle: 'Manage data usage and connected accounts',
-                        onTap: (){}),
+                        onTap: (){}
+                    ),
+                    TSettingsMenuTile(
+                      icon: Iconsax.chart_2,
+                      title: 'Admin Dashboard',
+                      subtitle: 'View subscription insights',
+                      onTap: () => Get.to(() => const AdminDashboardScreen()),
+                    ),
+
 
                     /// -- App Settings
                     SizedBox(height: TSizes.spaceBtwSections),

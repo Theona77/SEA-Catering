@@ -1,16 +1,16 @@
-import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
-import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart';
-import 'package:sea_catering/features/authentication/controllers/signup/verify_email_controller.dart' as verifyEmailController;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common/widgets/success_screen/success_screen.dart';
+import '../../../../data/repositories.authentication/authentication_repository.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
 import '../../../../utils/helpers/helper_functions.dart';
 import '../../controllers/signup/verify_email_controller.dart' as controller;
+import '../../controllers/signup/verify_email_controller.dart';
 import '../login/login.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
@@ -28,20 +28,20 @@ class VerifyEmailScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () => AuthenticationRepository.instance.logout(),
-            icon: const Icon(CupertinoIcons.clear))],
+            icon: const Icon(CupertinoIcons.clear),
+          )
+        ],
       ),
       body: SingleChildScrollView(
-        //Padding for equal space for all sides in screen
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
               /// Image
               Image(
-                image: const AssetImage(TImages.onBoardingImage5),
+                image: const AssetImage(TImages.animation1),
                 width: THelperFunctions.screenWidth(),
               ),
-
               const SizedBox(height: TSizes.spaceBtwSections),
 
               /// Title and SubTitle
@@ -50,17 +50,13 @@ class VerifyEmailScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
-
               const SizedBox(height: TSizes.spaceBtwItems),
-
               Text(
                 email ?? '',
                 style: Theme.of(context).textTheme.labelLarge,
                 textAlign: TextAlign.center,
               ),
-
               const SizedBox(height: TSizes.spaceBtwItems),
-
               Text(
                 TTexts.confirmEmailSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
