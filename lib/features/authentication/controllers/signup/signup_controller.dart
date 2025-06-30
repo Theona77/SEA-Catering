@@ -1,15 +1,15 @@
-import 'package:sea_catering/common/widgets/loaders/loaders.dart';
-import 'package:sea_catering/common/widgets/network/network_manager.dart';
-import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
-import 'package:sea_catering/data/repositories.authentication/user/user_model.dart';
-import 'package:sea_catering/data/repositories.authentication/user/user_repository.dart';
-import 'package:sea_catering/exception/firebase_auth_exception.dart';
-import 'package:sea_catering/features/authentication/screens/login/login.dart'; // <-- Ganti import ke LoginScreen
-import 'package:sea_catering/features/authentication/screens/signup/verify_email.dart';
-import 'package:sea_catering/utils/constants/image_strings.dart';
-import 'package:sea_catering/utils/popups/full_screen_loader.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../../../../common/widgets/loaders/loaders.dart';
+import '../../../../common/widgets/network/network_manager.dart';
+import '../../../../data/repositories.authentication/authentication_repository.dart';
+import '../../../../data/repositories.authentication/user/user_model.dart';
+import '../../../../data/repositories.authentication/user/user_repository.dart';
+import '../../../../utils/constants/image_strings.dart';
+import '../../../../utils/popups/full_screen_loader.dart';
+import '../../screens/signup/verify_email.dart';
 
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
@@ -28,39 +28,40 @@ class SignUpController extends GetxController {
   /// Signup
   void signup() async {
     try {
-      // 1. Show Loading Animation
-      TFullScreenLoader.openLoadingDialog(
-        'We are processing your information',
-        TImages.mailSent,
-      );
+      // Start loading
+      TFullScreenLoader.openLoadingDialog('We are processing your information', TImages.animation3);
 
-      // 2. Internet Check
+      // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
+        //Remove Loader
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      // 3. Form Validation
+      // Form validation
       if (!signupFormKey.currentState!.validate()) {
+        // Remove Loader
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      // 4. Privacy Policy Validation
+      // Privacy Policy Check
       if (!privacyPolicy.value) {
         TLoaders.warningSnackBar(
           title: 'Accept Privacy Policy',
-          message: 'To continue, you must accept our Privacy Policy.',
+          message: 'To create an account, you must accept the Privacy Policy & Terms of Use.',
         );
         return;
       }
 
-      // 5. Firebase Sign Up
-      final userCredential = await AuthenticationRepository.instance
-          .registerWithEmailAndPassword(email.text.trim(), password.text.trim());
+      // Register user in Firebase Authentication
+      final userCredential = await AuthenticationRepository.instance.registerWithEmailAndPassword(
+        email.text.trim(),
+        password.text.trim(),
+      );
 
-      // 6. Save user to Firestore
+      /// Save authenticated user data
       final newUser = UserModel(
         id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
@@ -74,26 +75,22 @@ class SignUpController extends GetxController {
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
 
+      TFullScreenLoader.stopLoading();
 
+      // Show success message
+      TLoaders.successSnackBar(
+        title: 'Congratulations',
+        message: 'Your account has been successfully registered!',
+      );
+
+      // Move to Verify Email Screen
+      Get.to(() => VerifyEmailScreen());
+    } catch (e) {
       // Remove Loader
       TFullScreenLoader.stopLoading();
 
-      //S+ Show Success Message
-      TLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'Account created! Please verify your email.',
-      );
-
-      // 9. Navigate to Email Verification Screen
-      Get.to(() => const VerifyEmailScreen());
-    } catch (e) {
-      TFullScreenLoader.stopLoading();
-
-      // Optional: Hide technical error like malformed JSON
-      final errorMessage = e.toString().contains('JsonReader') ?
-      'Something went wrong. Please try again.' : e.toString();
-
-      TLoaders.errorSnackBar(title: 'Error', message: errorMessage);
+      // Show some Generic Error to the user
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 }

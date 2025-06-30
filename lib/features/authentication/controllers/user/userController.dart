@@ -1,44 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:sea_catering/common/widgets/loaders/loaders.dart';
 
 import '../../../../data/repositories.authentication/user/user_model.dart';
 import '../../../../data/repositories.authentication/user/user_repository.dart';
 
 class UserController extends GetxController {
   static UserController get instance => Get.find();
-
-  //  Save user record for any registration provider
-  Future<void> saveUserRecord(UserCredential? userCredentials) async {
-    try{
-      if(userCredentials != null){
-        //Convert Name to First and Last Name
-        final nameParts = UserModel.nameParts(userCredentials.user!.displayName ?? '');
-        final username = UserModel.generateUsername(userCredentials.user!.displayName ?? '');
-
-        //Map data
-        final user = UserModel(
-          id: userCredentials.user!.uid,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-          username: username,
-          email: userCredentials.user!.email ?? '',
-          phoneNumber: userCredentials.user!.phoneNumber ?? '',
-          profilePicture: userCredentials.user!.photoURL ?? '',
-        );
-        
-        // Save user data
-        await _userRepository.saveUserRecord(user);
-      }
-    } catch (e) {
-      TLoaders.warningSnackBar(
-        title: "Data not saved",
-        message: 'Something went wrong while saving your information. You can re-save your data in your Profile',
-    );
-    }
-
-  }
 
   final _firestore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
@@ -78,7 +46,7 @@ class UserController extends GetxController {
       print("Fetching user data for UID: $uid");
 
       // Using repository for better error handling
-      final userData = await _userRepository.fetchUser(uid);
+      final userData = await _userRepository.getUser(uid);
       user.value = userData;
 
       print("User data loaded successfully: ${userData.fullName}");
