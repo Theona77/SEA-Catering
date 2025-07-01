@@ -145,6 +145,9 @@ lib/
 ```
 
 ## 📸 Screenshots
+<img width="1317" alt="Frame 9" src="https://github.com/user-attachments/assets/d817a2d2-a72b-45f2-9a39-24561f8949c0" />
+<img width="1317" alt="Frame 10" src="https://github.com/user-attachments/assets/7cee613a-ce74-45a1-83a8-374adc064ecf" />
+
 
 ## 🧪 Testing
 To run all tests:
