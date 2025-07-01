@@ -6,7 +6,7 @@ import 'package:sea_catering/utils/constants/sizes.dart';
 import 'package:sea_catering/utils/validators/validation.dart';
 
 class SubscriptionForm extends StatefulWidget {
-  const SubscriptionForm({Key? key}) : super(key: key);
+  const SubscriptionForm({super.key});
 
   @override
   State<SubscriptionForm> createState() => _SubscriptionFormState();
@@ -20,8 +20,8 @@ class _SubscriptionFormState extends State<SubscriptionForm> {
 
   bool _isSubmitting = false;
   String? _plan;
-  List<String> _mealTypes = [];
-  List<String> _deliveryDays = [];
+  final List<String> _mealTypes = [];
+  final List<String> _deliveryDays = [];
   double _totalPrice = 0;
 
   final Map<String, int> _planPrices = {

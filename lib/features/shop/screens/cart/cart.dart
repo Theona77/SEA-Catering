@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:sea_catering/features/shop/screens/cart/widgets/cart_item_tile.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
-import '../../../../common/widgets/icon/t_circular_icon.dart';
-import '../../../../common/widgets/images/t_rounded_image.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
-import '../../../../utils/helpers/helper_functions.dart';
 import '../../../authentication/controllers/cart/CartController.dart';
 import '../checkout/widgets/checkout.dart';
 

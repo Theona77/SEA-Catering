@@ -1,5 +1,4 @@
 import 'package:sea_catering/features/personalization/screens/settings/settings.dart';
-import 'package:sea_catering/subscription.dart';
 import 'package:sea_catering/subscription_form.dart';
 
 import 'package:sea_catering/utils/constants/colors.dart';
@@ -10,7 +9,6 @@ import 'package:iconsax/iconsax.dart';
 
 import 'features/shop/screens/home/home.dart';
 import 'features/shop/screens/store/store.dart';
-import 'features/shop/screens/wishlist/wishlist.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});

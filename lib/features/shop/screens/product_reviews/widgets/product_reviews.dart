@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
@@ -10,7 +9,7 @@ import '../../../../../utils/constants/sizes.dart';
 
 class ProductReviewScreen extends StatelessWidget {
   final String productId;
-  const ProductReviewScreen({Key? key, required this.productId}) : super(key: key);
+  const ProductReviewScreen({super.key, required this.productId});
 
   @override
   Widget build(BuildContext context) {

@@ -76,7 +76,6 @@ flutter:
   assets:
     - assets/logos/
     - assets/icons/
-    - assets/images/background.png
     - assets/images/logo_catering.png
     - assets/images/pfp.jpg
     - assets/images/on_boarding_images/
