@@ -42,7 +42,7 @@ SEA Catering is a Flutter-based mobile application that allows users to subscrib
 
 Follow these steps to run the project locally on your machine.
 
-### 1. Clone the repository
+### 1. Download/Clone the repository
 
 ```bash
 git clone https://github.com/your-username/sea-catering-app.git
