@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sea_catering/experience.dart';
 import 'package:sea_catering/features/shop/screens/home/widgets/promo_slider.dart';

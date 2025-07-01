@@ -52,8 +52,7 @@ class TImages{
   //Profile
   static const String user = "assets/profilepicture/fotoprofil.png";
   static const String user2 = "assets/profilepicture/person1.png";
-  static const String user3 = "assets/profilepicture/person2.png";
-  static const String user4 = "assets/profilepicture/person3.png";
+
 
   // Veggies
   static const String balsamic_spinach = "assets/images/veggies/balsamic_spinach.jpg";
@@ -159,13 +158,13 @@ class TImages{
   static const String veggie = "assets/images/foodcarousel/veggie.png";
 
   //Experience Carousel
-  static const String signcar = "assets/images/experiencecarousel/2.png";
-  static const String ordercar = "assets/images/experiencecarousel/3.png";
-  static const String customizecar = "assets/images/experiencecarousel/4.png";
-  static const String paycar = "assets/images/experiencecarousel/5.png";
-  static const String delivercar = "assets/images/experiencecarousel/6.png";
-  static const String enjoycar = "assets/images/experiencecarousel/7.png";
-  static const String ratecar = "assets/images/experiencecarousel/8.png";
+  static const String signcar = "assets/images/experiencecarousel/2_11zon.png";
+  static const String ordercar = "assets/images/experiencecarousel/3_11zon.png";
+  static const String customizecar = "assets/images/experiencecarousel/4_11zon.png";
+  static const String paycar = "assets/images/experiencecarousel/5_11zon.png";
+  static const String delivercar = "assets/images/experiencecarousel/6_11zon.png";
+  static const String enjoycar = "assets/images/experiencecarousel/7_11zon.png";
+  static const String ratecar = "assets/images/experiencecarousel/8_11zon.png";
 
 
 

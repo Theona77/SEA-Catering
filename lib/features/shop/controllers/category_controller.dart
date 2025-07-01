@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 import '../../../common/widgets/loaders/loaders.dart';
 import '../../../data/repositories.authentication/categories/category_repository.dart';

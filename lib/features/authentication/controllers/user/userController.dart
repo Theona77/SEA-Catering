@@ -78,7 +78,7 @@ class UserController extends GetxController {
       print("User updated successfully");
     } catch (e) {
       print("Error updating user: $e");
-      throw e;
+      rethrow;
     } finally {
       isLoading.value = false;
     }
@@ -100,7 +100,7 @@ class UserController extends GetxController {
       print("User saved successfully");
     } catch (e) {
       print("Error saving user: $e");
-      throw e;
+      rethrow;
     } finally {
       isLoading.value = false;
     }

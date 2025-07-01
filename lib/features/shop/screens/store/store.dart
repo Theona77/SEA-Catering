@@ -7,7 +7,6 @@ import 'package:sea_catering/common/widgets/texts/section_heading.dart';
 import 'package:sea_catering/features/shop/screens/all_products.dart';
 import 'package:sea_catering/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:sea_catering/features/shop/screens/home/widgets/promo_slider.dart';
-import 'package:sea_catering/utils/constants/colors.dart';
 import 'package:sea_catering/utils/constants/image_strings.dart';
 import 'package:sea_catering/utils/constants/sizes.dart';
 import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
@@ -64,8 +63,7 @@ class _StoreScreenState extends State<StoreScreen> {
               TPromoSlider(banners: [
                 TImages.banner2,
                 TImages.banner3,
-                TImages.banner4,
-                TImages.banner5
+                TImages.banner4
               ]),
               SizedBox(height: TSizes.spaceBtwSections),
 

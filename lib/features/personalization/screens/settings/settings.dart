@@ -1,6 +1,5 @@
 import 'package:sea_catering/common/widgets/appbar/appbar.dart';
 import 'package:sea_catering/common/widgets/custom_shapes/containers/primary_header_container.dart';
-import 'package:sea_catering/common/widgets/images/t_circular_image.dart';
 import 'package:sea_catering/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:sea_catering/common/widgets/texts/section_heading.dart';
 import 'package:sea_catering/data/repositories.authentication/authentication_repository.dart';
@@ -8,14 +7,12 @@ import 'package:sea_catering/features/shop/screens/cart/cart.dart';
 import 'package:sea_catering/features/shop/screens/order/order.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../admin_dashboard_screen.dart';
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
 import '../../../../subscription_screen.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../address/address.dart';
 import '../profile/widgets/profile.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:sea_catering/rounded_container.dart';
 import 'package:sea_catering/common/widgets/appbar/appbar.dart';
 import 'package:sea_catering/utils/constants/colors.dart';
 import 'package:sea_catering/utils/constants/sizes.dart';
@@ -9,7 +8,7 @@ import 'add_bew_address.dart';
 import 'widgets/single_address.dart';
 
 class UserAddressScreen extends StatelessWidget {
-  const UserAddressScreen({Key? key}) : super(key: key);
+  const UserAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
